@@ -13,10 +13,12 @@
 #include "../core/App.as"
 #include "../widgets/cards/CardUtils.as"
 
-const color CHAT_USER   = color(165, 180, 252, 255);  // indigo clair
-const color CHAT_AI     = color(210, 225, 245, 255);  // bleu clair
-const color CHAT_SYS    = color(150, 160, 175, 255);  // gris
-const color CHAT_ACCENT = color(99, 102, 241, 255);   // indigo
+// Palette inspiree de Claude (Anthropic)
+const color CHAT_USER   = color(180, 172, 160, 255);  // taupe chaud (utilisateur)
+const color CHAT_AI     = color(237, 233, 224, 255);  // ivoire (texte des messages)
+const color CHAT_SYS    = color(160, 152, 140, 255);  // gris chaud (info)
+const color CHAT_ACCENT = color(217, 119, 87, 255);   // corail Claude (#D97757)
+const color CHAT_GREEN  = color(70,  200, 100, 255);  // vert "lie"
 
 class ChatMessage
 {
@@ -149,6 +151,26 @@ class ChatQCView : Window
         return VimFlex::GetUserPluginsPath() + "/ChatQC/inbox.json";
     }
 
+    // Ouvre un dialogue pour lier un document d'exigences (BEP / PGB) au chat,
+    // et donne un retour immediat dans la conversation.
+    private void _PickBep()
+    {
+        string path = VimFlex::OpenFileDialog("Lier un document BEP / PGB au chat",
+            "Documents (*.docx;*.pdf;*.doc)\0*.docx;*.pdf;*.doc\0Tous les fichiers (*.*)\0*.*\0");
+        if (path.isEmpty()) return;
+        _bepPath = path;
+        _history.insertLast(ChatMessage("assistant",
+            "OK - document lie : " + IO::GetFileName(path) + ".\n"
+            "Je peux auditer le modele contre ce document :\n"
+            "  - Georeference : systeme de coordonnees, unites, rattachement\n"
+            "  - Parametres : types generiques, proprietes requises du BEP\n"
+            "  - Structure IFC : worksets, niveaux, nommage\n"
+            "  - LOI / LOIN : proprietes requises par categorie\n"
+            "Pose ta question (ex : \"audit complet vs ce BEP\") puis Envoyer."));
+        _status = "Document lie : " + IO::GetFileName(path);
+        _scrollToEnd = true;
+    }
+
     private string _JsonEscape(const string&in s)
     {
         string o = "";
@@ -178,14 +200,37 @@ class ChatQCView : Window
         ImGui::Separator();
         Style::VSpaceSmall();
 
-        // Chemin du BEP
+        // Chemin du BEP + bouton icone (lie un document au chat)
         ImGui::PushStyleColor(ImGuiCol::ImGuiCol_Text, CardTextDim());
-        ImGui::Text("Document BEP / cahier des charges (optionnel)");
+        ImGui::Text("Document BEP / PGB / cahier des charges (optionnel)");
         ImGui::PopStyleColor();
-        ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x);
+
+        float browseW   = Style::GetIconButtonSize(Style::Icons::OpenFolder).x;
+        float bepSpacing = ImGui::GetStyle().ItemSpacing.x;
+        ImGui::SetNextItemWidth(ImGui::GetContentRegionAvail().x - browseW - bepSpacing);
         string bepOut = _bepPath;
         if (ImGui::InputText("##chatqc_bep", _bepPath, bepOut))
             _bepPath = bepOut;
+        ImGui::SameLine();
+        if (VimFlex::IconButtonSecondary(Style::Icons::OpenFolder, true, true, float2(0, 0),
+            "Lier un document BEP / PGB au chat"))
+            _PickBep();
+
+        // Indicateur "lie" quand un document est attache
+        if (!_bepPath.isEmpty())
+        {
+            ImGui::PushStyleColor(ImGuiCol::ImGuiCol_Text, CHAT_GREEN);
+            ImGui::Text("[OK] Lie : " + IO::GetFileName(_bepPath));
+            ImGui::PopStyleColor();
+            ImGui::SameLine();
+            if (VimFlex::IconButtonSecondary(Style::Icons::Close, true, true, float2(0, 0),
+                "Delier le document"))
+            {
+                _bepPath = "";
+                _history.insertLast(ChatMessage("system", "Document delie du chat."));
+                _scrollToEnd = true;
+            }
+        }
         Style::VSpaceSmall();
 
         // Zone de conversation (scrollable), laisse de la place pour la saisie.
@@ -237,26 +282,81 @@ class ChatQCView : Window
     private void _RenderHistory()
     {
         for (uint i = 0; i < _history.length(); i++)
+            _RenderMessage(_history[i], i);
+    }
+
+    // Une carte de message : fond colore par role, barre d'accent a gauche,
+    // expediteur en gras, corps en retour a la ligne. Chaque message est dans
+    // son propre child dimensionne pour que le fond colle toujours au texte.
+    private void _RenderMessage(ChatMessage@ m, uint idx)
+    {
+        float avail = ImGui::GetContentRegionAvail().x;
+        if (avail < 80.0f) avail = 80.0f;
+
+        float pad    = 8.0f;
+        float indent = 12.0f;
+        float wrapW  = avail - indent - pad;
+        if (wrapW < 40.0f) wrapW = 40.0f;
+
+        color accent; color nameCol; color bodyCol; color bg; string who;
+        if (m.role == "user")
         {
-            ChatMessage@ m = _history[i];
-            color  c;
-            string who;
-            if      (m.role == "user")      { c = CHAT_USER; who = "Vous"; }
-            else if (m.role == "assistant") { c = CHAT_AI;   who = "ChatQC"; }
-            else                            { c = CHAT_SYS;  who = "Info"; }
-
-            ImGui::PushStyleColor(ImGuiCol::ImGuiCol_Text, c);
-            ImGui::PushFont(Style::GetFontBoldSmall());
-            ImGui::Text(who);
-            ImGui::PopFont();
-            ImGui::PopStyleColor();
-
-            ImGui::PushStyleColor(ImGuiCol::ImGuiCol_Text,
-                m.role == "system" ? CardTextDim() : CHAT_AI);
-            ImGui::TextWrapped(m.text);
-            ImGui::PopStyleColor();
-
-            Style::VSpaceSmall();
+            accent  = CHAT_USER;                       // taupe chaud
+            nameCol = CHAT_USER;
+            bodyCol = CHAT_AI;                         // ivoire
+            bg      = color(180, 172, 160, 30);        // taupe translucide
+            who     = "Vous";
         }
+        else if (m.role == "assistant")
+        {
+            accent  = CHAT_ACCENT;                     // corail Claude
+            nameCol = CHAT_ACCENT;
+            bodyCol = CHAT_AI;                         // ivoire
+            bg      = color(217, 119, 87, 32);         // corail translucide
+            who     = "ChatQC";
+        }
+        else
+        {
+            accent  = CHAT_SYS;                        // gris chaud
+            nameCol = CHAT_SYS;
+            bodyCol = CHAT_SYS;
+            bg      = color(255, 255, 255, 12);
+            who     = "Info";
+        }
+
+        // Mesure pour dimensionner la carte (meme largeur de wrap que le rendu)
+        ImGui::PushFont(Style::GetFontBoldSmall());
+        float2 nameSz = ImGui::CalcTextSize(who, false, wrapW);
+        ImGui::PopFont();
+        float2 bodySz = ImGui::CalcTextSize(m.text, false, wrapW);
+        float rowH = pad + nameSz.y + 6.0f + bodySz.y + pad + 6.0f;
+
+        ImGui::PushStyleColor(ImGuiCol_ChildBg, bg);
+        ImGui::BeginChild("##qcmsg" + idx, float2(avail, rowH), 0, 0);
+
+            float2 cp = ImGui::GetCursorScreenPos();
+            auto@ dl = ImGui::GetWindowDrawList();
+            dl.AddRectFilled(cp, float2(cp.x + 3.0f, cp.y + rowH), accent, 0.0f, ImDrawFlags_None);
+
+            ImGui::Dummy(float2(0, pad - 4.0f));
+            ImGui::Indent(indent);
+
+            ImGui::PushFont(Style::GetFontBoldSmall());
+            ImGui::PushStyleColor(ImGuiCol::ImGuiCol_Text, nameCol);
+            ImGui::Text(who);
+            ImGui::PopStyleColor();
+            ImGui::PopFont();
+
+            ImGui::PushStyleColor(ImGuiCol::ImGuiCol_Text, bodyCol);
+            ImGui::PushTextWrapPos(ImGui::GetCursorPosX() + wrapW);
+            ImGui::TextWrapped(m.text);
+            ImGui::PopTextWrapPos();
+            ImGui::PopStyleColor();
+
+            ImGui::Unindent(indent);
+
+        ImGui::EndChild();
+        ImGui::PopStyleColor();
+        Style::VSpaceSmall();
     }
 }
