@@ -1,0 +1,26 @@
+# ── VIM Flex / AngelScript ──
+# Tables QC générées au runtime (DuckDB) — ne pas versionner les sauvegardes locales
+QCResults*.duckdb
+*.duckdb.wal
+*.tmp.duckdb
+
+# Logs VIM Flex
+*.log
+vimflex*.log
+
+# ── Windows ──
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ── Éditeurs / IDE ──
+.vscode/
+!.vscode/launch.json
+.idea/
+*.swp
+*~
+
+# ── Divers ──
+.DS_Store
+*.bak

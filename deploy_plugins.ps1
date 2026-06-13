@@ -1,28 +1,39 @@
-# deploy_plugins.ps1 — Copie BIMCopilot et PGBAudit dans le UserPlugins de VIM Flex
+# deploy_plugins.ps1 — Copie les plugins de plugins/ dans le UserPlugins de VIM Flex
+#
+# Deploie automatiquement chaque sous-dossier de plugins/ contenant un vxp.json
+# (BIMCopilot, PGBAudit, Demo, CostDraft, ChatQC, ...).
 
-$source = Split-Path -Parent $MyInvocation.MyCommand.Path
-$target = "$env:LOCALAPPDATA\VIM\VIM Flex\UserPlugins"
+$source     = Split-Path -Parent $MyInvocation.MyCommand.Path
+$pluginsDir = Join-Path $source "plugins"
+$target     = "$env:LOCALAPPDATA\VIM\VIM Flex\UserPlugins"
 
-Write-Host "Source : $source"
+Write-Host "Source : $pluginsDir"
 Write-Host "Cible  : $target"
 
-# Créer UserPlugins si absent
+if (-not (Test-Path $pluginsDir)) {
+    Write-Host "ERREUR : dossier plugins/ introuvable."
+    exit 1
+}
+
+# Creer UserPlugins si absent
 if (-not (Test-Path $target)) {
     New-Item -ItemType Directory -Path $target -Force | Out-Null
     Write-Host "Dossier UserPlugins cree."
 }
 
-# Copier les plugins
-foreach ($plugin in @("BIMCopilot", "PGBAudit")) {
-    $src = Join-Path $source $plugin
-    $dst = Join-Path $target $plugin
-    if (Test-Path $src) {
-        Copy-Item -Path $src -Destination $dst -Recurse -Force
-        Write-Host "OK : $plugin copie"
-    } else {
-        Write-Host "MANQUANT : $src introuvable"
-    }
+# Copier chaque plugin (sous-dossier contenant un vxp.json)
+$plugins = Get-ChildItem -Path $pluginsDir -Directory |
+    Where-Object { Test-Path (Join-Path $_.FullName "vxp.json") }
+
+foreach ($plugin in $plugins) {
+    $dst = Join-Path $target $plugin.Name
+    Copy-Item -Path $plugin.FullName -Destination $dst -Recurse -Force
+    Write-Host "OK : $($plugin.Name) copie"
+}
+
+if ($plugins.Count -eq 0) {
+    Write-Host "MANQUANT : aucun plugin (vxp.json) trouve dans plugins/"
 }
 
 Write-Host ""
-Write-Host "Deploiement termine. Redemarrez VIM Flex pour charger les plugins."
+Write-Host "Deploiement termine ($($plugins.Count) plugins). Redemarrez VIM Flex pour charger les plugins."

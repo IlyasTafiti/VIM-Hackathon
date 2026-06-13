@@ -1,0 +1,11 @@
+{
+    "Author": "Aliova",
+    "Company": "Aliova",
+    "Description": "Controleur qualite BIM conversationnel — Claude audit le modele par module (georeference, parametres, structure IFC, LOI/LOIN) contre le BEP et affiche les violations dans VIM Flex.",
+    "Email": "ilyas.tafiti@aliova.com",
+    "License": "MIT",
+    "MinApiVersion": "1.0.0",
+    "Name": "ChatQC",
+    "Url": "https://aliova.com",
+    "Version": "1.0.0"
+}
