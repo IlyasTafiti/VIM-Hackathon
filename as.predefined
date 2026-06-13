@@ -1,0 +1,3819 @@
+namespace Message {
+enum Key {
+    Key_0,
+    Key_1,
+    Key_2,
+    Key_3,
+    Key_4,
+    Key_5,
+    Key_6,
+    Key_7,
+    Key_8,
+    Key_9,
+    Key_Numpad0,
+    Key_Numpad1,
+    Key_Numpad2,
+    Key_Numpad3,
+    Key_Numpad4,
+    Key_Numpad5,
+    Key_Numpad6,
+    Key_Numpad7,
+    Key_Numpad8,
+    Key_Numpad9,
+    Key_F1,
+    Key_F2,
+    Key_F3,
+    Key_F4,
+    Key_F5,
+    Key_F6,
+    Key_F7,
+    Key_F8,
+    Key_F9,
+    Key_F10,
+    Key_F11,
+    Key_F12,
+    Key_A,
+    Key_B,
+    Key_C,
+    Key_D,
+    Key_E,
+    Key_F,
+    Key_G,
+    Key_H,
+    Key_I,
+    Key_J,
+    Key_K,
+    Key_L,
+    Key_M,
+    Key_N,
+    Key_O,
+    Key_P,
+    Key_Q,
+    Key_R,
+    Key_S,
+    Key_T,
+    Key_U,
+    Key_V,
+    Key_W,
+    Key_X,
+    Key_Y,
+    Key_Z
+};
+}
+enum ImGuiDir {
+    ImGuiDir_None,
+    ImGuiDir_Left,
+    ImGuiDir_Right,
+    ImGuiDir_Up,
+    ImGuiDir_Down
+};
+enum ImGuiHoveredFlags {
+    ImGuiHoveredFlags_None,
+    ImGuiHoveredFlags_ChildWindows,
+    ImGuiHoveredFlags_RootWindow,
+    ImGuiHoveredFlags_AnyWindow,
+    ImGuiHoveredFlags_NoPopupHierarchy,
+    ImGuiHoveredFlags_DockHierarchy,
+    ImGuiHoveredFlags_AllowWhenBlockedByPopup,
+    ImGuiHoveredFlags_AllowWhenBlockedByActiveItem,
+    ImGuiHoveredFlags_AllowWhenOverlappedByItem,
+    ImGuiHoveredFlags_AllowWhenOverlappedByWindow,
+    ImGuiHoveredFlags_AllowWhenDisabled,
+    ImGuiHoveredFlags_NoNavOverride,
+    ImGuiHoveredFlags_AllowWhenOverlapped,
+    ImGuiHoveredFlags_RectOnly,
+    ImGuiHoveredFlags_RootAndChildWindows,
+    ImGuiHoveredFlags_ForTooltip,
+    ImGuiHoveredFlags_Stationary,
+    ImGuiHoveredFlags_DelayNone,
+    ImGuiHoveredFlags_DelayShort,
+    ImGuiHoveredFlags_DelayNormal,
+    ImGuiHoveredFlags_NoSharedDelay
+};
+enum ImDrawFlags {
+    ImDrawFlags_None,
+    ImDrawFlags_Closed,
+    ImDrawFlags_RoundCornersTopLeft,
+    ImDrawFlags_RoundCornersTopRight,
+    ImDrawFlags_RoundCornersBottomLeft,
+    ImDrawFlags_RoundCornersBottomRight,
+    ImDrawFlags_RoundCornersNone,
+    ImDrawFlags_RoundCornersTop,
+    ImDrawFlags_RoundCornersBottom,
+    ImDrawFlags_RoundCornersLeft,
+    ImDrawFlags_RoundCornersRight,
+    ImDrawFlags_RoundCornersAll,
+    ImDrawFlags_RoundCornersDefault_,
+    ImDrawFlags_RoundCornersMask_
+};
+enum ImGuiSelectableFlags {
+    ImGuiSelectableFlags_None,
+    ImGuiSelectableFlags_NoAutoClosePopups,
+    ImGuiSelectableFlags_SpanAllColumns,
+    ImGuiSelectableFlags_AllowDoubleClick,
+    ImGuiSelectableFlags_Disabled,
+    ImGuiSelectableFlags_AllowOverlap,
+    ImGuiSelectableFlags_Highlight
+};
+enum ImGuiSeparatorFlags {
+    ImGuiSeparatorFlags_None,
+    ImGuiSeparatorFlags_Horizontal,
+    ImGuiSeparatorFlags_Vertical,
+    ImGuiSeparatorFlags_SpanAllColumns
+};
+enum ImGuiTableBgTarget {
+    ImGuiTableBgTarget_None,
+    ImGuiTableBgTarget_RowBg0,
+    ImGuiTableBgTarget_RowBg1,
+    ImGuiTableBgTarget_CellBg
+};
+enum ImGuiKey {
+    ImGuiKey_None,
+    ImGuiKey_Tab,
+    ImGuiKey_LeftArrow,
+    ImGuiKey_RightArrow,
+    ImGuiKey_UpArrow,
+    ImGuiKey_DownArrow,
+    ImGuiKey_PageUp,
+    ImGuiKey_PageDown,
+    ImGuiKey_Home,
+    ImGuiKey_End,
+    ImGuiKey_Insert,
+    ImGuiKey_Delete,
+    ImGuiKey_Backspace,
+    ImGuiKey_Space,
+    ImGuiKey_Enter,
+    ImGuiKey_Escape,
+    ImGuiKey_LeftCtrl,
+    ImGuiKey_LeftShift,
+    ImGuiKey_LeftAlt,
+    ImGuiKey_LeftSuper,
+    ImGuiKey_RightCtrl,
+    ImGuiKey_RightShift,
+    ImGuiKey_RightAlt,
+    ImGuiKey_RightSuper,
+    ImGuiKey_Menu,
+    ImGuiKey_0,
+    ImGuiKey_1,
+    ImGuiKey_2,
+    ImGuiKey_3,
+    ImGuiKey_4,
+    ImGuiKey_5,
+    ImGuiKey_6,
+    ImGuiKey_7,
+    ImGuiKey_8,
+    ImGuiKey_9,
+    ImGuiKey_A,
+    ImGuiKey_B,
+    ImGuiKey_C,
+    ImGuiKey_D,
+    ImGuiKey_E,
+    ImGuiKey_F,
+    ImGuiKey_G,
+    ImGuiKey_H,
+    ImGuiKey_I,
+    ImGuiKey_J,
+    ImGuiKey_K,
+    ImGuiKey_L,
+    ImGuiKey_M,
+    ImGuiKey_N,
+    ImGuiKey_O,
+    ImGuiKey_P,
+    ImGuiKey_Q,
+    ImGuiKey_R,
+    ImGuiKey_S,
+    ImGuiKey_T,
+    ImGuiKey_U,
+    ImGuiKey_V,
+    ImGuiKey_W,
+    ImGuiKey_X,
+    ImGuiKey_Y,
+    ImGuiKey_Z,
+    ImGuiMod_None,
+    ImGuiMod_Ctrl,
+    ImGuiMod_Shift,
+    ImGuiMod_Alt
+};
+enum ImGuiMouseButton {
+    ImGuiMouseButton_ImGuiMouseButton_Left,
+    ImGuiMouseButton_ImGuiMouseButton_Right,
+    ImGuiMouseButton_ImGuiMouseButton_Middle,
+    ImGuiMouseButton_ImGuiMouseButton_COUNT
+};
+enum ImGuiDragDropFlags {
+    ImGuiDragDropFlags_None,
+    ImGuiDragDropFlags_SourceNoPreviewTooltip,
+    ImGuiDragDropFlags_SourceNoDisableHover,
+    ImGuiDragDropFlags_SourceNoHoldToOpenOthers,
+    ImGuiDragDropFlags_SourceAllowNullID,
+    ImGuiDragDropFlags_SourceExtern,
+    ImGuiDragDropFlags_PayloadAutoExpire,
+    ImGuiDragDropFlags_PayloadNoCrossContext,
+    ImGuiDragDropFlags_PayloadNoCrossProcess,
+    ImGuiDragDropFlags_AcceptBeforeDelivery,
+    ImGuiDragDropFlags_AcceptNoDrawDefaultRect,
+    ImGuiDragDropFlags_AcceptNoPreviewTooltip,
+    ImGuiDragDropFlags_AcceptPeekOnly
+};
+enum ImGuiComboFlags {
+    ImGuiComboFlags_None,
+    ImGuiComboFlags_PopupAlignLeft,
+    ImGuiComboFlags_HeightSmall,
+    ImGuiComboFlags_HeightRegular,
+    ImGuiComboFlags_HeightLarge,
+    ImGuiComboFlags_HeightLargest,
+    ImGuiComboFlags_NoArrowButton,
+    ImGuiComboFlags_NoPreview,
+    ImGuiComboFlags_WidthFitPreview
+};
+enum ImGuiTreeNodeFlags {
+    ImGuiTreeNodeFlags_None,
+    ImGuiTreeNodeFlags_Selected,
+    ImGuiTreeNodeFlags_Framed,
+    ImGuiTreeNodeFlags_AllowOverlap,
+    ImGuiTreeNodeFlags_NoTreePushOnOpen,
+    ImGuiTreeNodeFlags_NoAutoOpenOnLog,
+    ImGuiTreeNodeFlags_DefaultOpen,
+    ImGuiTreeNodeFlags_OpenOnDoubleClick,
+    ImGuiTreeNodeFlags_OpenOnArrow,
+    ImGuiTreeNodeFlags_Leaf,
+    ImGuiTreeNodeFlags_Bullet,
+    ImGuiTreeNodeFlags_FramePadding,
+    ImGuiTreeNodeFlags_SpanAvailWidth,
+    ImGuiTreeNodeFlags_SpanFullWidth,
+    ImGuiTreeNodeFlags_SpanLabelWidth,
+    ImGuiTreeNodeFlags_SpanAllColumns,
+    ImGuiTreeNodeFlags_LabelSpanAllColumns,
+    ImGuiTreeNodeFlags_NavLeftJumpsBackHere,
+    ImGuiTreeNodeFlags_CollapsingHeader
+};
+enum ImGuiTableColumnFlags {
+    ImGuiTableColumnFlags_None,
+    ImGuiTableColumnFlags_Disabled,
+    ImGuiTableColumnFlags_DefaultHide,
+    ImGuiTableColumnFlags_DefaultSort,
+    ImGuiTableColumnFlags_WidthStretch,
+    ImGuiTableColumnFlags_WidthFixed,
+    ImGuiTableColumnFlags_NoResize,
+    ImGuiTableColumnFlags_NoReorder,
+    ImGuiTableColumnFlags_NoHide,
+    ImGuiTableColumnFlags_NoClip,
+    ImGuiTableColumnFlags_NoSort,
+    ImGuiTableColumnFlags_NoSortAscending,
+    ImGuiTableColumnFlags_NoSortDescending,
+    ImGuiTableColumnFlags_NoHeaderLabel,
+    ImGuiTableColumnFlags_NoHeaderWidth,
+    ImGuiTableColumnFlags_PreferSortAscending,
+    ImGuiTableColumnFlags_PreferSortDescending,
+    ImGuiTableColumnFlags_IndentEnable,
+    ImGuiTableColumnFlags_IndentDisable,
+    ImGuiTableColumnFlags_AngledHeader,
+    ImGuiTableColumnFlags_IsEnabled,
+    ImGuiTableColumnFlags_IsVisible,
+    ImGuiTableColumnFlags_IsSorted,
+    ImGuiTableColumnFlags_IsHovered
+};
+enum ImGuiStyleVar {
+    ImGuiStyleVar_Alpha,
+    ImGuiStyleVar_WindowPadding,
+    ImGuiStyleVar_WindowRounding,
+    ImGuiStyleVar_WindowBorderSize,
+    ImGuiStyleVar_WindowMinSize,
+    ImGuiStyleVar_WindowTitleAlign,
+    ImGuiStyleVar_ChildRounding,
+    ImGuiStyleVar_ChildBorderSize,
+    ImGuiStyleVar_PopupRounding,
+    ImGuiStyleVar_PopupBorderSize,
+    ImGuiStyleVar_FramePadding,
+    ImGuiStyleVar_FrameRounding,
+    ImGuiStyleVar_FrameBorderSize,
+    ImGuiStyleVar_ItemSpacing,
+    ImGuiStyleVar_ItemInnerSpacing,
+    ImGuiStyleVar_IndentSpacing,
+    ImGuiStyleVar_ScrollbarSize,
+    ImGuiStyleVar_ScrollbarRounding,
+    ImGuiStyleVar_GrabMinSize,
+    ImGuiStyleVar_GrabRounding,
+    ImGuiStyleVar_TabRounding,
+    ImGuiStyleVar_ButtonTextAlign,
+    ImGuiStyleVar_SelectableTextAlign,
+    ImGuiStyleVar_CellPadding
+};
+enum ImGuiChildFlags {
+    ImGuiChildFlags_None,
+    ImGuiChildFlags_Borders,
+    ImGuiChildFlags_AlwaysUseWindowPadding,
+    ImGuiChildFlags_ResizeX,
+    ImGuiChildFlags_ResizeY,
+    ImGuiChildFlags_AutoResizeX,
+    ImGuiChildFlags_AutoResizeY,
+    ImGuiChildFlags_AlwaysAutoResize,
+    ImGuiChildFlags_FrameStyle,
+    ImGuiChildFlags_NavFlattened
+};
+enum ImGuiWindowFlags {
+    ImGuiWindowFlags_None,
+    ImGuiWindowFlags_NoTitleBar,
+    ImGuiWindowFlags_NoResize,
+    ImGuiWindowFlags_NoMove,
+    ImGuiWindowFlags_NoScrollbar,
+    ImGuiWindowFlags_NoScrollWithMouse,
+    ImGuiWindowFlags_NoCollapse,
+    ImGuiWindowFlags_AlwaysAutoResize,
+    ImGuiWindowFlags_NoBackground,
+    ImGuiWindowFlags_NoSavedSettings,
+    ImGuiWindowFlags_NoMouseInputs,
+    ImGuiWindowFlags_MenuBar,
+    ImGuiWindowFlags_HorizontalScrollbar,
+    ImGuiWindowFlags_NoFocusOnAppearing,
+    ImGuiWindowFlags_NoBringToFrontOnFocus,
+    ImGuiWindowFlags_AlwaysVerticalScrollbar,
+    ImGuiWindowFlags_AlwaysHorizontalScrollbar,
+    ImGuiWindowFlags_AlwaysUseWindowPadding,
+    ImGuiWindowFlags_NoNavInputs,
+    ImGuiWindowFlags_NoNavFocus,
+    ImGuiWindowFlags_UnsavedDocument,
+    ImGuiWindowFlags_NoNav,
+    ImGuiWindowFlags_NoDecoration,
+    ImGuiWindowFlags_NoInputs
+};
+enum ImGuiCol {
+    ImGuiCol_Text,
+    ImGuiCol_TextDisabled,
+    ImGuiCol_WindowBg,
+    ImGuiCol_ChildBg,
+    ImGuiCol_PopupBg,
+    ImGuiCol_Border,
+    ImGuiCol_BorderShadow,
+    ImGuiCol_FrameBg,
+    ImGuiCol_FrameBgHovered,
+    ImGuiCol_FrameBgActive,
+    ImGuiCol_TitleBg,
+    ImGuiCol_TitleBgActive,
+    ImGuiCol_TitleBgCollapsed,
+    ImGuiCol_MenuBarBg,
+    ImGuiCol_ScrollbarBg,
+    ImGuiCol_ScrollbarGrab,
+    ImGuiCol_ScrollbarGrabHovered,
+    ImGuiCol_ScrollbarGrabActive,
+    ImGuiCol_CheckMark,
+    ImGuiCol_SliderGrab,
+    ImGuiCol_SliderGrabActive,
+    ImGuiCol_Button,
+    ImGuiCol_ButtonHovered,
+    ImGuiCol_ButtonActive,
+    ImGuiCol_Header,
+    ImGuiCol_HeaderHovered,
+    ImGuiCol_HeaderActive,
+    ImGuiCol_Separator,
+    ImGuiCol_SeparatorHovered,
+    ImGuiCol_SeparatorActive,
+    ImGuiCol_ResizeGrip,
+    ImGuiCol_ResizeGripHovered,
+    ImGuiCol_ResizeGripActive,
+    ImGuiCol_Tab,
+    ImGuiCol_TabHovered,
+    ImGuiCol_TabActive,
+    ImGuiCol_TabUnfocused,
+    ImGuiCol_TabUnfocusedActive,
+    ImGuiCol_TableRowBg,
+    ImGuiCol_TableRowBgAlt,
+    ImGuiCol_TableHeaderBg,
+    ImGuiCol_PlotLines,
+    ImGuiCol_PlotLinesHovered,
+    ImGuiCol_PlotHistogram,
+    ImGuiCol_PlotHistogramHovered,
+    ImGuiCol_TextSelectedBg,
+    ImGuiCol_DragDropTarget,
+    ImGuiCol_NavHighlight,
+    ImGuiCol_NavWindowingHighlight,
+    ImGuiCol_NavWindowingDimBg,
+    ImGuiCol_ModalWindowDimBg
+};
+enum ImGuiColorEditFlags {
+    ImGuiColorEditFlags_None,
+    ImGuiColorEditFlags_NoAlpha,
+    ImGuiColorEditFlags_NoPicker,
+    ImGuiColorEditFlags_NoOptions,
+    ImGuiColorEditFlags_NoSmallPreview,
+    ImGuiColorEditFlags_NoInputs,
+    ImGuiColorEditFlags_NoTooltip,
+    ImGuiColorEditFlags_NoLabel,
+    ImGuiColorEditFlags_NoSidePreview,
+    ImGuiColorEditFlags_NoDragDrop,
+    ImGuiColorEditFlags_NoBorder,
+    ImGuiColorEditFlags_AlphaOpaque,
+    ImGuiColorEditFlags_AlphaNoBg,
+    ImGuiColorEditFlags_AlphaPreviewHalf,
+    ImGuiColorEditFlags_AlphaBar,
+    ImGuiColorEditFlags_HDR,
+    ImGuiColorEditFlags_DisplayRGB,
+    ImGuiColorEditFlags_DisplayHSV,
+    ImGuiColorEditFlags_DisplayHex,
+    ImGuiColorEditFlags_Uint8,
+    ImGuiColorEditFlags_Float,
+    ImGuiColorEditFlags_PickerHueBar,
+    ImGuiColorEditFlags_PickerHueWheel,
+    ImGuiColorEditFlags_InputRGB,
+    ImGuiColorEditFlags_InputHSV
+};
+enum ImGuiCond {
+    ImGuiCond_Always,
+    ImGuiCond_Once,
+    ImGuiCond_FirstUseEver,
+    ImGuiCond_Appearing
+};
+enum ImGuiTableFlags {
+    ImGuiTableFlags_None,
+    ImGuiTableFlags_Resizable,
+    ImGuiTableFlags_Reorderable,
+    ImGuiTableFlags_Hideable,
+    ImGuiTableFlags_Sortable,
+    ImGuiTableFlags_NoSavedSettings,
+    ImGuiTableFlags_ContextMenuInBody,
+    ImGuiTableFlags_RowBg,
+    ImGuiTableFlags_BordersInnerH,
+    ImGuiTableFlags_BordersOuterH,
+    ImGuiTableFlags_BordersInnerV,
+    ImGuiTableFlags_BordersOuterV,
+    ImGuiTableFlags_BordersH,
+    ImGuiTableFlags_BordersV,
+    ImGuiTableFlags_BordersInner,
+    ImGuiTableFlags_BordersOuter,
+    ImGuiTableFlags_Borders,
+    ImGuiTableFlags_NoBordersInBody,
+    ImGuiTableFlags_NoBordersInBodyUntilResize,
+    ImGuiTableFlags_SizingFixedFit,
+    ImGuiTableFlags_SizingFixedSame,
+    ImGuiTableFlags_SizingStretchProp,
+    ImGuiTableFlags_SizingStretchSame,
+    ImGuiTableFlags_NoHostExtendX,
+    ImGuiTableFlags_NoHostExtendY,
+    ImGuiTableFlags_NoKeepColumnsVisible,
+    ImGuiTableFlags_PreciseWidths,
+    ImGuiTableFlags_NoClip,
+    ImGuiTableFlags_PadOuterX,
+    ImGuiTableFlags_NoPadOuterX,
+    ImGuiTableFlags_NoPadInnerX,
+    ImGuiTableFlags_ScrollX,
+    ImGuiTableFlags_ScrollY,
+    ImGuiTableFlags_SortMulti,
+    ImGuiTableFlags_SortTristate,
+    ImGuiTableFlags_HighlightHoveredColumn
+};
+enum ImGuiTabBarFlags {
+    ImGuiTabBarFlags_None,
+    ImGuiTabBarFlags_Reorderable,
+    ImGuiTabBarFlags_AutoSelectNewTabs,
+    ImGuiTabBarFlags_TabListPopupButton,
+    ImGuiTabBarFlags_NoCloseWithMiddleMouseButton,
+    ImGuiTabBarFlags_NoTabListScrollingButtons,
+    ImGuiTabBarFlags_NoTooltip,
+    ImGuiTabBarFlags_FittingPolicyResizeDown,
+    ImGuiTabBarFlags_FittingPolicyScroll,
+    ImGuiTabBarFlags_FittingPolicyMask_,
+    ImGuiTabBarFlags_FittingPolicyDefault_
+};
+enum ImGuiTabItemFlags {
+    ImGuiTabItemFlags_None,
+    ImGuiTabItemFlags_UnsavedDocument,
+    ImGuiTabItemFlags_SetSelected,
+    ImGuiTabItemFlags_NoCloseWithMiddleMouseButton,
+    ImGuiTabItemFlags_NoPushId
+};
+enum ImGuiMouseCursor {
+    ImGuiMouseCursor_None,
+    ImGuiMouseCursor_Arrow,
+    ImGuiMouseCursor_TextInput,
+    ImGuiMouseCursor_ResizeAll,
+    ImGuiMouseCursor_ResizeNS,
+    ImGuiMouseCursor_ResizeEW,
+    ImGuiMouseCursor_ResizeNESW,
+    ImGuiMouseCursor_ResizeNWSE,
+    ImGuiMouseCursor_Hand,
+    ImGuiMouseCursor_Wait,
+    ImGuiMouseCursor_Progress,
+    ImGuiMouseCursor_NotAllowed
+};
+enum ImGuiSortDirection {
+    ImGuiSortDirection_None,
+    ImGuiSortDirection_Ascending,
+    ImGuiSortDirection_Descending
+};
+enum ImGuiInputTextFlags {
+    ImGuiInputTextFlags_None,
+    ImGuiInputTextFlags_CharsDecimal,
+    ImGuiInputTextFlags_CharsHexadecimal,
+    ImGuiInputTextFlags_CharsScientific,
+    ImGuiInputTextFlags_CharsUppercase,
+    ImGuiInputTextFlags_CharsNoBlank,
+    ImGuiInputTextFlags_AllowTabInput,
+    ImGuiInputTextFlags_EnterReturnsTrue,
+    ImGuiInputTextFlags_EscapeClearsAll,
+    ImGuiInputTextFlags_CtrlEnterForNewLine,
+    ImGuiInputTextFlags_ReadOnly,
+    ImGuiInputTextFlags_Password,
+    ImGuiInputTextFlags_AlwaysOverwrite,
+    ImGuiInputTextFlags_AutoSelectAll,
+    ImGuiInputTextFlags_ParseEmptyRefVal,
+    ImGuiInputTextFlags_DisplayEmptyRefVal,
+    ImGuiInputTextFlags_NoHorizontalScroll,
+    ImGuiInputTextFlags_NoUndoRedo,
+    ImGuiInputTextFlags_ElideLeft,
+    ImGuiInputTextFlags_CallbackCompletion,
+    ImGuiInputTextFlags_CallbackHistory,
+    ImGuiInputTextFlags_CallbackAlways,
+    ImGuiInputTextFlags_CallbackCharFilter,
+    ImGuiInputTextFlags_CallbackResize,
+    ImGuiInputTextFlags_CallbackEdit
+};
+namespace ImPlot {
+enum ImAxis {
+    X1,
+    X2,
+    X3,
+    Y1,
+    Y2,
+    Y3,
+    COUNT
+};
+}
+namespace ImPlot {
+enum ImPlotFlags {
+    None,
+    NoTitle,
+    NoLegend,
+    NoMouseText,
+    NoInputs,
+    NoMenus,
+    NoBoxSelect,
+    NoFrame,
+    Equal,
+    Crosshairs,
+    CanvasOnly
+};
+}
+namespace ImPlot {
+enum ImPlotAxisFlags {
+    None,
+    NoLabel,
+    NoGridLines,
+    NoTickMarks,
+    NoTickLabels,
+    NoInitialFit,
+    NoMenus,
+    NoSideSwitch,
+    NoHighlight,
+    Opposite,
+    Foreground,
+    Invert,
+    AutoFit,
+    RangeFit,
+    PanStretch,
+    LockMin,
+    LockMax,
+    Lock,
+    NoDecorations,
+    AuxDefault
+};
+}
+namespace ImPlot {
+enum ImPlotSubplotFlags {
+    None,
+    NoTitle,
+    NoLegend,
+    NoMenus,
+    NoResize,
+    NoAlign,
+    ShareItems,
+    LinkRows,
+    LinkCols,
+    LinkAllX,
+    LinkAllY,
+    ColMajor
+};
+}
+namespace ImPlot {
+enum ImPlotLegendFlags {
+    None,
+    NoButtons,
+    NoHighlightItem,
+    NoHighlightAxis,
+    NoMenus,
+    Outside,
+    Horizontal,
+    Sort
+};
+}
+namespace ImPlot {
+enum ImPlotMouseTextFlags {
+    None,
+    NoAuxAxes,
+    NoFormat,
+    ShowAlways
+};
+}
+namespace ImPlot {
+enum ImPlotDragToolFlags {
+    None,
+    NoCursors,
+    NoFit,
+    NoInputs,
+    Delayed
+};
+}
+namespace ImPlot {
+enum ImPlotColormapScaleFlags {
+    None,
+    NoLabel,
+    Opposite,
+    Invert
+};
+}
+namespace ImPlot {
+enum ImPlotItemFlags {
+    None,
+    NoLegend,
+    NoFit
+};
+}
+namespace ImPlot {
+enum ImPlotLineFlags {
+    None,
+    Segments,
+    Loop,
+    SkipNaN,
+    NoClip,
+    Shaded
+};
+}
+namespace ImPlot {
+enum ImPlotScatterFlags {
+    None,
+    NoClip
+};
+}
+namespace ImPlot {
+enum ImPlotStairsFlags {
+    None,
+    PreStep,
+    Shaded
+};
+}
+namespace ImPlot {
+enum ImPlotShadedFlags {
+    None
+};
+}
+namespace ImPlot {
+enum ImPlotBarsFlags {
+    None,
+    Horizontal
+};
+}
+namespace ImPlot {
+enum ImPlotBarGroupsFlags {
+    None,
+    Horizontal,
+    Stacked
+};
+}
+namespace ImPlot {
+enum ImPlotErrorBarsFlags {
+    None,
+    Horizontal
+};
+}
+namespace ImPlot {
+enum ImPlotStemsFlags {
+    None,
+    Horizontal
+};
+}
+namespace ImPlot {
+enum ImPlotInfLinesFlags {
+    None,
+    Horizontal
+};
+}
+namespace ImPlot {
+enum ImPlotPieChartFlags {
+    None,
+    Normalize,
+    IgnoreHidden,
+    Exploding
+};
+}
+namespace ImPlot {
+enum ImPlotHeatmapFlags {
+    None,
+    ColMajor
+};
+}
+namespace ImPlot {
+enum ImPlotHistogramFlags {
+    None,
+    Horizontal,
+    Cumulative,
+    Density,
+    NoOutliers,
+    ColMajor
+};
+}
+namespace ImPlot {
+enum ImPlotDigitalFlags {
+    None
+};
+}
+namespace ImPlot {
+enum ImPlotImageFlags {
+    None
+};
+}
+namespace ImPlot {
+enum ImPlotTextFlags {
+    None,
+    Vertical
+};
+}
+namespace ImPlot {
+enum ImPlotDummyFlags {
+    None
+};
+}
+namespace ImPlot {
+enum ImPlotCond {
+    None,
+    Always,
+    Once
+};
+}
+namespace ImPlot {
+enum ImPlotCol {
+    Line,
+    Fill,
+    MarkerOutline,
+    MarkerFill,
+    ErrorBar,
+    FrameBg,
+    PlotBg,
+    PlotBorder,
+    LegendBg,
+    LegendBorder,
+    LegendText,
+    TitleText,
+    InlayText,
+    AxisText,
+    AxisGrid,
+    AxisTick,
+    AxisBg,
+    AxisBgHovered,
+    AxisBgActive,
+    Selection,
+    Crosshairs,
+    COUNT
+};
+}
+namespace ImPlot {
+enum ImPlotStyleVar {
+    LineWeight,
+    Marker,
+    MarkerSize,
+    MarkerWeight,
+    FillAlpha,
+    ErrorBarSize,
+    ErrorBarWeight,
+    DigitalBitHeight,
+    DigitalBitGap,
+    PlotBorderSize,
+    MinorAlpha,
+    MajorTickLen,
+    MinorTickLen,
+    MajorTickSize,
+    MinorTickSize,
+    MajorGridSize,
+    MinorGridSize,
+    PlotPadding,
+    LabelPadding,
+    LegendPadding,
+    LegendInnerPadding,
+    LegendSpacing,
+    MousePosPadding,
+    AnnotationPadding,
+    FitPadding,
+    PlotDefaultSize,
+    PlotMinSize,
+    COUNT
+};
+}
+namespace ImPlot {
+enum ImPlotScale {
+    Linear,
+    Time,
+    Log10,
+    SymLog
+};
+}
+namespace ImPlot {
+enum ImPlotMarker {
+    None,
+    Circle,
+    Square,
+    Diamond,
+    Up,
+    Down,
+    Left,
+    Right,
+    Cross,
+    Plus,
+    Asterisk,
+    COUNT
+};
+}
+namespace ImPlot {
+enum ImPlotColormap {
+    Deep,
+    Dark,
+    Pastel,
+    Paired,
+    Viridis,
+    Plasma,
+    Hot,
+    Cool,
+    Pink,
+    Jet,
+    Twilight,
+    RdBu,
+    BrBG,
+    PiYG,
+    Spectral,
+    Greys
+};
+}
+namespace ImPlot {
+enum ImPlotLocation {
+    Center,
+    North,
+    South,
+    West,
+    East,
+    NorthWest,
+    NorthEast,
+    SouthWest,
+    SouthEast
+};
+}
+namespace ImPlot {
+enum ImPlotBin {
+    Sqrt,
+    Sturges,
+    Rice,
+    Scott
+};
+}
+namespace Scene {
+enum MouseButton {
+    MouseButton_None,
+    MouseButton_Left,
+    MouseButton_Middle,
+    MouseButton_Right,
+    MouseButton_All
+};
+}
+namespace Scene {
+enum VisibilityState {
+    VisibilityState_Visible,
+    VisibilityState_Hidden,
+    VisibilityState_Ghosted,
+    VisibilityState_Highlighted
+};
+}
+namespace Scene {
+enum ParameterType {
+    ParameterType_Unknown,
+    ParameterType_FamilyInstance,
+    ParameterType_FamilyType,
+    ParameterType_Family
+};
+}
+namespace Scene {
+enum SceneItemType {
+    SceneItemType_Unknown,
+    SceneItemType_Element,
+    SceneItemType_Marker,
+    SceneItemType_SceneObject,
+    SceneItemType_TreeNode
+};
+}
+namespace Scene {
+enum PhysicsBodyType {
+    Static,
+    Dynamic,
+    Kinematic
+};
+}
+namespace Scene {
+enum PhysicsShapeType {
+    Box,
+    Sphere,
+    Capsule,
+    Cylinder,
+    ConvexHull,
+    Mesh
+};
+}
+enum TreeTableAggOp {
+    TreeTableAggOp_None,
+    TreeTableAggOp_Sum,
+    TreeTableAggOp_Max,
+    TreeTableAggOp_Min,
+    TreeTableAggOp_Average,
+    TreeTableAggOp_First,
+    TreeTableAggOp_Count,
+    TreeTableAggOp_CountDistinctFromKey
+};
+namespace VimFlex {
+enum VimLicenseState {
+    VimLicenseState_Valid,
+    VimLicenseState_Invalid_Not_Found,
+    VimLicenseState_Invalid_Not_Recognized,
+    VimLicenseState_Invalid_Claim_Not_Found,
+    VimLicenseState_Invalid_Expired
+};
+}
+namespace VimFlex {
+enum VimDiffType {
+    VimDiffType_NotChanged,
+    VimDiffType_Added,
+    VimDiffType_Removed,
+    VimDiffType_Modified
+};
+}
+namespace Style {
+enum ColorTheme {
+    ColorTheme_Light,
+    ColorTheme_Dark
+};
+}
+namespace Scene {
+class VimData {
+    Scene::Parameter@[]@ GetElementParameters(uint elementIndex);
+    Scene::DataQueryResult@ DataQueryGeneric(const string&in sqlString);
+    uint GetElementCount();
+    Scene::SceneItemSet@ GetElementsAsSet();
+};
+}
+class string {
+    ~string();
+    string();
+    string(const string&in);
+    string& opAssign(const string&in);
+    string& opAddAssign(const string&in);
+    bool opEquals(const string&in) const;
+    int opCmp(const string&in) const;
+    string opAdd(const string&in) const;
+    uint length() const;
+    void resize(uint);
+    bool isEmpty() const;
+    uint8& opIndex(uint);
+    const uint8& opIndex(uint) const;
+    string& opAssign(double);
+    string& opAddAssign(double);
+    string opAdd(double) const;
+    string opAdd_r(double) const;
+    string& opAssign(float);
+    string& opAddAssign(float);
+    string opAdd(float) const;
+    string opAdd_r(float) const;
+    string& opAssign(int64);
+    string& opAddAssign(int64);
+    string opAdd(int64) const;
+    string opAdd_r(int64) const;
+    string& opAssign(uint64);
+    string& opAddAssign(uint64);
+    string opAdd(uint64) const;
+    string opAdd_r(uint64) const;
+    string& opAssign(bool);
+    string& opAddAssign(bool);
+    string opAdd(bool) const;
+    string opAdd_r(bool) const;
+    string substr(uint start = 0, int count = - 1) const;
+    int findFirst(const string&in, uint start = 0) const;
+    int findFirstOf(const string&in, uint start = 0) const;
+    int findFirstNotOf(const string&in, uint start = 0) const;
+    int findLast(const string&in, int start = - 1) const;
+    int findLastOf(const string&in, int start = - 1) const;
+    int findLastNotOf(const string&in, int start = - 1) const;
+    void insert(uint pos, const string&in other);
+    void erase(uint pos, int count = - 1);
+    string& opAssign(const hstring&in other);
+    string[]@ split(const string&in) const;
+    const string ToUpperCase() const;
+};
+class hstring {
+    ~hstring();
+    hstring();
+    hstring(const string&in str);
+    hstring(const hstring&in other);
+    hstring& opAssign(const hstring&in other);
+    bool opEquals(const hstring&in other) const;
+    int opCmp(const hstring&in other) const;
+    const string ToString() const;
+    const string ToUpperCase() const;
+};
+class array<T> {
+    T[]@ array(int&in);
+    T[]@ array(int&in, uint length);
+    T[]@ array(int&in, uint length, const T&in value);
+    T& opIndex(uint index);
+    const T& opIndex(uint index) const;
+    T[]& opAssign(const T[]&in);
+    void insertAt(uint index, const T&in value);
+    void insertAt(uint index, const T[]&inout arr);
+    void insertLast(const T&in value);
+    void removeAt(uint index);
+    void removeLast();
+    void removeRange(uint start, uint count);
+    uint GetRefCount() const;
+    uint length() const;
+    void reserve(uint length);
+    void resize(uint length);
+    void sortAsc();
+    void sortAsc(uint startAt, uint count);
+    void sortDesc();
+    void sortDesc(uint startAt, uint count);
+    void reverse();
+    int find(const T&in value) const;
+    int find(uint startAt, const T&in value) const;
+    int findByRef(const T&in value) const;
+    int findByRef(uint startAt, const T&in value) const;
+    bool opEquals(const T[]&in) const;
+    bool isEmpty() const;
+    void sort(const less &in, uint startAt = 0, uint count = uint ( - 1 ));
+    bool SerializeToTable(Scene::VimData@ vimData, const string&in tableName);
+    bool DeserializeFromQuery(Scene::VimData@ vimData, const string&in query);
+    funcdef bool less(const T&in, const T&in);
+};
+class dictionaryValue {
+    ~dictionaryValue();
+    dictionaryValue();
+    dictionaryValue& opAssign(const dictionaryValue&in);
+    dictionaryValue& opHndlAssign(const ?&in);
+    dictionaryValue& opHndlAssign(const dictionaryValue&in);
+    dictionaryValue& opAssign(const ?&in);
+    dictionaryValue& opAssign(double);
+    dictionaryValue& opAssign(int64);
+    void opCast(?&out);
+    void opConv(?&out);
+    int64 opConv();
+    double opConv();
+};
+class dictionary {
+    dictionary@ dictionary();
+    dictionary& opAssign(const dictionary&in);
+    void set(const string&in, const ?&in);
+    bool get(const string&in, ?&out) const;
+    void set(const string&in, const int64&in);
+    bool get(const string&in, int64&out) const;
+    void set(const string&in, const double&in);
+    bool get(const string&in, double&out) const;
+    bool exists(const string&in) const;
+    bool isEmpty() const;
+    uint getSize() const;
+    bool delete(const string&in);
+    void deleteAll();
+    string[]@ getKeys() const;
+    dictionaryValue& opIndex(const string&in);
+    const dictionaryValue& opIndex(const string&in) const;
+};
+class any {
+    any@ any();
+    any@ any(?&in);
+    any@ any(const int64&in);
+    any@ any(const double&in);
+    any& opAssign(any&in);
+    void store(?&in);
+    void store(const int64&in);
+    void store(const double&in);
+    bool retrieve(?&out);
+    bool retrieve(int64&out);
+    bool retrieve(double&out);
+};
+class set<T> {
+    set<T>@ set(int&in);
+    void insert(const T&in);
+    void insert(const T[]@ arr);
+    void insert(const set<T>@ other);
+    bool exists(const T&in) const;
+    void remove(const T&in);
+    void remove(const T[]@ arr);
+    void remove(const set<T>@ other);
+    void clear();
+    uint64 size() const;
+    set<T>& opAssign(const set<T>&in);
+    T[]@ toArray();
+};
+class float2 {
+    float2();
+    float2(float x, float y);
+    bool opEquals(const float2&in) const;
+    float2 opAdd(const float2&in) const;
+    float2 opSub(const float2&in) const;
+    float2 opMul(const float2&in) const;
+    float2 opDiv(const float2&in) const;
+    float2 opAdd(float) const;
+    float2 opSub(float) const;
+    float2 opMul(float) const;
+    float2 opDiv(float) const;
+    float2& opAddAssign(const float2&in) const;
+    float2& opSubAssign(const float2&in) const;
+    float2& opMulAssign(const float2&in) const;
+    float2& opDivAssign(const float2&in) const;
+    float2& opAddAssign(float) const;
+    float2& opSubAssign(float) const;
+    float2& opMulAssign(float) const;
+    float2& opDivAssign(float) const;
+    bool AlmostEquals(const float2&in, float tolerance = 0.0001f) const;
+    bool AlmostZero(float tolerance = 0.0001f) const;
+    float Dot(const float2&in) const;
+    float Distance(const float2&in) const;
+    float DistanceSquared(const float2&in) const;
+    float Length() const;
+    float LengthSquared() const;
+    float ComponentProduct() const;
+    float MinComponent() const;
+    float MaxComponent() const;
+    float2 Normalize() const;
+    float2 InverseLerp(float2 a, float2 b) const;
+    float2 Min(const float2&in) const;
+    float2 Max(const float2&in) const;
+    float2 Clamp(float min, float max) const;
+    float2 Clamp(const float2&in min, const float2&in max) const;
+    float2 Wrap(float min, float max) const;
+    float2 Wrap(const float2&in min, const float2&in max) const;
+    float2 Average(const float2&in) const;
+    float2 Lerp(const float2&in v, const float t) const;
+    float2 Abs() const;
+    float2 Acos() const;
+    float2 Asin() const;
+    float2 Atan() const;
+    float2 Cos() const;
+    float2 Cosh() const;
+    float2 Exp() const;
+    float2 Log() const;
+    float2 Log10() const;
+    float2 Sin() const;
+    float2 Sinh() const;
+    float2 Sqrt() const;
+    float2 Tan() const;
+    float2 Tanh() const;
+    float2 Inverse() const;
+    float2 Ceiling() const;
+    float2 Floor() const;
+    float2 Round() const;
+    float2 Sqr() const;
+    float2 Cube() const;
+    float2 ToRadians() const;
+    float2 ToDegrees() const;
+    bool IsNaN() const;
+    bool IsInfinity() const;
+    float x;
+    float y;
+};
+class int2 {
+    int2();
+    int2(int, int);
+    bool opEquals(const int2&in) const;
+    int2 opAdd(const int2&in) const;
+    int2 opSub(const int2&in) const;
+    int2 opMul(const int2&in) const;
+    int2 opDiv(const int2&in) const;
+    int2 opAdd(int) const;
+    int2 opSub(int) const;
+    int2 opMul(int) const;
+    int2 opDiv(int) const;
+    int2& opAddAssign(const int2&in) const;
+    int2& opSubAssign(const int2&in) const;
+    int2& opMulAssign(const int2&in) const;
+    int2& opDivAssign(const int2&in) const;
+    int2& opAddAssign(int) const;
+    int2& opSubAssign(int) const;
+    int2& opMulAssign(int) const;
+    int2& opDivAssign(int) const;
+    int Dot(const int2&in) const;
+    int DistanceSquared(const int2&in) const;
+    int LengthSquared() const;
+    int2 Min(const int2&in) const;
+    int2 Max(const int2&in) const;
+    int x;
+    int y;
+};
+class float3 {
+    float3();
+    float3(float x, float y, float z);
+    bool opEquals(const float3&in) const;
+    float3 opAdd(const float3&in) const;
+    float3 opSub(const float3&in) const;
+    float3 opMul(const float3&in) const;
+    float3 opDiv(const float3&in) const;
+    float3 opAdd(float) const;
+    float3 opSub(float) const;
+    float3 opMul(float) const;
+    float3 opDiv(float) const;
+    float3& opAddAssign(const float3&in) const;
+    float3& opSubAssign(const float3&in) const;
+    float3& opMulAssign(const float3&in) const;
+    float3& opDivAssign(const float3&in) const;
+    float3& opAddAssign(float) const;
+    float3& opSubAssign(float) const;
+    float3& opMulAssign(float) const;
+    float3& opDivAssign(float) const;
+    bool AlmostEquals(const float3&in, float tolerance = 0.0001f) const;
+    bool AlmostZero(float tolerance = 0.0001f) const;
+    float Dot(const float3&in) const;
+    float3 Cross(const float3&in) const;
+    float Distance(const float3&in) const;
+    float DistanceSquared(const float3&in) const;
+    float Length() const;
+    float LengthSquared() const;
+    float ComponentProduct() const;
+    float MinComponent() const;
+    float MaxComponent() const;
+    float3 Normalize() const;
+    float3 InverseLerp(float3 a, float3 b) const;
+    float3 Min(const float3&in) const;
+    float3 Max(const float3&in) const;
+    float3 Clamp(float min, float max) const;
+    float3 Clamp(const float3&in min, const float3&in max) const;
+    float3 Wrap(float min, float max) const;
+    float3 Wrap(const float3&in min, const float3&in max) const;
+    float3 Average(const float3&in) const;
+    float3 Lerp(const float3&in v, const float t) const;
+    float3 Abs() const;
+    float3 Acos() const;
+    float3 Asin() const;
+    float3 Atan() const;
+    float3 Cos() const;
+    float3 Cosh() const;
+    float3 Exp() const;
+    float3 Log() const;
+    float3 Log10() const;
+    float3 Sin() const;
+    float3 Sinh() const;
+    float3 Sqrt() const;
+    float3 Tan() const;
+    float3 Tanh() const;
+    float3 Inverse() const;
+    float3 Ceiling() const;
+    float3 Floor() const;
+    float3 Round() const;
+    float3 Sqr() const;
+    float3 Cube() const;
+    float3 ToRadians() const;
+    float3 ToDegrees() const;
+    bool IsNaN() const;
+    bool IsInfinity() const;
+    float x;
+    float y;
+    float z;
+};
+class int3 {
+    int3();
+    int3(int, int, int);
+    bool opEquals(const int3&in) const;
+    int3 opAdd(const int3&in) const;
+    int3 opSub(const int3&in) const;
+    int3 opMul(const int3&in) const;
+    int3 opDiv(const int3&in) const;
+    int3 opAdd(int) const;
+    int3 opSub(int) const;
+    int3 opMul(int) const;
+    int3 opDiv(int) const;
+    int3& opAddAssign(const int3&in) const;
+    int3& opSubAssign(const int3&in) const;
+    int3& opMulAssign(const int3&in) const;
+    int3& opDivAssign(const int3&in) const;
+    int3& opAddAssign(int) const;
+    int3& opSubAssign(int) const;
+    int3& opMulAssign(int) const;
+    int3& opDivAssign(int) const;
+    int Dot(const int3&in) const;
+    int3 Cross(const int3&in) const;
+    int DistanceSquared(const int3&in) const;
+    int LengthSquared() const;
+    int3 Min(const int3&in) const;
+    int3 Max(const int3&in) const;
+    int x;
+    int y;
+    int z;
+};
+class float4 {
+    float4();
+    float4(float x, float y, float z, float w);
+    bool opEquals(const float4&in) const;
+    float4 opAdd(const float4&in) const;
+    float4 opSub(const float4&in) const;
+    float4 opMul(const float4&in) const;
+    float4 opDiv(const float4&in) const;
+    float4 opAdd(float) const;
+    float4 opSub(float) const;
+    float4 opMul(float) const;
+    float4 opDiv(float) const;
+    float4& opAddAssign(const float4&in) const;
+    float4& opSubAssign(const float4&in) const;
+    float4& opMulAssign(const float4&in) const;
+    float4& opDivAssign(const float4&in) const;
+    float4& opAddAssign(float) const;
+    float4& opSubAssign(float) const;
+    float4& opMulAssign(float) const;
+    float4& opDivAssign(float) const;
+    bool AlmostEquals(const float4&in, float tolerance = 0.0001f) const;
+    bool AlmostZero(float tolerance = 0.0001f) const;
+    float Dot(const float4&in) const;
+    float Distance(const float4&in) const;
+    float DistanceSquared(const float4&in) const;
+    float Length() const;
+    float LengthSquared() const;
+    float ComponentProduct() const;
+    float MinComponent() const;
+    float MaxComponent() const;
+    float4 Normalize() const;
+    float4 InverseLerp(float4 a, float4 b) const;
+    float4 Min(const float4&in) const;
+    float4 Max(const float4&in) const;
+    float4 Clamp(float min, float max) const;
+    float4 Clamp(const float4&in min, const float4&in max) const;
+    float4 Wrap(float min, float max) const;
+    float4 Wrap(const float4&in min, const float4&in max) const;
+    float4 Average(const float4&in) const;
+    float4 Lerp(const float4&in v, const float t) const;
+    float4 Abs() const;
+    float4 Acos() const;
+    float4 Asin() const;
+    float4 Atan() const;
+    float4 Cos() const;
+    float4 Cosh() const;
+    float4 Exp() const;
+    float4 Log() const;
+    float4 Log10() const;
+    float4 Sin() const;
+    float4 Sinh() const;
+    float4 Sqrt() const;
+    float4 Tan() const;
+    float4 Tanh() const;
+    float4 Inverse() const;
+    float4 Ceiling() const;
+    float4 Floor() const;
+    float4 Round() const;
+    float4 Sqr() const;
+    float4 Cube() const;
+    float4 ToRadians() const;
+    float4 ToDegrees() const;
+    bool IsNaN() const;
+    bool IsInfinity() const;
+    float x;
+    float y;
+    float z;
+    float w;
+};
+class int4 {
+    int4();
+    int4(int, int, int, int);
+    bool opEquals(const int4&in) const;
+    int4 opAdd(const int4&in) const;
+    int4 opSub(const int4&in) const;
+    int4 opMul(const int4&in) const;
+    int4 opDiv(const int4&in) const;
+    int4 opAdd(int) const;
+    int4 opSub(int) const;
+    int4 opMul(int) const;
+    int4 opDiv(int) const;
+    int4& opAddAssign(const int4&in) const;
+    int4& opSubAssign(const int4&in) const;
+    int4& opMulAssign(const int4&in) const;
+    int4& opDivAssign(const int4&in) const;
+    int4& opAddAssign(int) const;
+    int4& opSubAssign(int) const;
+    int4& opMulAssign(int) const;
+    int4& opDivAssign(int) const;
+    int Dot(const int4&in) const;
+    int DistanceSquared(const int4&in) const;
+    int LengthSquared() const;
+    int4 Min(const int4&in) const;
+    int4 Max(const int4&in) const;
+    int x;
+    int y;
+    int z;
+    int w;
+};
+class color {
+    color();
+    color(uint8 r, uint8 g, uint8 b, uint8 a);
+    color(float r, float g, float b, float a);
+    color(float4 v);
+    color Lerp(const color&in c, const float t);
+    float4 toFloat4();
+    uint toUInt();
+    bool opEquals(const color&in) const;
+    color opAdd(const color&in) const;
+    color opSub(const color&in) const;
+    color opAdd(uint8) const;
+    color opSub(uint8) const;
+    color opMul(uint8) const;
+    color opDiv(uint8) const;
+    color& opAddAssign(const color&in);
+    color& opSubAssign(const color&in);
+    color& opAddAssign(uint8);
+    color& opSubAssign(uint8);
+    color& opMulAssign(uint8);
+    color& opDivAssign(uint8);
+    uint8 x;
+    uint8 y;
+    uint8 z;
+    uint8 w;
+    uint8 r;
+    uint8 g;
+    uint8 b;
+    uint8 a;
+};
+class byte4 {
+    byte4();
+    byte4(int8, int8, int8, int8);
+    byte4(float x, float y, float z, float w);
+    byte4(float4 v);
+    bool opEquals(const byte4&in) const;
+    byte4 opAdd(const byte4&in) const;
+    byte4 opSub(const byte4&in) const;
+    byte4 opAdd(int8) const;
+    byte4 opSub(int8) const;
+    byte4 opMul(int8) const;
+    byte4 opDiv(int8) const;
+    byte4& opAddAssign(const byte4&in);
+    byte4& opSubAssign(const byte4&in);
+    byte4& opAddAssign(int8);
+    byte4& opSubAssign(int8);
+    byte4& opMulAssign(int8);
+    byte4& opDivAssign(int8);
+    int8 x;
+    int8 y;
+    int8 z;
+    int8 w;
+};
+class AABB {
+    AABB();
+    AABB(const float3&in min, const float3&in max);
+    bool opEquals(const AABB&in) const;
+    float3 Center() const;
+    float3 Extent() const;
+    AABB Merge(const AABB&in bb) const;
+    float3 min;
+    float3 max;
+};
+class Rect {
+    Rect();
+    Rect(float2&in min, float2&in max);
+    bool opEquals(const Rect&in) const;
+    float Width() const;
+    float Height() const;
+    float2 Center() const;
+    float2 Size() const;
+    bool Overlaps(const Rect&in) const;
+    bool Contains(const float2&in) const;
+    float2 min;
+    float2 max;
+};
+class RectInt {
+    RectInt();
+    RectInt(int2&in min, int2&in max);
+    bool opEquals(const RectInt&in) const;
+    int Width() const;
+    int Height() const;
+    int2 Center() const;
+    int2 Size() const;
+    bool Overlaps(const RectInt&in) const;
+    bool Contains(const int2&in) const;
+    int2 min;
+    int2 max;
+};
+class float4x4 {
+    float4x4();
+    float4x4(const float4&in r0, const float4&in r1, const float4&in r2, const float4&in r3);
+    bool opEquals(const float4x4&in) const;
+    float4x4 opAdd(const float4x4&in) const;
+    float4x4 opSub(const float4x4&in) const;
+    float4x4 opMul(float) const;
+    float4x4 opDiv(float) const;
+    float4x4 opMul(const float4x4&in) const;
+    float4 opMul(const float4&in) const;
+    float4x4& opAddAssign(const float4x4&in);
+    float4x4& opSubAssign(const float4x4&in);
+    float4x4& opMulAssign(float);
+    float4x4& opDivAssign(float);
+    float4x4& opMulAssign(const float4x4&in);
+    float4x4 Inverse() const;
+    float4x4 Transposed() const;
+    float3 Transform(const float3&in) const;
+    float3 TransformNormal(const float3&in) const;
+    float4& Row0() const;
+    float4& Row1() const;
+    float4& Row2() const;
+    float4& Row3() const;
+};
+namespace Message {
+class MessageToken {
+    void Unsubscribe();
+    string GetUID() const;
+};
+}
+namespace Message {
+class MessageBox {
+    Message::MessageBox@ MessageBox();
+    void RegisterChild(Message::MessageBox@ child);
+    void RegisterChildFront(Message::MessageBox@ child);
+    void UnregisterChild(Message::MessageBox@ child);
+    Message::MessageToken@ RegisterMessageHandle(Message::MessageBox::MouseButtonMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandle(Message::MessageBox::MouseDoubleClickMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandle(Message::MessageBox::MouseSelectMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandle(Message::MessageBox::MouseMoveMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandle(Message::MessageBox::MouseScrollMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandle(Message::MessageBox::KeyMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandleFront(Message::MessageBox::MouseButtonMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandleFront(Message::MessageBox::MouseDoubleClickMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandleFront(Message::MessageBox::MouseSelectMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandleFront(Message::MessageBox::MouseMoveMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandleFront(Message::MessageBox::MouseScrollMessage@ callback);
+    Message::MessageToken@ RegisterMessageHandleFront(Message::MessageBox::KeyMessage@ callback);
+    funcdef bool MouseButtonMessage(float, float, int, bool);
+    funcdef bool MouseDoubleClickMessage(float, float, int);
+    funcdef bool MouseSelectMessage(float, float, int);
+    funcdef bool MouseMoveMessage(float, float, float, float);
+    funcdef bool MouseScrollMessage(float, float, int);
+    funcdef bool KeyMessage(int, bool);
+};
+}
+namespace ImGui {
+class Texture {
+    ImGui::Texture@ Texture(const Scene::Components::SceneViewComponent&in sceneView);
+    void UpdateTexture(const Scene::Components::SceneViewComponent&in sceneView);
+};
+}
+namespace ImGui {
+class ListClipper {
+    ~ListClipper();
+    ListClipper();
+    void Begin(int items_count, float items_height = - 1.0f);
+    void End();
+    bool Step();
+    void IncludeItemByIndex(int item_index);
+    void IncludeItemsByIndex(int item_begin, int item_end);
+    int DisplayStart;
+    int DisplayEnd;
+};
+}
+namespace ImGui {
+class ImGuiTableColumnSortSpecs {
+    uint ColumnUserID;
+    uint16 ColumnIndex;
+    uint16 SortOrder;
+    uint8 SortDirection;
+};
+}
+namespace ImGui {
+class ImGuiTableSortSpecs {
+    const ImGui::ImGuiTableColumnSortSpecs@ GetSpec(int index);
+    int SpecsCount;
+    bool SpecsDirty;
+};
+}
+namespace ImGui {
+class ImDrawList {
+    void PushClipRect(const float2&in cr_min, const float2&in cr_max, bool intersect_with_current_clip_rect = false);
+    void PushClipRectFullScreen();
+    void PopClipRect();
+    void AddLine(const float2&in p1, const float2&in p2, const color&in col, float thickness = 1.f);
+    void AddTriangle(const float2&in p1, const float2&in p2, const float2&in p3, const color&in col, float thickness = 1.f);
+    void AddTriangleFilled(const float2&in p1, const float2&in p2, const float2&in p3, const color&in col);
+    void AddRect(const float2&in p_min, const float2&in p_max, const color&in col, float rounding = 0.0f, int rounding_corners = ImDrawFlags_None, float thickness = 1.f);
+    void AddRectFilled(const float2&in p_min, const float2&in p_max, const color&in col, float rounding = 0.0f, int rounding_corners = ImDrawFlags_None);
+    void AddCircle(const float2&in center, float radius, const color&in col, int num_segments = 12, float thickness = 1.f);
+    void AddCircleFilled(const float2&in center, float radius, const color&in col, int num_segments = 12);
+    void AddText(const float2&in pos, const color&in col, const string&in text);
+    void AddImage(const ImGui::Texture&in texture, const float2&in p_min, const float2&in p_max, const float2&in uv_min, const float2&in uv_max, const color&in col);
+    void AddImageRounded(const ImGui::Texture&in texture, const float2&in p_min, const float2&in p_max, const float2&in uv_min, const float2&in uv_max, const color&in col, float rounding, int flags);
+    void AddQuad(const float2&in p1, const float2&in p2, const float2&in p3, const float2&in p4, const color&in col, float thickness = 1.f);
+    void AddQuadFilled(const float2&in p1, const float2&in p2, const float2&in p3, const float2&in p4, const color&in col);
+    void AddNgon(const float2&in center, float radius, const color&in col, int num_segments, float thickness = 1.f);
+    void AddNgonFilled(const float2&in center, float radius, const color&in col, int num_segments);
+    void AddEllipse(const float2&in center, const float2&in radius, const color&in col, float rot = 0.f, int num_segments = 0, float thickness = 1.f);
+    void AddEllipseFilled(const float2&in center, const float2&in radius, const color&in col, float rot = 0.f, int num_segments = 0);
+    void AddBezierCubic(const float2&in p1, const float2&in p2, const float2&in p3, const float2&in p4, const color&in col, float thickness, int num_segments = 0);
+    void AddBezierQuadratic(const float2&in p1, const float2&in p2, const float2&in p3, const color&in col, float thickness, int num_segments = 0);
+    void AddRectFilledMultiColor(const float2&in p_min, const float2&in p_max, const color&in col_upr_left, const color&in col_upr_right, const color&in col_bot_right, const color&in col_bot_left);
+    void PathClear();
+    void PathLineTo(const float2&in pos);
+    void PathLineToMergeDuplicate(const float2&in pos);
+    void PathFillConvex(const color&in col);
+    void PathStroke(const color&in col, int flags = 0, float thickness = 1.f);
+    void PathArcTo(const float2&in center, float radius, float a_min, float a_max, int num_segments = 0);
+    void PathArcToFast(const float2&in center, float radius, int a_min_of_12, int a_max_of_12);
+    void PathEllipticalArcTo(const float2&in center, const float2&in radius, float rot, float a_min, float a_max, int num_segments = 0);
+    void PathBezierCubicCurveTo(const float2&in p2, const float2&in p3, const float2&in p4, int num_segments = 0);
+    void PathBezierQuadraticCurveTo(const float2&in p2, const float2&in p3, int num_segments = 0);
+    void PathRect(const float2&in rect_min, const float2&in rect_max, float rounding = 0.f, int flags = 0);
+    void AddPolyline(const float2[]&in points, const color&in col, int flags, float thickness);
+    void AddConvexPolyFilled(const float2[]&in points, const color&in col);
+    void AddConcavePolyFilled(const float2[]&in points, const color&in col);
+};
+}
+namespace ImGui {
+class ImGuiStyle {
+    ImGuiStyle();
+    void ScaleAllSizes(float scale);
+    color GetStyleColor(int idx);
+    float Alpha;
+    float DisabledAlpha;
+    float2 WindowPadding;
+    float WindowRounding;
+    float WindowBorderSize;
+    float WindowBorderHoverPadding;
+    float2 WindowMinSize;
+    float2 WindowTitleAlign;
+    int WindowMenuButtonPosition;
+    float ChildRounding;
+    float ChildBorderSize;
+    float PopupRounding;
+    float PopupBorderSize;
+    float2 FramePadding;
+    float FrameRounding;
+    float FrameBorderSize;
+    float2 ItemSpacing;
+    float2 ItemInnerSpacing;
+    float2 CellPadding;
+    float2 TouchExtraPadding;
+    float IndentSpacing;
+    float ColumnsMinSpacing;
+    float ScrollbarSize;
+    float ScrollbarRounding;
+    float GrabMinSize;
+    float GrabRounding;
+    float LogSliderDeadzone;
+    float ImageBorderSize;
+    float TabRounding;
+    float TabBorderSize;
+    float TabCloseButtonMinWidthSelected;
+    float TabCloseButtonMinWidthUnselected;
+    float TabBarBorderSize;
+    float TabBarOverlineSize;
+    float TableAngledHeadersAngle;
+    float2 TableAngledHeadersTextAlign;
+    int ColorButtonPosition;
+    float2 ButtonTextAlign;
+    float2 SelectableTextAlign;
+    float SeparatorTextBorderSize;
+    float2 SeparatorTextAlign;
+    float2 SeparatorTextPadding;
+    float2 DisplayWindowPadding;
+    float2 DisplaySafeAreaPadding;
+    float DockingSeparatorSize;
+    float MouseCursorScale;
+    bool AntiAliasedLines;
+    bool AntiAliasedLinesUseTex;
+    bool AntiAliasedFill;
+    float CurveTessellationTol;
+    float CircleTessellationMaxError;
+};
+}
+namespace ImGui {
+class ImDrawListSplitter {
+    ImDrawListSplitter();
+    void ClearFreeMemory();
+    void Split(ImGui::ImDrawList@ draw_list, int count);
+    void Merge(ImGui::ImDrawList@ draw_list);
+    void SetCurrentChannel(ImGui::ImDrawList@ draw_list, int channel_idx);
+};
+}
+namespace ImPlot {
+class ImPlotPoint {
+    ~ImPlotPoint();
+    ImPlotPoint();
+    ImPlotPoint(double, double);
+    ImPlotPoint(const float2&in);
+    double& opIndex(uint);
+    const double opIndex(uint) const;
+    double x;
+    double y;
+};
+}
+namespace ImPlot {
+class ImPlotRange {
+    ~ImPlotRange();
+    ImPlotRange();
+    ImPlotRange(double, double);
+    bool Contains(double) const;
+    double Size() const;
+    double Clamp(double) const;
+    double Min;
+    double Max;
+};
+}
+namespace ImPlot {
+class ImPlotRect {
+    ~ImPlotRect();
+    ImPlotRect();
+    ImPlotRect(double, double, double, double);
+    bool Contains(const ImPlot::ImPlotPoint&in) const;
+    bool Contains(double, double) const;
+    ImPlot::ImPlotPoint Size() const;
+    ImPlot::ImPlotPoint Clamp(const ImPlot::ImPlotPoint&in);
+    ImPlot::ImPlotPoint Clamp(double, double);
+    ImPlot::ImPlotPoint Min() const;
+    ImPlot::ImPlotPoint Max() const;
+    ImPlot::ImPlotRange X;
+    ImPlot::ImPlotRange Y;
+};
+}
+namespace ImPlot {
+class ImPlotStyle {
+    ~ImPlotStyle();
+    ImPlotStyle();
+    float LineWeight;
+    int Marker;
+    float MarkerSize;
+    float MarkerWeight;
+    float FillAlpha;
+    float ErrorBarSize;
+    float ErrorBarWeight;
+    float DigitalBitHeight;
+    float DigitalBitGap;
+    float PlotBorderSize;
+    float MinorAlpha;
+    float2 MajorTickLen;
+    float2 MinorTickLen;
+    float2 MajorTickSize;
+    float2 MinorTickSize;
+    float2 MajorGridSize;
+    float2 MinorGridSize;
+    float2 PlotPadding;
+    float2 LabelPadding;
+    float2 LegendPadding;
+    float2 LegendInnerPadding;
+    float2 LegendSpacing;
+    float2 MousePosPadding;
+    float2 AnnotationPadding;
+    float2 FitPadding;
+    float2 PlotDefaultSize;
+    float2 PlotMinSize;
+    ImPlot::ImPlotColormap Colormap;
+    bool UseLocalTime;
+    bool UseISO8601;
+    bool Use24HourClock;
+};
+}
+namespace ImPlot {
+class ImPlotInputMap {
+    ~ImPlotInputMap();
+    ImPlotInputMap();
+    int Pan;
+    int PanMod;
+    int Fit;
+    int Select;
+    int SelectCancel;
+    int SelectMod;
+    int SelectHorzMod;
+    int SelectVertMod;
+    int Menu;
+    int OverrideMod;
+    int ZoomMod;
+    float ZoomRate;
+};
+}
+namespace Core {
+class Job {
+    float GetProgress();
+    bool IsCancelled();
+    bool IsCompleted();
+    void Cancel();
+};
+}
+namespace Scene {
+class GenericValue {
+    ~GenericValue();
+    GenericValue();
+    Scene::GenericValue& opAssign(const Scene::GenericValue&in);
+    uint GetUInt32();
+    uint64 GetUInt64();
+    int GetInt32();
+    int64 GetInt64();
+    const string& GetString();
+    string GetAsString();
+    double GetDouble();
+    float GetFloat();
+    float2& GetFloat2();
+    float3& GetFloat3();
+    bool GetBool();
+    void SetUInt32(uint);
+    void SetUInt64(uint64);
+    void SetInt32(int);
+    void SetInt64(int64);
+    void SetString(const string&in);
+    void SetDouble(double);
+    void SetFloat(float);
+    void SetFloat2(float2&in);
+    void SetFloat3(float3&in);
+    void SetBool(bool);
+    bool IsNumeric();
+    Scene::GenericValue opAdd(const Scene::GenericValue&in);
+    Scene::GenericValue& opAddAssign(const Scene::GenericValue&in);
+    Scene::GenericValue opDiv(const Scene::GenericValue&in);
+    int opCmp(const Scene::GenericValue&in);
+};
+}
+namespace Scene {
+class SceneInitData {
+    ~SceneInitData();
+    SceneInitData();
+    Scene::SceneInitData& opAssign(const Scene::SceneInitData&in);
+    uint textAtlasSizeX;
+    uint textAtlasSizeY;
+};
+}
+namespace Scene {
+class Element {
+    hstring name;
+    uint index;
+    uint indexInVim;
+    uint vimIndex;
+    uint faceCount;
+    int id;
+    hstring type;
+    hstring uniqueId;
+    float3 location;
+    hstring familyName;
+    bool isPinned;
+    uint levelIndex;
+    uint phaseCreatedIndex;
+    uint phaseDemolishedIndex;
+    uint categoryIndex;
+    uint worksetIndex;
+    uint designOptionIndex;
+    uint ownerViewIndex;
+    uint groupIndex;
+    uint assemblyInstanceIndex;
+    uint bimDocumentIndex;
+    uint roomIndex;
+};
+}
+namespace Scene {
+class Parameter {
+    hstring name;
+    hstring group;
+    hstring nativeValue;
+    hstring displayValue;
+    hstring displayUnit;
+    Scene::ParameterType type;
+};
+}
+namespace Scene {
+class Category {
+    int index;
+    hstring name;
+    hstring fullName;
+    int id;
+    hstring categoryType;
+    float3 lineColor;
+    hstring builtInCategory;
+    int parentIndex;
+    int materialIndex;
+};
+}
+namespace Scene {
+class SectionBoxState {
+    ~SectionBoxState();
+    SectionBoxState();
+    bool visible;
+    bool interactive;
+    bool clip;
+    AABB aabb;
+};
+}
+namespace Scene {
+class TreeTableNode {
+    Scene::TreeTableNode@ TreeTableNode();
+    uint GetChildCount() const;
+    uint GetChildAt(uint) const;
+    void SetChildAt(uint, uint);
+    void AddChild(uint);
+    void ClearChildren();
+    void ResizeChildren(uint);
+    bool IsChildrenEmpty() const;
+    void Destroy();
+    uint GetAggValueCount() const;
+    Scene::GenericValue GetAggValue(uint) const;
+    void SetAggValue(uint, const Scene::GenericValue&in);
+    void ResizeAggValues(uint);
+    hstring name;
+    uint index;
+    uint elementIndex;
+    uint parentIndex;
+    bool expanded;
+    bool selected;
+    bool isGroup;
+    int depth;
+    uint leafCount;
+    int rowIndex;
+};
+}
+namespace Scene {
+class SceneItem {
+    ~SceneItem();
+    SceneItem();
+    SceneItem(const Scene::SceneItem&in other);
+    SceneItem(Scene::TreeTableNode@ treeNode);
+    SceneItem(uint elementIndex);
+    Scene::SceneItem& opAssign(const Scene::SceneItem&in);
+    bool IsElement();
+    bool IsMarker();
+    bool IsSceneObject();
+    string GetName();
+    uint GetElement();
+    Scene::TreeTableNode@ GetTreeNode();
+    Scene::SceneItemType GetType();
+};
+}
+namespace Scene {
+class SceneItemSet {
+    Scene::SceneItemSet@ SceneItemSet();
+    Scene::SceneItemSet& opAssign(const Scene::SceneItemSet&in);
+    bool opEquals(const Scene::SceneItemSet&in);
+    void Clear();
+    uint Count() const;
+    uint[]@ GetElements() const;
+    Scene::TreeTableNode@[]@ GetTreeNodes() const;
+    Scene::SceneItem[]@ GetSceneItems() const;
+    void Add(Scene::SceneItem[]&in sceneItems);
+    void Add(Scene::Element@[]&in elements);
+    void Add(uint[]&in elements);
+    void Add(Scene::SceneItem&in sceneItem);
+    void AddFromSet(set<Scene::TreeTableNode@>@ set);
+    void Replace(Scene::SceneItem[]&in sceneItems);
+    void Replace(Scene::SceneItem&in sceneItem);
+    void Remove(Scene::SceneItem[]&in sceneItems);
+    void Remove(Scene::SceneItem&in sceneItem);
+    void Toggle(Scene::SceneItem[]&in sceneItems);
+    void Toggle(Scene::SceneItem&in sceneItem);
+    bool Contains(Scene::SceneItem&in sceneItem);
+    void Add(const Scene::SceneItemSet&in set);
+    void Remove(const Scene::SceneItemSet&in set);
+    Scene::SceneItemSet@ Subtract(const Scene::SceneItemSet&in set) const;
+    Scene::SceneItemSet@ Intersect(const Scene::SceneItemSet&in set) const;
+    uint size;
+};
+}
+namespace Scene {
+class MaterialService {
+    uint GetMaterialHandle(const string&in);
+    uint GetMaterialFromMaterialInstance(uint64);
+    uint64 CreateMaterialInstance(const string&in, const color&in, const color&in);
+    uint64 CreateMaterialInstance(uint, const color&in, const color&in);
+    uint64 CreateMaterialInstance(const string&in, const color&in, const color&in, uint64);
+    uint64 CreateMaterialInstance(uint, const color&in, const color&in, uint64);
+    uint64 CreateTexturedMaterialInstance(const string&in, uint64);
+    uint64 CreateTexturedMaterialInstance(const string&in, uint64, const color&in, const color&in);
+    uint64 CreateTexturedMaterialInstance(uint, uint64);
+    uint64 CreateTexturedMaterialInstance(uint, uint64, const color&in, const color&in);
+    void UpdateMaterialInstance(uint64, const string&in, const color&in, const color&in);
+    void UpdateMaterialInstance(uint64, uint, const color&in, const color&in);
+    void UpdateMaterialInstance(uint64, const string&in, const color&in, const color&in, uint64);
+    void UpdateMaterialInstance(uint64, uint, const color&in, const color&in, uint64);
+    void DestroyMaterialInstance(uint64);
+    void DestroyColorMaterialInstances();
+    void SetMaterialOverride(const Scene::SceneItem&in, uint64);
+    void SetMaterialOverride(const Scene::SceneItemSet@, const uint64[]&in);
+    void SetMaterialOverride(const Scene::SceneItemSet@, uint64);
+    void SetMaterialOverride(const Scene::SceneItem[]&in, uint64);
+    void SetMaterialOverride(const Scene::SceneItem[]&in, const uint64[]&in);
+    void SetColor(const Scene::SceneItem&in, const color&in);
+    void SetColor(const Scene::SceneItem[]&in, const color&in);
+    void SetColor(Scene::SceneItemSet@, const color&in);
+    void SetColor(Scene::SceneItemSet@, const color[]&in);
+    void SetColor(const Scene::SceneItem[]&in, const color[]&in);
+    void ClearMaterialOverrides();
+    void ClearMaterialOverrides(Scene::SceneItem);
+    void ClearMaterialOverrides(const Scene::SceneItem[]&in);
+};
+}
+namespace Scene {
+class VertexBufferData {
+    Scene::VertexBufferData@ VertexBufferData();
+    uint get_vertexCount() const;
+    uint get_indexCount() const;
+    void SetIndices(const uint[]&in indices);
+    void SetPositions(const float3[]&in positions);
+    void SetNormals(const byte4[]&in normals);
+    void SetTextureCoordinates(const float2[]&in uvs);
+    void GenerateNormals(bool flip = false);
+};
+}
+namespace Scene {
+class MeshService {
+    uint CreateMesh(Scene::VertexBufferData@ data);
+    uint CreateBox(float width, float height, float depth);
+    uint CreateSphere(float radius, int segments);
+    uint CreateCylinder(float radius, float height);
+    uint CreateCylinder(float radius, float height, int segments);
+    uint CreateCapsule(float radius, float height);
+    uint CreateCapsule(float radius, float height, int segments);
+    uint CreatePlane(float width, float height);
+    uint LoadObj(const string&in filePath);
+    Scene::VertexBufferData@ LoadObjToVertexBuffer(const string&in filePath);
+    void UpdateMesh(uint meshHandle, Scene::VertexBufferData@ data);
+    void DestroyMesh(uint meshHandle);
+    void DestroyAllMeshes();
+};
+}
+namespace Scene {
+class FontService {
+    uint CreateFont(const uint8[]&in fontData, uint fontSize);
+    uint LoadFontFromFile(const string&in, uint);
+    void DestroyFont(uint);
+    void DestroyAllFonts();
+};
+}
+namespace Scene {
+class TextureService {
+    uint64 LoadTexture(const string&in filePath);
+    uint64 LoadTexture(const string&in filePath, bool flipY);
+    uint64 LoadTextureCached(const string&in filePath);
+    uint64 LoadTextureCached(const string&in filePath, bool flipY);
+    uint64 CreateTexture(uint width, uint height, const color[]&in pixels);
+    uint64 CreateSolidColor(uint width, uint height, const color&in color);
+    uint64 CreateCheckerboard(uint width, uint height, uint checkSize, const color&in color1, const color&in color2);
+    void DestroyTexture(uint64 handle);
+    void DestroyAllTextures();
+    void ClearCache();
+};
+}
+namespace Scene {
+class SoundConfig {
+    SoundConfig();
+    float volume;
+    float pitch;
+    float pan;
+    float minDistance;
+    float maxDistance;
+    float dopplerFactor;
+    bool loop;
+    bool spatial;
+    bool startPaused;
+};
+}
+namespace Scene {
+class SoundService {
+    bool get_isInitialized() const;
+    void SetListenerPosition(const float3&in position);
+    void SetListenerVelocity(const float3&in velocity);
+    void SetListenerOrientation(const float3&in forward, const float3&in up);
+    void SetListenerCone(float innerAngleDeg, float outerAngleDeg, float outerGain);
+    float3 GetListenerPosition() const;
+    uint LoadSound(const string&in filePath);
+    uint LoadSoundFromMemory(const uint8[]&in data, const string&in name);
+    void UnloadSound(uint handle);
+    void UnloadAllSounds();
+    bool IsSoundLoaded(uint soundHandle) const;
+    uint Play(uint soundHandle);
+    uint Play(uint soundHandle, const Scene::SoundConfig&in config);
+    uint PlayAt(uint soundHandle, const float3&in position);
+    uint PlayAt(uint soundHandle, const float3&in position, const Scene::SoundConfig&in config);
+    void PlayOneShot(uint soundHandle, float volume = 1.0f);
+    void PlayOneShotAt(uint soundHandle, const float3&in position, float volume = 1.0f);
+    void Stop(uint instanceHandle);
+    void StopAll();
+    void StopAllOfSound(uint soundHandle);
+    void Pause(uint instanceHandle);
+    void Resume(uint instanceHandle);
+    void PauseAll();
+    void ResumeAll();
+    void SetPosition(uint instanceHandle, const float3&in position);
+    void SetVelocity(uint instanceHandle, const float3&in velocity);
+    void SetVolume(uint instanceHandle, float volume);
+    void SetPitch(uint instanceHandle, float pitch);
+    void SetPan(uint instanceHandle, float pan);
+    void SetLooping(uint instanceHandle, bool loop);
+    float GetVolume(uint instanceHandle) const;
+    float GetPitch(uint instanceHandle) const;
+    bool IsPlaying(uint instanceHandle) const;
+    bool IsPaused(uint instanceHandle) const;
+    bool IsLooping(uint instanceHandle) const;
+    float GetPlaybackPosition(uint instanceHandle) const;
+    void SetPlaybackPosition(uint instanceHandle, float seconds);
+    float GetSoundDuration(uint soundHandle) const;
+    void SetMasterVolume(float volume);
+    float GetMasterVolume() const;
+    void SetMuted(bool muted);
+    bool IsMuted() const;
+    uint GetLoadedSoundCount() const;
+    uint GetActiveInstanceCount() const;
+};
+}
+namespace Scene {
+class PhysicsBodySettings {
+    PhysicsBodySettings();
+    Scene::PhysicsBodyType bodyType;
+    Scene::PhysicsShapeType shapeType;
+    float3 position;
+    float4 rotation;
+    float3 linearVelocity;
+    float3 angularVelocity;
+    float3 boxHalfExtents;
+    float sphereRadius;
+    float capsuleHalfHeight;
+    float capsuleRadius;
+    float cylinderHalfHeight;
+    float cylinderRadius;
+    float mass;
+    float friction;
+    float restitution;
+    float linearDamping;
+    float angularDamping;
+    float gravityFactor;
+    float3 shapeOffset;
+};
+}
+namespace Scene {
+class RaycastResult {
+    RaycastResult();
+    bool hit;
+    uint64 body;
+    float3 hitPoint;
+    float3 hitNormal;
+    float distance;
+};
+}
+namespace Scene {
+class PhysicsService {
+    void Init(float3&in gravity = float3 ( 0 , 0 , - 9.81f ), uint maxBodies = 65536);
+    uint64 CreateBody(Scene::PhysicsBodySettings&in settings);
+    uint64 CreateBoxBody(float3&in position, float3&in halfExtents, Scene::PhysicsBodyType bodyType = PhysicsBodyType :: Dynamic, float mass = 1.0f);
+    uint64 CreateSphereBody(float3&in position, float radius, Scene::PhysicsBodyType bodyType = PhysicsBodyType :: Dynamic, float mass = 1.0f);
+    uint64 CreateCapsuleBody(float3&in position, float halfHeight, float radius, Scene::PhysicsBodyType bodyType = PhysicsBodyType :: Dynamic, float mass = 1.0f);
+    uint64 RegisterStaticBox(float3&in position, float3&in halfExtents, float4&in rotation = float4 ( 0 , 0 , 0 , 1 ));
+    uint64 RegisterStaticPlane(float3&in point, float3&in normal);
+    uint64 RegisterStaticMesh(float3[]@ vertices, uint[]@ indices, float4x4&in transform);
+    void DestroyBody(uint64 handle);
+    void DestroyAllBodies();
+    bool IsValidBody(uint64 handle) const;
+    float4x4 GetBodyTransform(uint64 handle) const;
+    float3 GetBodyPosition(uint64 handle) const;
+    float4 GetBodyRotation(uint64 handle) const;
+    float3 GetLinearVelocity(uint64 handle) const;
+    float3 GetAngularVelocity(uint64 handle) const;
+    void SetBodyTransform(uint64 handle, float4x4&in transform);
+    void SetBodyPosition(uint64 handle, float3&in position);
+    void SetBodyRotation(uint64 handle, float4&in rotation);
+    void SetLinearVelocity(uint64 handle, float3&in velocity);
+    void SetAngularVelocity(uint64 handle, float3&in velocity);
+    void AddForce(uint64 handle, float3&in force);
+    void AddForceAtPosition(uint64 handle, float3&in force, float3&in position);
+    void AddImpulse(uint64 handle, float3&in impulse);
+    void AddImpulseAtPosition(uint64 handle, float3&in impulse, float3&in position);
+    void AddTorque(uint64 handle, float3&in torque);
+    void SetBodyActive(uint64 handle, bool active);
+    bool IsBodyActive(uint64 handle) const;
+    void SetGravityFactor(uint64 handle, float factor);
+    Scene::RaycastResult Raycast(float3&in origin, float3&in direction, float maxDistance) const;
+    Scene::RaycastResult[]@ RaycastAll(float3&in origin, float3&in direction, float maxDistance) const;
+    void SetGravity(float3&in gravity);
+    float3 GetGravity() const;
+    void SetSimulationSubSteps(int subSteps);
+    uint GetActiveBodyCount() const;
+    uint GetTotalBodyCount() const;
+};
+}
+namespace Scene {
+class Entity {
+    ~Entity();
+    Entity();
+    Scene::Entity& opAssign(const Scene::Entity&in);
+    bool IsValid();
+};
+}
+namespace Scene {
+class EntityService {
+    Scene::Entity CreateEntity();
+    void DestroyEntity(Scene::Entity handle);
+};
+}
+namespace Scene {
+class SceneItemService {
+    AABB GetAABB(const Scene::SceneItemSet@ sceneItemSet);
+    AABB GetAABB(const Scene::SceneItem&in sceneItem);
+    uint[]@ GetInstances(const Scene::SceneItemSet&inout set);
+    uint[]@ GetInstances(Scene::SceneItem[]@ arr);
+};
+}
+namespace Scene {
+class InstanceService {
+    float4x4 GetTransform(const Scene::SceneItem&in sceneItem);
+    float4x4[]@ GetTransforms(const Scene::SceneItemSet@ sceneItemSet);
+    float4x4[]@ GetTransforms(Scene::SceneItem[]@ arr);
+    void SetTransform(const Scene::SceneItem&in sceneItem, const float4x4&in transform);
+    void SetTransforms(const Scene::SceneItemSet@ sceneItemSet, const float4x4&in transform);
+    void SetTransforms(Scene::SceneItem[]@ arr, const float4x4&in transform);
+    void SetTransforms(const Scene::SceneItemSet@ sceneItemSet, float4x4[]@ transforms);
+    void SetTransforms(Scene::SceneItem[]@ arr, float4x4[]@ transforms);
+    void ClearTransformOverrides();
+    void ClearTransformOverrides(const Scene::SceneItem&in sceneItem);
+    void ClearTransformOverrides(const Scene::SceneItemSet@ sceneItemSet);
+    void ClearTransformOverrides(Scene::SceneItem[]@ arr);
+};
+}
+namespace Scene {
+class AnimationService {
+    uint64 StartAnimation(const Scene::SceneItem&in sceneItem, const float4x4&in endTransform, float duration);
+    uint64 StartAnimation(const Scene::SceneItem&in sceneItem, const float4x4&in startTransform, const float4x4&in endTransform, float duration);
+    uint64 StartAnimations(Scene::SceneItem[]@ arr, float4x4[]@ endTransforms, float duration);
+    uint64 StartAnimations(Scene::SceneItem[]@ arr, float4x4[]@ startTransforms, float4x4[]@ endTransforms, float duration);
+    uint64 StartAnimations(const Scene::SceneItemSet@ sceneItemSet, const float4x4&in endTransform, float duration);
+    void StopAnimation(uint64 animationId);
+    void StopAllAnimations();
+    bool IsAnimationRunning(uint64 animationId);
+    uint64 GetActiveAnimationCount();
+};
+}
+namespace Scene {
+class EventToken {
+    void Unsubscribe();
+    string GetUID() const;
+};
+}
+namespace Scene {
+class Event {
+    Scene::Event@ Event();
+    Scene::EventToken@ Subscribe(Scene::Event::EventCallback@ function);
+    void Call();
+    void Clear();
+    funcdef void EventCallback();
+    funcdef void HitTestCallback(uint, const float3&in, const float3&in);
+    funcdef void ProgressCallback(float);
+};
+}
+namespace Scene {
+class SelectionService {
+    void Apply(const Scene::SceneItemSet@ selectionSet);
+    void Clear();
+    uint Count();
+    const Scene::SceneItemSet@ GetSelectionSet() const;
+    Scene::Event@ OnSelectionChanged();
+    void Add(Scene::SceneItem[]&in sceneItems);
+    void Add(Scene::SceneItem&in sceneItem);
+    void Replace(Scene::SceneItem[]&in sceneItems);
+    void Replace(Scene::SceneItem&in sceneItem);
+    void Remove(Scene::SceneItem[]&in sceneItems);
+    void Remove(Scene::SceneItem&in sceneItem);
+    void Toggle(Scene::SceneItem[]&in sceneItems);
+    void Toggle(Scene::SceneItem&in sceneItem);
+};
+}
+namespace Scene {
+class VimDataService {
+    Scene::VimData@ GetVimData();
+    Scene::Event@ OnVimDataChanged();
+    AABB GetGlobalBoundingBox(bool exact);
+    bool TryGetElementFromInstanceIndex(uint, uint&out);
+    Scene::SceneItemSet@ GetAllElements();
+};
+}
+namespace Scene {
+class VimLoadService {
+    Core::Job@ LoadVim(string&in fileName);
+    Core::Job@ LoadVimUrl(string&in url, string&in authToken);
+    void UnloadVim();
+};
+}
+namespace Scene {
+class VisibilityService {
+    void SetSceneItemState(const Scene::SceneItem&in sceneItem, int state);
+    void SetSceneItemState(const Scene::SceneItemSet@ sceneItems, int state);
+    void SetSceneItemState(const Scene::SceneItem[]@ sceneItems, int[]@ state);
+    void SetStateAll(Scene::SceneItemType sceneItemType, int state);
+    void UpdateVisibility();
+};
+}
+namespace Scene {
+class Scene {
+    Scene::Scene@ Scene();
+    void Init(Scene::SceneInitData&in sceneInitData);
+    void Destroy();
+    string GetUID() const;
+    Scene::EntityService entityService;
+    Scene::SceneItemService sceneItemService;
+    Scene::SelectionService selectionService;
+    Scene::VimDataService vimDataService;
+    Scene::VimLoadService vimLoadService;
+    Scene::VisibilityService visibilityService;
+    Scene::MaterialService materialService;
+    Scene::MeshService meshService;
+    Scene::FontService fontService;
+    Scene::InstanceService instanceService;
+    Scene::AnimationService animationService;
+    Scene::TextureService textureService;
+    Scene::SoundService soundService;
+    Scene::PhysicsService physicsService;
+};
+}
+namespace Scene {
+class ViewSettings {
+    ~ViewSettings();
+    ViewSettings();
+    RectInt blitRegion;
+    RectInt visibleRegion;
+    int2 resolution;
+    uint sceneHandle;
+};
+}
+namespace Scene {
+class CameraSettings {
+    ~CameraSettings();
+    CameraSettings();
+    float nearPlane;
+    float farPlane;
+    float fov;
+};
+}
+namespace Scene {
+class RenderSettings {
+    ~RenderSettings();
+    RenderSettings();
+    float SSAORadius;
+    float SSAOFallOff;
+    float MinObjectSize;
+    float MinObjectLodSize;
+    float MaxObjectLodSize;
+    float MaxAverageTrianglesPerPixel;
+    float SunAzimuthalAngle;
+    float SunPolarAngle;
+    float SunIntensity;
+    float RayleighBeta;
+    float MieBeta;
+    float MieAsymmetry;
+    uint RenderLightMode;
+    float ToneMappingWhitePoint;
+    float HDRScale;
+    float TAAResolveBlend;
+    float ImageDithering;
+    float4 BackgroundColor;
+    float4 GhostColor;
+    uint SlicingPrimitive;
+};
+}
+namespace Scene {
+class RenderSettingsService {
+    Scene::RenderSettings GetRenderSettings() const;
+    void SetRenderSettings(const Scene::RenderSettings&in);
+    Scene::CameraSettings GetCameraSettings() const;
+    void SetCameraSettings(const Scene::CameraSettings&in);
+    float GetSSAORadius() const;
+    void SetSSAORadius(float);
+    float GetSSAOFallOff() const;
+    void SetSSAOFallOff(float);
+    float GetMinObjectSize() const;
+    void SetMinObjectSize(float);
+    float GetMinObjectLodSize() const;
+    void SetMinObjectLodSize(float);
+    float GetMaxObjectLodSize() const;
+    void SetMaxObjectLodSize(float);
+    float GetMaxAverageTrianglesPerPixel() const;
+    void SetMaxAverageTrianglesPerPixel(float);
+    float GetSunAzimuthalAngle() const;
+    void SetSunAzimuthalAngle(float);
+    float GetSunPolarAngle() const;
+    float GetSunIntensity() const;
+    float GetRayleighBeta() const;
+    float GetMieBeta() const;
+    float GetMieAsymmetry() const;
+    void SetSunPolarAngle(float);
+    void SetSunIntensity(float);
+    void SetRayleighBeta(float);
+    void SetMieBeta(float);
+    void SetMieAsymmetry(float);
+    uint GetRenderLightMode() const;
+    void SetRenderLightMode(uint);
+    uint GetMaxSceneVBSize() const;
+    void SetMaxSceneVBSize(uint);
+    uint GetMaxSceneTBSize() const;
+    void SetMaxSceneTBSize(uint);
+    uint GetMaxSceneIBSize() const;
+    void SetMaxSceneIBSize(uint);
+    uint GetMaxSceneBytesToUploadPerFrame() const;
+    void SetMaxSceneBytesToUploadPerFrame(uint);
+    uint GetMaxSceneMeshesToUploadPerFrame() const;
+    void SetMaxSceneMeshesToUploadPerFrame(uint);
+    float GetToneMappingWhitePoint() const;
+    void SetToneMappingWhitePoint(float);
+    float GetHDRScale() const;
+    void SetHDRScale(float);
+    float GetTAAResolveBlend() const;
+    void SetTAAResolveBlend(float);
+    float GetImageDithering() const;
+    void SetImageDithering(float);
+    float4 GetBackgroundColor() const;
+    void SetBackgroundColor(const float4&in);
+    float4 GetGhostColor() const;
+    void SetGhostColor(const float4&in);
+    float GetNearPlane() const;
+    void SetNearPlane(float);
+    float GetFarPlane() const;
+    void SetFarPlane(float);
+    float GetFov() const;
+    void SetFov(float);
+    int2 GetResolution() const;
+    void SetResolution(int2&in);
+    uint GetResolutionDivider() const;
+    void SetResolutionDivider(uint);
+};
+}
+namespace Scene::Components {
+class SceneViewComponent {
+    Scene::Components::SceneViewComponent@ SceneViewComponent(Scene::Scene&inout scene, Scene::Entity entityHandle, const Scene::Components::SceneViewCreateInfo&in createInfo);
+    void SetCamera(Scene::Components::CameraComponent@ camera);
+    void FrameAll(float blendTime = 1.0f);
+    void FrameAABB(const AABB&in aabb, float blendTime = 1.0f);
+    void FrameSceneItem(const Scene::SceneItem&in sceneItem, float blendTime = 1.0f);
+    void FrameSceneItems(const Scene::SceneItemSet@ sceneItemSet, float blendTime = 1.0f);
+    bool SetOrbitalTarget(const float3&in orbitalTarget);
+    bool SetOrbitalTarget(const Scene::SceneItemSet@ sceneItemSet);
+    void UpdateBlitRegion(const RectInt&in blitRegion, const RectInt&in visibleRegion);
+    RectInt GetBlitRegion();
+    RectInt GetVisibleRegion();
+    Message::MessageBox@ GetMessageBox();
+    Scene::RenderSettingsService@ GetRenderSettingsService();
+    void Destroy();
+    void PerformHitTest(const float2&in pos, Scene::Event::HitTestCallback@ function);
+    void TakeScreenshot(const string&in filename) const;
+    void SetVisible(bool visible);
+    void SetSectionBoxComponent(Scene::Components::SectionBoxComponent@ sectionBoxComponent);
+    Scene::Components::SectionBoxComponent@ GetSectionBoxComponent();
+};
+}
+namespace Scene::Components {
+class InstanceComponent {
+    Scene::Components::InstanceComponent@ InstanceComponent(Scene::Scene&inout scene, Scene::Entity entityHandle, float4x4&in transform);
+    uint SetInstance(uint meshHandle, uint64 materialInstanceHandle, float4x4&in transform, uint flags);
+    uint[]@ SetInstances(uint[]@ meshHandles, uint64[]@ materialInstanceHandles, float4x4[]@ transforms, uint[]@ flags);
+    void UpdateInstances(uint[]@ instanceIndices, uint[]@ meshHandles, uint64[]@ materialInstanceHandles, float4x4[]@ transforms, uint[]@ flags);
+    void UpdateWorldTransform(float4x4&in transform);
+    void Destroy();
+};
+}
+namespace Scene::Components {
+class CameraState {
+    Scene::Components::CameraState@ CameraState();
+};
+}
+namespace Scene::Components {
+class CameraComponent {
+    Scene::Components::CameraComponent@ CameraComponent(Scene::Scene&inout scene, Scene::Entity entityHandle, Scene::Components::SceneViewComponent&inout sceneView, const Scene::CameraSettings&in cameraSettings);
+    void SetPose(const float3&in position, const float3&in orbitalTarget, float blendTime = 0.0f);
+    float GetOrbitModeFinalMoveSpeed();
+    float GetFinalMoveSpeed();
+    float GetSpeedModMultiplier();
+    void SetWalkMode(bool walk);
+    bool GetWalkMode();
+    Scene::Components::CameraState@ GetStateObject();
+    void SetStateObject(Scene::Components::CameraState@ state);
+    void SetTrackingInstance(Scene::Components::InstanceComponent@ instanceComponent);
+    float3 GetForwardVector();
+    float3 GetRightVector();
+    float3 GetUpVector();
+    float3 GetPosition();
+    void Destroy();
+    void EnableMouseInput(bool enable);
+    void EnableKeyboardInput(bool enable);
+};
+}
+namespace Scene::Components {
+class SoundComponent {
+    Scene::Components::SoundComponent@ SoundComponent(Scene::Scene&inout scene, Scene::Entity entityHandle);
+    uint AddSound(uint soundHandle);
+    uint AddSound(uint soundHandle, const Scene::SoundConfig&in config);
+    uint AddSound(uint soundHandle, const Scene::SoundConfig&in config, bool autoPlay);
+    void RemoveSound(uint index);
+    void ClearSounds();
+    uint GetSoundCount() const;
+    void PlayAll();
+    void StopAll();
+    void PauseAll();
+    void ResumeAll();
+    void Play(uint index);
+    void Stop(uint index);
+    void Pause(uint index);
+    void Resume(uint index);
+    bool IsPlaying(uint index) const;
+    bool IsAnyPlaying() const;
+    void SetPosition(const float3&in position);
+    float3 GetPosition() const;
+    void SetVelocity(const float3&in velocity);
+    float3 GetVelocity() const;
+    void SetTrackVelocity(bool track);
+    bool GetTrackVelocity() const;
+    void SetVolume(uint index, float volume);
+    float GetVolume(uint index) const;
+    void SetVolumeAll(float volume);
+    void SetPitch(uint index, float pitch);
+    float GetPitch(uint index) const;
+    void SetPitchAll(float pitch);
+    void SetEnabled(bool enabled);
+};
+}
+namespace Scene::Components {
+class LineVertex {
+    ~LineVertex();
+    LineVertex();
+    LineVertex(const Scene::Components::LineVertex&in other);
+    LineVertex(const float4&in pos, const color&in col);
+    float4 position;
+    color col;
+};
+}
+namespace Scene::Components {
+class Line {
+    ~Line();
+    Line();
+    Line(const Scene::Components::Line&in other);
+    Line(const Scene::Components::LineVertex&in v0, const Scene::Components::LineVertex&in v1);
+    Scene::Components::LineVertex v0;
+    Scene::Components::LineVertex v1;
+};
+}
+namespace Scene::Components {
+class LineComponentCreateInfo {
+    ~LineComponentCreateInfo();
+    LineComponentCreateInfo();
+    void SetLines(Scene::Components::Line[]@ lines);
+    bool onTop;
+};
+}
+namespace Scene::Components {
+class LineComponent {
+    Scene::Components::LineComponent@ LineComponent(Scene::Scene&inout scene, Scene::Entity entityHandle, const Scene::Components::LineComponentCreateInfo&in createInfo);
+    void Update(const Scene::Components::LineComponentCreateInfo&in updateInfo);
+};
+}
+namespace Scene::Components {
+class ParticleColorKey {
+    ParticleColorKey();
+    ParticleColorKey(float time, color c);
+    float time;
+    color c;
+};
+}
+namespace Scene::Components {
+class ParticleSystemComponent {
+    Scene::Components::ParticleSystemComponent@ ParticleSystemComponent(Scene::Scene&inout scene, Scene::Entity entityHandle, uint maxParticles, uint meshHandle, uint baseMaterialHandle, Scene::Components::ParticleEmitterConfig&in config, uint gradientSteps, uint flags = 0);
+    void Play();
+    void Stop();
+    void Reset();
+    void EmitBurst(uint count);
+    void EmitBurstAtPosition(float3&in position, uint count);
+    void SetConfig(Scene::Components::ParticleEmitterConfig&in config);
+    Scene::Components::ParticleEmitterConfig GetConfig() const;
+    void SetLooping(bool looping);
+    bool IsLooping() const;
+    bool IsUsingColorGradient() const;
+    uint GetActiveParticleCount() const;
+    uint GetMaxParticles() const;
+    bool IsEmitting() const;
+    void Destroy();
+};
+}
+namespace Scene::Components {
+class ParticleEmitterConfig {
+    ~ParticleEmitterConfig();
+    ParticleEmitterConfig();
+    ParticleEmitterConfig(const Scene::Components::ParticleEmitterConfig&in);
+    Scene::Components::ParticleEmitterConfig& opAssign(const Scene::Components::ParticleEmitterConfig&in);
+    void AddColorKey(float time, color c);
+    void ClearColorGradient();
+    uint GetColorKeyCount() const;
+    Scene::Components::ParticleColorKey GetColorKey(uint index) const;
+    float emissionRate;
+    uint burstCount;
+    float minLifetime;
+    float maxLifetime;
+    float3 velocityMin;
+    float3 velocityMax;
+    float3 positionOffset;
+    float3 positionSpread;
+    float startScale;
+    float endScale;
+    float3 startRotationMin;
+    float3 startRotationMax;
+    float3 rotationVelocityMin;
+    float3 rotationVelocityMax;
+    float3 gravity;
+    float drag;
+    color materialParams;
+};
+}
+namespace Scene::Components {
+class PhysicsComponent {
+    Scene::Components::PhysicsComponent@ PhysicsComponent(Scene::Scene&inout scene, Scene::Entity entityHandle, Scene::Components::InstanceComponent@ instanceComponent);
+    uint64 AddPhysicsBody(uint instanceIndex, Scene::PhysicsBodySettings&in settings);
+    uint64 AddBoxPhysics(uint instanceIndex, float3&in halfExtents, Scene::PhysicsBodyType bodyType = PhysicsBodyType :: Dynamic, float mass = 1.0f);
+    uint64 AddSpherePhysics(uint instanceIndex, float radius, Scene::PhysicsBodyType bodyType = PhysicsBodyType :: Dynamic, float mass = 1.0f);
+    uint64 AddCapsulePhysics(uint instanceIndex, float halfHeight, float radius, Scene::PhysicsBodyType bodyType = PhysicsBodyType :: Dynamic, float mass = 1.0f);
+    void AddPhysicsToAllInstances(Scene::PhysicsBodyType bodyType = PhysicsBodyType :: Dynamic, float mass = 1.0f);
+    void RemovePhysicsBodyByIndex(uint instanceIndex);
+    void RemovePhysicsBody(uint64 handle);
+    void RemoveAllPhysicsBodies();
+    uint64 GetPhysicsBody(uint instanceIndex) const;
+    uint GetInstanceIndex(uint64 handle) const;
+    bool HasPhysicsBody(uint instanceIndex) const;
+    uint GetPhysicsBodyCount() const;
+    void SetAutoSyncTransforms(bool autoSync);
+    bool GetAutoSyncTransforms() const;
+    void SetInstanceSyncEnabled(uint instanceIndex, bool enabled);
+    bool GetInstanceSyncEnabled(uint instanceIndex) const;
+    void SyncTransformsToPhysics();
+    void SyncTransformsFromPhysics();
+    void SetLinearVelocity(uint instanceIndex, float3&in velocity);
+    void SetAngularVelocity(uint instanceIndex, float3&in velocity);
+    float3 GetLinearVelocity(uint instanceIndex) const;
+    float3 GetAngularVelocity(uint instanceIndex) const;
+    void AddForce(uint instanceIndex, float3&in force);
+    void AddImpulse(uint instanceIndex, float3&in impulse);
+    void AddTorque(uint instanceIndex, float3&in torque);
+    void SetBodyActive(uint instanceIndex, bool active);
+    bool IsBodyActive(uint instanceIndex) const;
+    void Destroy();
+};
+}
+namespace Scene::Components {
+class TextComponent {
+    Scene::Components::TextComponent@ TextComponent(Scene::Scene&inout scene, Scene::Entity entityHandle, Scene::Components::TextBlock&in textBlock);
+    void Update(Scene::Components::TextBlock&in textBlock);
+    void Destroy();
+};
+}
+namespace Scene::Components {
+class TextBlock {
+    ~TextBlock();
+    TextBlock();
+    TextBlock(const Scene::Components::TextBlock&in);
+    Scene::Components::TextBlock& opAssign(const Scene::Components::TextBlock&in);
+    void SetText(const string&in text);
+    string GetText() const;
+    uint fontHandle;
+    float3 position;
+    color color;
+    uint width;
+    uint height;
+};
+}
+namespace Scene::Components {
+class SceneViewCreateInfo {
+    ~SceneViewCreateInfo();
+    SceneViewCreateInfo();
+    Scene::ViewSettings viewSettings;
+    Scene::RenderSettings renderSettings;
+};
+}
+namespace Scene::Components {
+class SectionBoxComponent {
+    Scene::Components::SectionBoxComponent@ SectionBoxComponent(Scene::Scene&inout scene, Scene::Entity entityHandle, const Scene::Components::SceneViewComponent&in viewport, const AABB&in aabb);
+    void SetWorldAABB(const AABB&in aabb);
+    AABB GetWorldAABB();
+    void SetVisible(bool visible);
+    bool GetVisible();
+    void SetInteractive(bool interactive);
+    bool GetInteractive();
+    void Destroy();
+};
+}
+namespace Scene {
+class BimDocument {
+    int index;
+    hstring title;
+    bool isMetric;
+    hstring guid;
+    int numSaves;
+    bool isLinked;
+    bool isDetached;
+    bool isWorkshared;
+    hstring pathName;
+    double latitude;
+    double longitude;
+    double timeZone;
+    hstring placeName;
+    hstring weatherStationName;
+    double elevation;
+    hstring projectLocation;
+    hstring issueDate;
+    hstring status;
+    hstring clientName;
+    hstring address;
+    hstring name;
+    hstring number;
+    hstring author;
+    hstring buildingName;
+    hstring organizationName;
+    hstring organizationDescription;
+    hstring product;
+    hstring version;
+    hstring user;
+    int activeViewIndex;
+    int ownerFamilyIndex;
+    int parentIndex;
+    int elementIndex;
+};
+}
+namespace Scene {
+class Warning {
+    int index;
+    int bimDocumentIndex;
+    hstring description;
+    hstring guid;
+    hstring severity;
+    uint vimWarningSeverityInt;
+    hstring vimWarningSeverity;
+    hstring vimWarningCategory;
+    hstring vimWarningDescription;
+};
+}
+namespace Scene {
+class DataQueryResult {
+    Scene::GenericValue GetItem(uint row, uint col) const;
+    void SetItem(uint row, uint col, const Scene::GenericValue&in value) const;
+    uint GetRowCount() const;
+    uint GetColumnCount() const;
+    const string GetColumnName(uint col) const;
+};
+}
+namespace VimFlex {
+class VimLicenseService {
+    VimFlex::VimLicenseState CheckLicense();
+    bool IsLicenseValid();
+    string GetLicenseStateString();
+    string GetExpiryDateString();
+    string GetLicensedTo();
+};
+}
+namespace VimFlex {
+class McpFunctionCall {
+    string GetName();
+    uint[]@ GetElements();
+    string[]@ GetParameters();
+};
+}
+namespace VimFlex {
+class VimMcpService {
+    bool IsServerRunning() const;
+    void SetTableMap(Scene::VimData@ vimData);
+    void RegisterScriptTool(const string&in name, const string&in description, string[]&in argumentTypes, string[]&in argumentNames, string[]&in argumentDescriptions, ?&in callback);
+    void UnregisterAllScriptTools();
+    void ProcessPendingScriptToolCalls();
+};
+}
+namespace VimFlex {
+class VimDiffElement {
+    ~VimDiffElement();
+    VimDiffElement();
+    Scene::SceneItem mElement;
+};
+}
+namespace VimFlex {
+class VimModifiedParameter {
+    ~VimModifiedParameter();
+    VimModifiedParameter();
+    VimFlex::VimDiffType vimDiffType;
+    string group;
+    Scene::Parameter@ parameterA;
+    Scene::Parameter@ parameterB;
+};
+}
+namespace VimFlex {
+class VimDiffElementModified {
+    ~VimDiffElementModified();
+    VimDiffElementModified();
+    VimFlex::VimDiffElement diffElementA;
+    VimFlex::VimDiffElement diffElementB;
+    VimFlex::VimDiffType hasModifiedGeometry;
+    VimFlex::VimModifiedParameter[]@ modifiedParameters;
+};
+}
+namespace VimFlex {
+class VimClashResult {
+    ~VimClashResult();
+    VimClashResult();
+    VimFlex::VimClashResult& opAssign(const VimFlex::VimClashResult&in);
+    float3[]@ GetInsidePoints() const;
+    float distance;
+    float volume;
+    uint elementIndexA;
+    uint elementIndexB;
+    AABB aabb;
+};
+}
+namespace VimFlex {
+class VimPluginService {
+    void OpenModal();
+    bool IsPluginEnabled(const string&in pluginName) const;
+    void SetPluginEnabled(const string&in pluginName, bool enabled);
+};
+}
+string formatInt(int64 val, const string&in options = "", uint width = 0);
+string formatUInt(uint64 val, const string&in options = "", uint width = 0);
+string formatFloat(double val, const string&in options = "", uint width = 0, uint precision = 0);
+int64 parseInt(const string&in, uint base = 10, uint&out byteCount = 0);
+uint64 parseUInt(const string&in, uint base = 10, uint&out byteCount = 0);
+double parseFloat(const string&in, uint&out byteCount = 0);
+string join(const string[]&in, const string&in);
+void throw(const string&in);
+string getExceptionInfo();
+float fpFromIEEE(uint);
+uint fpToIEEE(float);
+double fpFromIEEE(uint64);
+uint64 fpToIEEE(double);
+bool closeTo(float, float, float = 0.00001f);
+bool closeTo(double, double, double = 0.0000000001);
+float cos(float);
+float sin(float);
+float tan(float);
+float acos(float);
+float asin(float);
+float atan(float);
+float atan2(float, float);
+float cosh(float);
+float sinh(float);
+float tanh(float);
+float log(float);
+float log10(float);
+float pow(float, float);
+float sqrt(float);
+float ceil(float);
+float abs(float);
+float floor(float);
+float fraction(float);
+namespace Math { int RandomInt(); }
+namespace Math { int RandomInt(int min, int max); }
+namespace Math { float RandomFloat(); }
+namespace Math { float RandomFloat(float min, float max); }
+namespace Math { void SetRandomSeed(uint seed); }
+namespace Math { float Sin(float x); }
+namespace Math { float Cos(float x); }
+namespace Math { float Tan(float x); }
+namespace Math { float ASin(float x); }
+namespace Math { float ACos(float x); }
+namespace Math { float ATan(float x); }
+namespace Math { float ATan2(float y, float x); }
+namespace Math { float Sinh(float x); }
+namespace Math { float Cosh(float x); }
+namespace Math { float Tanh(float x); }
+namespace Math { float Exp(float x); }
+namespace Math { float Log(float x); }
+namespace Math { float Log10(float x); }
+namespace Math { float Log2(float x); }
+namespace Math { float Pow(float base, float exp); }
+namespace Math { float Sqrt(float x); }
+namespace Math { float Floor(float x); }
+namespace Math { float Ceil(float x); }
+namespace Math { float Round(float x); }
+namespace Math { float Trunc(float x); }
+namespace Math { int Abs(int x); }
+namespace Math { float Abs(float x); }
+namespace Math { int Sign(int x); }
+namespace Math { float Sign(float x); }
+namespace Math { int Min(int a, int b); }
+namespace Math { float Min(float a, float b); }
+namespace Math { int Max(int a, int b); }
+namespace Math { float Max(float a, float b); }
+namespace Math { int Clamp(int val, int min, int max); }
+namespace Math { float Clamp(float val, float min, float max); }
+namespace Math { float Lerp(float a, float b, float t); }
+namespace Math { float InverseLerp(float a, float b, float val); }
+namespace Math { float Smoothstep(float edge0, float edge1, float x); }
+namespace Math { float Fmod(float x, float y); }
+namespace Math { float ToRadians(float degrees); }
+namespace Math { float ToDegrees(float radians); }
+namespace ImGui { ImGuiTableSortSpecs& TableGetSortSpecs(); }
+namespace ImGui { bool Begin(const string&in name, bool&in opened, bool&out openedOut, int flags = 0); }
+namespace ImGui { bool Begin(const string&in name, int flags = 0); }
+namespace ImGui { void End(); }
+namespace ImGui { ImGuiStyle& GetStyle(); }
+namespace ImGui { bool BeginChild(const string&in name, const float2&in size = float2 ( 0 , 0 ), int childFlags = 0, int windowFlags = 0); }
+namespace ImGui { bool BeginChild(uint id, const float2&in size = float2 ( 0 , 0 ), int childFlags = 0, int windowFlags = 0); }
+namespace ImGui { void EndChild(); }
+namespace ImGui { ImDrawList@ GetWindowDrawList(); }
+namespace ImGui { void PushStyleVar(int idx, float val); }
+namespace ImGui { void PushStyleVar(int idx, const float2&in val); }
+namespace ImGui { void PopStyleVar(int count = 1); }
+namespace ImGui { void PushStyleColor(int idx, const color&in col); }
+namespace ImGui { void PopStyleColor(int count = 1); }
+namespace ImGui { void SetNextItemWidth(float item_width); }
+namespace ImGui { void PushItemWidth(float item_width); }
+namespace ImGui { void PopItemWidth(); }
+namespace ImGui { void SetNextItemOpen(bool is_open, ImGuiCond cond); }
+namespace ImGui { void PushFont(uint64 font); }
+namespace ImGui { void PopFont(); }
+namespace ImGui { float2 GetContentRegionMax(); }
+namespace ImGui { float2 GetContentRegionAvail(); }
+namespace ImGui { float2 GetWindowContentRegionMin(); }
+namespace ImGui { float2 GetWindowContentRegionMax(); }
+namespace ImGui { float2 GetWindowPos(); }
+namespace ImGui { float2 GetWindowSize(); }
+namespace ImGui { float GetWindowWidth(); }
+namespace ImGui { float GetWindowHeight(); }
+namespace ImGui { bool IsWindowCollapsed(); }
+namespace ImGui { void SetWindowFontScale(float scale); }
+namespace ImGui { float GetFontSize(); }
+namespace ImGui { void SetNextWindowPos(float2 pos, int cond = 0, float2 pivot = float2 ( 0 , 0 )); }
+namespace ImGui { void SetNextWindowSize(float2 size); }
+namespace ImGui { void SetNextWindowContentSize(float2 size); }
+namespace ImGui { void SetNextWindowCollapsed(bool collapsed); }
+namespace ImGui { void SetNextWindowFocus(); }
+namespace ImGui { void SetNextWindowInThisViewport(); }
+namespace ImGui { void SetWindowPos(float2 pos); }
+namespace ImGui { void SetWindowSize(float2 size); }
+namespace ImGui { void SetWindowCollapsed(bool collapsed); }
+namespace ImGui { void SetWindowFocus(); }
+namespace ImGui { void SetWindowPos(const string&in name, float2 pos); }
+namespace ImGui { void SetWindowSize(const string&in name, float2 size); }
+namespace ImGui { void SetWindowCollapsed(const string&in name, bool collapsed); }
+namespace ImGui { void SetWindowFocus(const string&in name); }
+namespace ImGui { void SetScrollHereX(float x); }
+namespace ImGui { void SetScrollHereY(float y); }
+namespace ImGui { float GetScrollX(); }
+namespace ImGui { float GetScrollY(); }
+namespace ImGui { float GetScrollMaxX(); }
+namespace ImGui { float GetScrollMaxY(); }
+namespace ImGui { void SetScrollX(float scroll_x); }
+namespace ImGui { void SetScrollY(float scroll_y); }
+namespace ImGui { void SetScrollFromPosY(float local_y, float center_y_ratio = 0.5f); }
+namespace ImGui { void Separator(); }
+namespace ImGui { void SeparatorEx(int flags, float thickness = 1.f); }
+namespace ImGui { void SameLine(float offset_from_start_x = 0.0f, float spacing = - 1.0f); }
+namespace ImGui { void NewLine(); }
+namespace ImGui { void Spacing(); }
+namespace ImGui { void Dummy(float2 size); }
+namespace ImGui { void Indent(float indent_w = 0.0f); }
+namespace ImGui { void Unindent(float indent_w = 0.0f); }
+namespace ImGui { void BeginGroup(); }
+namespace ImGui { void EndGroup(); }
+namespace ImGui { float2 GetCursorPos(); }
+namespace ImGui { float GetCursorPosX(); }
+namespace ImGui { float GetCursorPosY(); }
+namespace ImGui { float GetFrameHeight(); }
+namespace ImGui { void SetCursorPos(float2 local_pos); }
+namespace ImGui { void SetCursorPosX(float local_x); }
+namespace ImGui { void SetCursorPosY(float local_y); }
+namespace ImGui { float2 GetCursorStartPos(); }
+namespace ImGui { float2 GetCursorScreenPos(); }
+namespace ImGui { void SetCursorScreenPos(float2 pos); }
+namespace ImGui { void AlignTextToFramePadding(); }
+namespace ImGui { float GetTextLineHeight(); }
+namespace ImGui { float GetTextLineHeightWithSpacing(); }
+namespace ImGui { void Columns(int count = 1, const string&in id = string ( ), bool border = true); }
+namespace ImGui { void NextColumn(); }
+namespace ImGui { int GetColumnIndex(); }
+namespace ImGui { float GetColumnWidth(int column_index = - 1); }
+namespace ImGui { float GetColumnOffset(int column_index = - 1); }
+namespace ImGui { void SetColumnOffset(int column_index, float offset_x); }
+namespace ImGui { int GetColumnsCount(); }
+namespace ImGui { bool BeginTable(const string&in str_id, int columns); }
+namespace ImGui { bool BeginTable(const string&in str_id, int columns, const float2&in outer_size); }
+namespace ImGui { bool BeginTable(const string&in str_id, int columns, int flags, const float2&in outer_size); }
+namespace ImGui { bool BeginTable(const string&in str_id, int columns, int flags); }
+namespace ImGui { void EndTable(); }
+namespace ImGui { void TableSetupColumn(const string&in label); }
+namespace ImGui { void TableSetupColumn(const string&in label, int flags); }
+namespace ImGui { void TableSetupColumn(const string&in label, int flags, float init_width_or_weight); }
+namespace ImGui { void TableSetupColumn(const string&in label, float init_width_or_weight); }
+namespace ImGui { bool TableSetColumnIndex(int column_n); }
+namespace ImGui { void TableNextRow(float min_row_height = 0.0f); }
+namespace ImGui { void TableHeadersRow(); }
+namespace ImGui { void TableNextColumn(); }
+namespace ImGui { void TableSetupScrollFreeze(int cols, int rows); }
+namespace ImGui { void TableSetBgColor(int target, color&in col, int column_n = - 1); }
+namespace ImGui { void SetNextWindowSizeConstraints(float2&in size_min, float2&in size_max); }
+namespace ImGui { bool BeginCombo(const string&in label, const string&in preview_value, int flags = 0); }
+namespace ImGui { void EndCombo(); }
+namespace ImGui { bool Combo(const string&in label, int&out current_item, string[]@ items); }
+namespace ImGui { bool BeginTabBar(const string&in str_id, int flags = 0); }
+namespace ImGui { void EndTabBar(); }
+namespace ImGui { bool BeginTabItem(const string&in label, int flags = 0); }
+namespace ImGui { bool BeginTabItem(const string&in label, bool&out p_open, int flags = 0); }
+namespace ImGui { void EndTabItem(); }
+namespace ImGui { void SetTabItemClosed(const string&in tab_or_docked_window_label); }
+namespace ImGui { bool BeginDragDropSource(int flags = 0); }
+namespace ImGui { bool SetDragDropPayload(string&in type, int data, int cond = 0); }
+namespace ImGui { void EndDragDropSource(); }
+namespace ImGui { bool BeginDragDropTarget(); }
+namespace ImGui { int AcceptDragDropPayload(string&in type, int flags = 0); }
+namespace ImGui { void EndDragDropTarget(); }
+namespace ImGui { int GetDragDropPayload(); }
+namespace ImGui { void PushTextWrapPos(float wrap_pos_x = 0.0f); }
+namespace ImGui { void PopTextWrapPos(); }
+namespace ImGui { void PushID(const string&in str_id); }
+namespace ImGui { void PushID(int int_id); }
+namespace ImGui { void PushID(const ?&in); }
+namespace ImGui { void PopID(); }
+namespace ImGui { uint GetID(const string&in str_id); }
+namespace ImGui { void Text(const string&in text); }
+namespace ImGui { bool TextLink(const string&in label); }
+namespace ImGui { void TextDisabled(const string&in text); }
+namespace ImGui { void TextColored(color col, const string&in text); }
+namespace ImGui { void TextWrapped(const string&in text); }
+namespace ImGui { void LabelText(const string&in label, const string&in text); }
+namespace ImGui { void Bullet(); }
+namespace ImGui { void BulletText(const string&in text); }
+namespace ImGui { bool Button(const string&in label, float2&in size = float2 ( 0 , 0 )); }
+namespace ImGui { bool SmallButton(const string&in label); }
+namespace ImGui { bool InvisibleButton(const string&in str_id, float2&in size); }
+namespace ImGui { Texture@ LoadImage(const string&in filename); }
+namespace ImGui { void Image(const Texture&in texture, float2&in size, float2&in uv0 = float2 ( 0 , 0 ), float2&in uv1 = float2 ( 1 , 1 )); }
+namespace ImGui { void ImageWithBg(const Texture&in texture, float2&in size, float2&in uv0 = float2 ( 0 , 0 ), float2&in uv1 = float2 ( 1 , 1 ), float4&in bgColor = float4 ( 0 , 0 , 0 , 0 ), float4&in tintColor = float4 ( 1 , 1 , 1 , 1 )); }
+namespace ImGui { bool Checkbox(const string&in label, bool&in wasSelected, bool&out isSelected); }
+namespace ImGui { bool CheckboxFlags(const string&in label, uint&in flags, uint flags_value); }
+namespace ImGui { bool RadioButton(const string&in label, bool active); }
+namespace ImGui { bool RadioButton(const string&in label, int&in v, int v_button); }
+namespace ImGui { void ProgressBar(float fraction, float2&in size = float2 ( - 1 , 0 ), const string&in overlay = ""); }
+namespace ImGui { void BeginDisabled(bool disabled); }
+namespace ImGui { void EndDisabled(); }
+namespace ImGui { bool DragFloat(const string&in label, float&in v, float&out vOut, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f); }
+namespace ImGui { bool DragFloat2(const string&in label, float2&in v, float2&out vOut); }
+namespace ImGui { bool DragFloat3(const string&in label, float3&in v, float3&out vOut); }
+namespace ImGui { bool DragFloatRange2(const string&in label, float&in v_current_min, float&in v_current_max, float v_min = 0.0f, float v_max = 1.0f); }
+namespace ImGui { bool DragIntRange2(const string&in label, int&in v_current_min, int&in v_current_max, int v_min, int v_max); }
+namespace ImGui { bool InputText(const string&in label, string&in valueIn, string&out valueOut, ImGuiInputTextFlags flags = ImGuiInputTextFlags :: ImGuiInputTextFlags_None); }
+namespace ImGui { bool InputTextMultiline(const string&in label, string&in valueIn, string&out valueOut, const float2&in size = float2 ( 0 , 0 ), ImGuiInputTextFlags flags = ImGuiInputTextFlags :: ImGuiInputTextFlags_None); }
+namespace ImGui { bool InputFloat(const string&in label, float&in val, float&out outval, float step = 0.01f, float step_fast = 1.f, const string&in format = "%.3f", int flags = 0); }
+namespace ImGui { bool InputFloat2(const string&in label, float2&in valIn, float2&out valOut); }
+namespace ImGui { bool InputFloat3(const string&in label, float3&in valIn, float3&out valOut); }
+namespace ImGui { bool InputFloat4(const string&in label, float4&in valIn, float4&out valOut); }
+namespace ImGui { bool InputInt(const string&in label, int&in val, int&out outVal, int step = 1, int step_fast = 5, int flags = 0); }
+namespace ImGui { bool InputUint(const string&in label, uint&in val, uint&out outVal, uint step = 1, uint step_fast = 5, int flags = 0); }
+namespace ImGui { bool SliderFloat(const string&in label, float&in valueIn, float&out valueOut, float v_min = 0.0f, float v_max = 0.0f); }
+namespace ImGui { bool SliderFloat2(const string&in label, float2&in valueIn, float2&out valueOut, float v_min, float v_max); }
+namespace ImGui { bool SliderFloat3(const string&in label, float3&in valueIn, float3&out valueOut, float v_min, float v_max); }
+namespace ImGui { bool SliderInt(const string&in label, int&in valueIn, int&out valueOut, int v_min = 0, int v_max = 0); }
+namespace ImGui { bool SliderUint(const string&in label, uint&in valueIn, uint&out valueOut, uint v_min = 0, uint v_max = 0); }
+namespace ImGui { bool ColorEdit3(const string&in label, color&in colorIn, color&out colorOut); }
+namespace ImGui { bool ColorEdit4(const string&in label, color&in colorIn, color&out colorOut); }
+namespace ImGui { bool ColorEdit3(const string&in label, float3&in colorIn, float3&out colorOut); }
+namespace ImGui { bool ColorEdit4(const string&in label, float4&in colorIn, float4&out colorOut); }
+namespace ImGui { bool ColorPicker4(const string&in label, float4&in colorIn, float4&out colorOut, int flags = 0); }
+namespace ImGui { bool ColorButton(const string&in desc_id, const float4&in col, int flags = 0); }
+namespace ImGui { bool TreeNode(const string&in label); }
+namespace ImGui { bool TreeNodeEx(const string&in label, int flags); }
+namespace ImGui { void TreePush(const string&in str_id); }
+namespace ImGui { void TreePop(); }
+namespace ImGui { float GetTreeNodeToLabelSpacing(); }
+namespace ImGui { bool CollapsingHeader(const string&in label); }
+namespace ImGui { bool CollapsingHeader(const string&in label, bool&out p_visible); }
+namespace ImGui { bool Selectable(const string&in label, bool selected = false, int flags = 0, const float2&in size = float2 ( 0 , 0 )); }
+namespace ImGui { bool BeginListBox(const string&in label); }
+namespace ImGui { bool BeginListBox(const string&in label, const float2&in size); }
+namespace ImGui { void EndListBox(); }
+namespace ImGui { void Value(const string&in prefix, bool b); }
+namespace ImGui { void Value(const string&in prefix, int v); }
+namespace ImGui { void Value(const string&in prefix, uint v); }
+namespace ImGui { void Value(const string&in prefix, float v); }
+namespace ImGui { bool BeginTooltip(); }
+namespace ImGui { void EndTooltip(); }
+namespace ImGui { void SetTooltip(const string&in text); }
+namespace ImGui { void SetItemTooltip(const string&in text); }
+namespace ImGui { bool BeginMainMenuBar(); }
+namespace ImGui { void EndMainMenuBar(); }
+namespace ImGui { bool BeginMenuBar(); }
+namespace ImGui { void EndMenuBar(); }
+namespace ImGui { bool BeginMenu(const string&in label, bool enabled = true); }
+namespace ImGui { void EndMenu(); }
+namespace ImGui { bool MenuItem(const string&in label, const string&in shortcut = string ( ), bool selected = false, bool enabled = true); }
+namespace ImGui { bool MenuItem(const string&in label, const string&in shortcut, bool&in p_selected, bool enabled = true); }
+namespace ImGui { void OpenPopup(const string&in str_id); }
+namespace ImGui { bool BeginPopup(const string&in str_id, int flags = 0); }
+namespace ImGui { bool BeginPopupContextItem(const string&in str_id = string ( ), int popup_flags = 1); }
+namespace ImGui { bool BeginPopupContextWindow(const string&in str_id = string ( ), int popup_flags = 1); }
+namespace ImGui { bool BeginPopupContextVoid(const string&in str_id = string ( ), int popup_flags = 1); }
+namespace ImGui { bool BeginPopupModal(const string&in name, bool&in opened = null, bool&out openedOut = null, int flags = 0); }
+namespace ImGui { bool BeginPopupModal(const string&in name, int flags = 0); }
+namespace ImGui { void EndPopup(); }
+namespace ImGui { void CloseCurrentPopup(); }
+namespace ImGui { void PushClipRect(const float2&in clip_rect_min, const float2&in clip_rect_max, bool intersect_with_current_clip_rect); }
+namespace ImGui { void PopClipRect(); }
+namespace ImGui { void SetKeyboardFocusHere(int offset = 0); }
+namespace ImGui { void SetItemDefaultFocus(); }
+namespace ImGui { bool WantTextInput(); }
+namespace ImGui { bool WantCaptureKeyboard(); }
+namespace ImGui { bool WantCaptureMouse(); }
+namespace ImGui { void SetWantCapture(bool capture); }
+namespace ImGui { void SetWantCaptureMouse(bool capture); }
+namespace ImGui { void SetWantCaptureKeyboard(bool capture); }
+namespace ImGui { bool IsItemHovered(int flags = 0); }
+namespace ImGui { bool IsItemActive(); }
+namespace ImGui { bool IsItemClicked(int mouse_button = 0); }
+namespace ImGui { bool IsItemVisible(); }
+namespace ImGui { bool IsAnyItemHovered(); }
+namespace ImGui { bool IsAnyItemActive(); }
+namespace ImGui { float2 GetItemRectMin(); }
+namespace ImGui { float2 GetItemRectMax(); }
+namespace ImGui { float2 GetItemRectSize(); }
+namespace ImGui { void SetItemAllowOverlap(); }
+namespace ImGui { bool IsWindowFocused(int flags = 0); }
+namespace ImGui { bool IsWindowHovered(int flags = 0); }
+namespace ImGui { bool IsRectVisible(const float2&in size); }
+namespace ImGui { bool IsRectVisible(const float2&in rect_min, const float2&in rect_max); }
+namespace ImGui { float GetTime(); }
+namespace ImGui { int GetFrameCount(); }
+namespace ImGui { float2 CalcTextSize(const string&in text, bool hide_text_after_double_hash = false, float wrap_width = - 1.0f); }
+namespace ImGui { bool BeginChildFrame(uint id, const float2&in size, int flags = 0); }
+namespace ImGui { void EndChildFrame(); }
+namespace ImGui { bool IsKeyDown(int key); }
+namespace ImGui { bool IsKeyPressed(int key, bool repeat = true); }
+namespace ImGui { bool IsKeyReleased(int key); }
+namespace ImGui { bool IsMouseDown(int button); }
+namespace ImGui { bool IsMouseClicked(int button, bool repeat = false); }
+namespace ImGui { bool IsMouseDoubleClicked(int button); }
+namespace ImGui { bool IsMouseReleased(int button); }
+namespace ImGui { bool IsMouseDragging(int button = 0, float lock_threshold = - 1.0f); }
+namespace ImGui { bool IsMouseHoveringRect(const float2&in r_min, const float2&in r_max, bool clip = true); }
+namespace ImGui { float2 GetMousePos(); }
+namespace ImGui { float2 GetMousePosOnOpeningCurrentPopup(); }
+namespace ImGui { float2 GetMouseDragDelta(ImGuiMouseButton mouseButton, float lockThreshold = - 1.0f); }
+namespace ImGui { void ResetMouseDragDelta(ImGuiMouseButton mouseButton); }
+namespace ImGui { int GetMouseCursor(); }
+namespace ImGui { void SetMouseCursor(int cursor_type); }
+namespace ImGui { string GetClipboardText(); }
+namespace ImGui { void SetClipboardText(const string&in text); }
+namespace ImGui { void DockBuilderDockWindow(const string&in window_name, uint node_id); }
+namespace ImGui { void DockBuilderSplitNode(uint node_id, ImGuiDir split_dir, float size_ratio, uint&out out_id_at_dir, uint&out out_id_at_opposite_dir); }
+namespace ImPlot { bool BeginPlot(const string&in title_id); }
+namespace ImPlot { bool BeginPlot(const string&in title_id, const float2&in size); }
+namespace ImPlot { bool BeginPlot(const string&in title_id, const float2&in size, int flags); }
+namespace ImPlot { void EndPlot(); }
+namespace ImPlot { float2 GetPlotSize(); }
+namespace ImPlot { void SetupAxis(ImAxis axis); }
+namespace ImPlot { void SetupAxis(ImAxis axis, const string&in label); }
+namespace ImPlot { void SetupAxis(ImAxis axis, const string&in label, ImPlotAxisFlags flags); }
+namespace ImPlot { void SetupAxisLimits(ImAxis axis, double v_min, double v_max); }
+namespace ImPlot { void SetupAxisLimits(ImAxis axis, double v_min, double v_max, ImPlotCond cond); }
+namespace ImPlot { void SetupAxisFormat(ImAxis axis, const string&in fmt); }
+namespace ImPlot { void SetupAxisTicks(ImAxis axis, const double[]&in values); }
+namespace ImPlot { void SetupAxisTicks(ImAxis axis, const double[]&in values, const string[]&in labels); }
+namespace ImPlot { void SetupAxisTicks(ImAxis axis, double v_min, double v_max, int n_ticks); }
+namespace ImPlot { void SetupAxisTicks(ImAxis axis, double v_min, double v_max, int n_ticks, const string[]&in labels); }
+namespace ImPlot { void SetupAxisScale(ImAxis axis, ImPlotScale scale); }
+namespace ImPlot { void SetupAxisLimitsConstraints(ImAxis axis, double v_min, double v_max); }
+namespace ImPlot { void SetupAxisZoomConstraints(ImAxis axis, double z_min, double z_max); }
+namespace ImPlot { void SetupAxes(const string&in x_label, const string&in y_label); }
+namespace ImPlot { void SetupAxes(const string&in x_label, const string&in y_label, ImPlotAxisFlags x_flags, ImPlotAxisFlags y_flags); }
+namespace ImPlot { void SetupAxesLimits(double x_min, double x_max, double y_min, double y_max); }
+namespace ImPlot { void SetupAxesLimits(double x_min, double x_max, double y_min, double y_max, ImPlotCond cond); }
+namespace ImPlot { void SetupLegend(ImPlotLocation location); }
+namespace ImPlot { void SetupLegend(ImPlotLocation location, ImPlotLegendFlags flags); }
+namespace ImPlot { void SetupMouseText(ImPlotLocation location); }
+namespace ImPlot { void SetupMouseText(ImPlotLocation location, ImPlotMouseTextFlags flags); }
+namespace ImPlot { void SetupFinish(); }
+namespace ImPlot { void SetNextAxisLimits(ImAxis axis, double v_min, double v_max); }
+namespace ImPlot { void SetNextAxisLimits(ImAxis axis, double v_min, double v_max, ImPlotCond cond); }
+namespace ImPlot { void SetNextAxisToFit(ImAxis axis); }
+namespace ImPlot { void SetNextAxesLimits(double x_min, double x_max, double y_min, double y_max); }
+namespace ImPlot { void SetNextAxesLimits(double x_min, double x_max, double y_min, double y_max, ImPlotCond cond); }
+namespace ImPlot { void SetNextAxesToFit(); }
+namespace ImPlot { void PlotLine(const string&in label_id, const float[]&in values); }
+namespace ImPlot { void PlotLine(const string&in label_id, const float[]&in xs, const float[]&in ys); }
+namespace ImPlot { void PlotLine(const string&in label_id, const float[]&in xs, const float[]&in ys, ImPlotLineFlags flags); }
+namespace ImPlot { void PlotScatter(const string&in label_id, const float[]&in values); }
+namespace ImPlot { void PlotScatter(const string&in label_id, const float[]&in xs, const float[]&in ys); }
+namespace ImPlot { void PlotScatter(const string&in label_id, const float[]&in xs, const float[]&in ys, ImPlotScatterFlags flags); }
+namespace ImPlot { void PlotStairs(const string&in label_id, const float[]&in values); }
+namespace ImPlot { void PlotStairs(const string&in label_id, const float[]&in xs, const float[]&in ys); }
+namespace ImPlot { void PlotStairs(const string&in label_id, const float[]&in xs, const float[]&in ys, ImPlotStairsFlags flags); }
+namespace ImPlot { void PlotShaded(const string&in label_id, const float[]&in values, double yref); }
+namespace ImPlot { void PlotShaded(const string&in label_id, const float[]&in xs, const float[]&in ys, double yref); }
+namespace ImPlot { void PlotShaded(const string&in label_id, const float[]&in xs, const float[]&in ys1, const float[]&in ys2); }
+namespace ImPlot { void PlotBars(const string&in label_id, const float[]&in values); }
+namespace ImPlot { void PlotBars(const string&in label_id, const float[]&in values, double bar_size); }
+namespace ImPlot { void PlotBars(const string&in label_id, const float[]&in xs, const float[]&in ys, double bar_size); }
+namespace ImPlot { void PlotErrorBars(const string&in label_id, const float[]&in xs, const float[]&in ys, const float[]&in err); }
+namespace ImPlot { void PlotErrorBars(const string&in label_id, const float[]&in xs, const float[]&in ys, const float[]&in neg, const float[]&in pos); }
+namespace ImPlot { void PlotStems(const string&in label_id, const float[]&in values); }
+namespace ImPlot { void PlotStems(const string&in label_id, const float[]&in xs, const float[]&in ys); }
+namespace ImPlot { void PlotStems(const string&in label_id, const float[]&in xs, const float[]&in ys, double ref); }
+namespace ImPlot { void PlotInfLines(const string&in label_id, const float[]&in values); }
+namespace ImPlot { void PlotInfLines(const string&in label_id, const float[]&in values, ImPlotInfLinesFlags flags); }
+namespace ImPlot { void PlotPieChart(const string[]&in label_ids, const float[]&in values, double x, double y, double radius, int flags = 0); }
+namespace ImPlot { void PlotPieChart(const string[]&in label_ids, const float[]&in values, const color[]&in colors, double x, double y, double radius, int flags = 0); }
+namespace ImPlot { void PlotPieChart(const string[]&in label_ids, const float[]&in values, double x, double y, double radius, double angle0, int flags = 0); }
+namespace ImPlot { double PlotHistogram(const string&in label_id, const float[]&in values); }
+namespace ImPlot { double PlotHistogram(const string&in label_id, const float[]&in values, int bins); }
+namespace ImPlot { void PlotDigital(const string&in label_id, const float[]&in xs, const float[]&in ys); }
+namespace ImPlot { void PlotDigital(const string&in label_id, const float[]&in xs, const float[]&in ys, ImPlotDigitalFlags flags); }
+namespace ImPlot { void PlotText(const string&in text, double x, double y); }
+namespace ImPlot { void PlotText(const string&in text, double x, double y, const float2&in pix_offset); }
+namespace ImPlot { void PlotText(const string&in text, double x, double y, const float2&in pix_offset, ImPlotTextFlags flags); }
+namespace ImPlot { void PlotDummy(const string&in label_id); }
+namespace ImPlot { void PlotDummy(const string&in label_id, ImPlotDummyFlags flags); }
+namespace ImPlot { bool DragPoint(int id, double&out x, double&out y, const float4&in col); }
+namespace ImPlot { bool DragPoint(int id, double&out x, double&out y, const float4&in col, float size); }
+namespace ImPlot { bool DragPoint(int id, double&out x, double&out y, const float4&in col, float size, ImPlotDragToolFlags flags); }
+namespace ImPlot { bool DragLineX(int id, double&out x, const float4&in col); }
+namespace ImPlot { bool DragLineX(int id, double&out x, const float4&in col, float thickness); }
+namespace ImPlot { bool DragLineX(int id, double&out x, const float4&in col, float thickness, ImPlotDragToolFlags flags); }
+namespace ImPlot { bool DragLineY(int id, double&out y, const float4&in col); }
+namespace ImPlot { bool DragLineY(int id, double&out y, const float4&in col, float thickness); }
+namespace ImPlot { bool DragLineY(int id, double&out y, const float4&in col, float thickness, ImPlotDragToolFlags flags); }
+namespace ImPlot { bool DragRect(int id, double&out x1, double&out y1, double&out x2, double&out y2, const float4&in col); }
+namespace ImPlot { bool DragRect(int id, double&out x1, double&out y1, double&out x2, double&out y2, const float4&in col, ImPlotDragToolFlags flags); }
+namespace ImPlot { void Annotation(double x, double y, const float4&in col, const float2&in pix_offset, bool clamp); }
+namespace ImPlot { void Annotation(double x, double y, const float4&in col, const float2&in pix_offset, bool clamp, bool round); }
+namespace ImPlot { void Annotation(double x, double y, const float4&in col, const float2&in pix_offset, bool clamp, const string&in text); }
+namespace ImPlot { void TagX(double x, const float4&in col); }
+namespace ImPlot { void TagX(double x, const float4&in col, bool round); }
+namespace ImPlot { void TagX(double x, const float4&in col, const string&in text); }
+namespace ImPlot { void TagY(double y, const float4&in col); }
+namespace ImPlot { void TagY(double y, const float4&in col, bool round); }
+namespace ImPlot { void TagY(double y, const float4&in col, const string&in text); }
+namespace ImPlot { ImPlotStyle& GetStyle(); }
+namespace ImPlot { void StyleColorsAuto(); }
+namespace ImPlot { void StyleColorsClassic(); }
+namespace ImPlot { void StyleColorsDark(); }
+namespace ImPlot { void StyleColorsLight(); }
+namespace ImPlot { void PushStyleColor(ImPlotCol idx, uint col); }
+namespace ImPlot { void PushStyleColor(ImPlotCol idx, const float4&in col); }
+namespace ImPlot { void PopStyleColor(); }
+namespace ImPlot { void PopStyleColor(int count); }
+namespace ImPlot { void PushStyleVar(ImPlotStyleVar idx, float val); }
+namespace ImPlot { void PushStyleVar(ImPlotStyleVar idx, int val); }
+namespace ImPlot { void PushStyleVar(ImPlotStyleVar idx, const float2&in val); }
+namespace ImPlot { void PopStyleVar(); }
+namespace ImPlot { void PopStyleVar(int count); }
+namespace ImPlot { void SetNextLineStyle(); }
+namespace ImPlot { void SetNextLineStyle(const float4&in col); }
+namespace ImPlot { void SetNextLineStyle(const float4&in col, float weight); }
+namespace ImPlot { void SetNextFillStyle(); }
+namespace ImPlot { void SetNextFillStyle(const float4&in col); }
+namespace ImPlot { void SetNextFillStyle(const float4&in col, float alpha_mod); }
+namespace ImPlot { void SetNextMarkerStyle(); }
+namespace ImPlot { void SetNextMarkerStyle(ImPlotMarker marker); }
+namespace ImPlot { void SetNextMarkerStyle(ImPlotMarker marker, float size); }
+namespace ImPlot { void SetNextMarkerStyle(ImPlotMarker marker, float size, const float4&in fill, float weight, const float4&in outline); }
+namespace ImPlot { void SetNextErrorBarStyle(); }
+namespace ImPlot { void SetNextErrorBarStyle(const float4&in col); }
+namespace ImPlot { void SetNextErrorBarStyle(const float4&in col, float size, float weight); }
+namespace ImPlot { float4 GetLastItemColor(); }
+namespace ImPlot { string GetStyleColorName(ImPlotCol idx); }
+namespace ImPlot { string GetMarkerName(ImPlotMarker idx); }
+namespace ImPlot { ImPlotColormap AddColormap(const string&in name, const float4[]&in cols); }
+namespace ImPlot { ImPlotColormap AddColormap(const string&in name, const float4[]&in cols, bool qual); }
+namespace ImPlot { int GetColormapCount(); }
+namespace ImPlot { string GetColormapName(ImPlotColormap cmap); }
+namespace ImPlot { ImPlotColormap GetColormapIndex(const string&in name); }
+namespace ImPlot { void PushColormap(ImPlotColormap cmap); }
+namespace ImPlot { void PushColormap(const string&in name); }
+namespace ImPlot { void PopColormap(); }
+namespace ImPlot { void PopColormap(int count); }
+namespace ImPlot { float4 NextColormapColor(); }
+namespace ImPlot { int GetColormapSize(); }
+namespace ImPlot { int GetColormapSize(ImPlotColormap cmap); }
+namespace ImPlot { float4 GetColormapColor(int idx); }
+namespace ImPlot { float4 GetColormapColor(int idx, ImPlotColormap cmap); }
+namespace ImPlot { float4 SampleColormap(float t); }
+namespace ImPlot { float4 SampleColormap(float t, ImPlotColormap cmap); }
+namespace ImPlot { void ColormapScale(const string&in label, double scale_min, double scale_max); }
+namespace ImPlot { void ColormapScale(const string&in label, double scale_min, double scale_max, const float2&in size); }
+namespace ImPlot { void ColormapScale(const string&in label, double scale_min, double scale_max, const float2&in size, const string&in format); }
+namespace ImPlot { void ColormapScale(const string&in label, double scale_min, double scale_max, const float2&in size, const string&in format, ImPlotColormapScaleFlags flags, ImPlotColormap cmap); }
+namespace ImPlot { bool ColormapSlider(const string&in label, float&out t); }
+namespace ImPlot { bool ColormapSlider(const string&in label, float&out t, const string&in format); }
+namespace ImPlot { bool ColormapSlider(const string&in label, float&out t, const string&in format, ImPlotColormap cmap); }
+namespace ImPlot { bool ColormapButton(const string&in label); }
+namespace ImPlot { bool ColormapButton(const string&in label, const float2&in size); }
+namespace ImPlot { bool ColormapButton(const string&in label, const float2&in size, ImPlotColormap cmap); }
+namespace ImPlot { void BustColorCache(); }
+namespace ImPlot { void BustColorCache(const string&in plot_title_id); }
+namespace ImPlot { void ItemIcon(const float4&in col); }
+namespace ImPlot { void ItemIcon(uint col); }
+namespace ImPlot { void ColormapIcon(ImPlotColormap cmap); }
+namespace ImPlot { ImGui::ImDrawList@ GetPlotDrawList(); }
+namespace ImPlot { void PushPlotClipRect(); }
+namespace ImPlot { void PushPlotClipRect(float expand); }
+namespace ImPlot { void PopPlotClipRect(); }
+namespace ImPlot { bool ShowStyleSelector(const string&in label); }
+namespace ImPlot { bool ShowColormapSelector(const string&in); }
+namespace ImPlot { bool ShowInputMapSelector(const string&in label); }
+namespace ImPlot { void ShowStyleEditor(); }
+namespace ImPlot { void ShowUserGuide(); }
+namespace ImPlot { void ShowMetricsWindow(); }
+namespace ImPlot { void ShowMetricsWindow(bool&out p_open); }
+namespace Core { string EscapeForCsv(const string&in inputString); }
+namespace Core { string EscapeSql(const string&in inputString); }
+namespace Scene { SoundConfig SoundConfig_Default(); }
+namespace Scene { SoundConfig SoundConfig_Looping(); }
+namespace Scene { SoundConfig SoundConfig_Spatial3D(float minDist = 1.0f, float maxDist = 100.0f); }
+namespace Scene { SoundConfig SoundConfig_SpatialLooping(float minDist = 1.0f, float maxDist = 100.0f); }
+namespace Scene::TreeTable { uint[]@ RebuildVisDescCounts(Scene::TreeTableNode@[]@ nodes); }
+namespace Scene::TreeTable { uint GetFlatIndexOfNode(Scene::TreeTableNode@[]@ nodes, uint[]@ visDescCounts, uint targetNode); }
+namespace Scene::TreeTable { void SortNodeChildren(Scene::TreeTableNode@[]@ nodes, uint nodeIdx, string[]@ sortKeys, int direction); }
+namespace Scene::TreeTable { void ExpandParents(Scene::TreeTableNode@[]@ nodes, uint nodeIdx); }
+namespace Scene::TreeTable { Core::Job@ BuildTreeFromQueryAsync(Scene::DataQueryResult@ queryResult, uint[]@ hierarchyColIndices, uint[]@ valueColIndices, int[]@ aggOps, string[]@ aggKeyColNames, Scene::Event::EventCallback@ completionCallback, Scene::TreeTableNode@[]@ resultsNodesCScriptArray, uint[]@ resultsElemToNodeMapCScriptArray); }
+namespace Scene::TreeTable { uint[]@ CollectLeafElements(Scene::TreeTableNode@[]@ nodes, uint nodeIdx, Scene::DataQueryResult@ queryResult, uint elementColIndex); }
+namespace Scene::TreeTable { void RecomputeAggregations(Scene::TreeTableNode@[]@ nodes, Scene::DataQueryResult@ queryResult, uint[]@ valueColIndices, int[]@ aggOps, string[]@ aggKeyColNames); }
+namespace Scene::TreeTable { uint[]@ ApplyExternalSelection(Scene::TreeTableNode@[]@ nodes, uint[]@ visDescCounts, uint[]@ elemToNodeMap, const Scene::SceneItemSet@ selectionSet, bool hasElementColumn); }
+namespace Scene::TreeTable { string ExportTreeToCsv(Scene::TreeTableNode@[]@ nodes, Scene::DataQueryResult@ queryResult, uint[]@ hierarchyColIndices, uint[]@ valueColIndices, uint[]@ selectedNodeIndices); }
+namespace Scene::TreeTable { void PopulateFilterColumns(Scene::VimData@ vimData, const string&in tableName, const hstring[]@ names, hstring[]@ outColumnNames, hstring[][]@ outColumnValues, string[]@ outSearchTexts, uint[][]@ outVisibleIndices, string[]@ outVisibleIndicesSearch); }
+namespace Json { string SerializeToJson(?&in obj, int indent = - 1); }
+namespace Json { void DeserializeFromJson(const string&in jsonText, ?&out obj); }
+namespace IO { string ReadFile(const string&in filePath); }
+namespace IO { void WriteFile(const string&in filePath, const string&in text); }
+namespace IO { bool FileExists(const string&in filePath); }
+namespace IO { string NormalizePath(const string&in path); }
+namespace IO { string GetFileName(const string&in path); }
+namespace IO { string GetExtension(const string&in path); }
+namespace IO { string GetDirectory(const string&in path); }
+namespace Util { string CreateGuid(); }
+namespace Util { void OpenUrl(const string&in url); }
+namespace Util { string FormatDecimal(double value, int precision); }
+namespace Util { string FormatInt(int64 value); }
+namespace Util { string FormatUint(uint64 value); }
+namespace Util { uint64 ParseUint64(const string&in value); }
+namespace VimFlex { bool Button(const string&in text, bool isEnabled, color&in bgColor, color&in bgColorHovered, color&in bgColorActive, color&in textColor, color&in borderColor, float borderSize, float2&in padding = float2 ( 0 , 0 ), float2&in size = float2 ( 0 , 0 ), uint64 font = 0, const string&in hoverText = ""); }
+namespace VimFlex { bool ButtonPrimary(const string&in text, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), uint64 font = 0, const string&in hoverText = ""); }
+namespace VimFlex { bool ButtonSecondary(const string&in text, bool hasOutline, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), uint64 font = 0, const string&in hoverText = ""); }
+namespace VimFlex { bool ToggleButton(const string&in text, bool isActive, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), uint64 font = 0, const string&in hoverText = ""); }
+namespace VimFlex { bool ButtonPositive(const string&in text, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), uint64 font = 0, const string&in hoverText = ""); }
+namespace VimFlex { bool ButtonDestructive(const string&in text, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), uint64 font = 0, const string&in hoverText = ""); }
+namespace VimFlex { bool ButtonAccent1(const string&in text, bool hasOutline, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), uint64 font = 0, const string&in hoverText = ""); }
+namespace VimFlex { bool ButtonAccent2(const string&in text, bool hasOutline, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), uint64 font = 0, const string&in hoverText = ""); }
+namespace VimFlex { bool ButtonAccent3(const string&in text, bool hasOutline, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), uint64 font = 0, const string&in hoverText = ""); }
+namespace VimFlex { bool IconButton(const string&in text, color&in textColor, color&in bgColor, color&in bgColorHovered, color&in bgColorActive, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), const string&in hoverText = ""); }
+namespace VimFlex { bool IconButtonTransparent(const string&in text, color&in textColor, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), const string&in hoverText = ""); }
+namespace VimFlex { bool IconButtonTransparentToggle(const string&in text, color&in textColor, bool isActive, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), const string&in hoverText = ""); }
+namespace VimFlex { bool IconButtonPrimary(const string&in text, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), const string&in hoverText = ""); }
+namespace VimFlex { bool IconButtonSecondary(const string&in text, bool hasOutline, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), const string&in hoverText = ""); }
+namespace VimFlex { bool IconToggleButton(const string&in text, bool isActive, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), const string&in hoverText = ""); }
+namespace VimFlex { bool IconButtonPositive(const string&in text, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), const string&in hoverText = ""); }
+namespace VimFlex { bool IconButtonDestructive(const string&in text, bool isEnabled = true, float2&in size = float2 ( 0 , 0 ), const string&in hoverText = ""); }
+namespace VimFlex { bool ToggleSwitch(bool&in valueIn, bool&out valueOut, float2&in size = float2 ( 0 , 0 )); }
+namespace Parallel { Core::Job@ Run(const string&in name, TaskFunc@ func, ?&in params); }
+namespace VimFlex::Console { void Info(const string&in msg, const string&in ctx = string ( )); }
+namespace VimFlex::Console { void Log(const string&in msg, const string&in ctx = string ( )); }
+namespace VimFlex::Console { void Warn(const string&in msg, const string&in ctx = string ( )); }
+namespace VimFlex::Console { void Error(const string&in msg, const string&in ctx = string ( )); }
+namespace VimFlex::Console { void Info(const hstring&in); }
+namespace VimFlex::Console { void Log(const hstring&in); }
+namespace VimFlex::Console { void Warn(const hstring&in); }
+namespace VimFlex::Console { void Error(const hstring&in); }
+namespace VimFlex::Profiler { float Time(const string&in); }
+namespace VimFlex::Profiler { float Time(); }
+namespace VimFlex::Profiler { void Start(const string&in); }
+namespace VimFlex::Profiler { float Stop(const string&in); }
+namespace VimFlex::Profiler { float Elapsed(const string&in); }
+namespace VimFlex { bool GetDeveloperModeFlag(); }
+namespace VimFlex { void SetDeveloperModeFlag(bool developerModeFlag); }
+namespace VimFlex { bool IsDeveloperMode(); }
+namespace VimFlex { void ResetAllWindows(); }
+namespace VimFlex { void RequestUpdateDockingRegions(float leftFractionOverride, float rightFractionOverride, float topFractionOverride, float bottomFractionOverride); }
+namespace VimFlex { VimMcpService@ GetMcpService(); }
+namespace VimFlex { VimPluginService@ GetPluginService(); }
+namespace VimFlex { VimLicenseService@ GetLicenseService(); }
+namespace VimFlex { string GetUserSettingsPath(); }
+namespace VimFlex { string GetLoadFileOnStart(); }
+namespace VimFlex { string GetLoadUrlOnStart(); }
+namespace VimFlex { string GetUserHomeDirectory(); }
+namespace VimFlex { string GetVimTempDir(); }
+namespace VimFlex { string GetSystemScriptsPath(); }
+namespace VimFlex { string GetDataPath(); }
+namespace VimFlex { string GetLogPath(); }
+namespace VimFlex { string GetDownloadPath(); }
+namespace VimFlex { string GetAppDataPath(); }
+namespace VimFlex { string OpenFileDialog(const string&in title, const string&in filter); }
+namespace VimFlex { string SaveFileDialog(const string&in title, const string&in filter, const string&in defaultFileName = ""); }
+namespace VimFlex { string OpenFolderDialog(const string&in title); }
+namespace VimFlex { string OpenFolderDialogAt(const string&in title, const string&in path); }
+namespace VimFlex { void OpenFileExplorer(const string&in path); }
+namespace VimFlex { string GetUserPluginsPath(); }
+namespace VimFlex { string GetMcpServerPort(); }
+namespace VimFlex { string GetMcpBridgePath(); }
+namespace VimFlex { float GetUiUpdateTime(); }
+namespace VimFlex { float GetDelayTime(); }
+namespace VimFlex { float GetTime(); }
+namespace VimFlex { float GetElapsedTime(); }
+namespace VimFlex { void CompileScript(); }
+namespace VimFlex { void ShowLicenseModal(bool withFeatureMessage); }
+namespace VimFlex { void OpenMcpView(); }
+namespace VimFlex { void OpenUltraView(); }
+namespace VimFlex { void RequestExit(); }
+namespace VimFlex { float DpiAware(float value); }
+namespace VimFlex { RectInt GetWindowRect(); }
+namespace VimFlex { Message::MessageBox@ GetMessageBox(); }
+namespace VimFlex { void ShowScriptConsole(bool show); }
+namespace VimFlex { bool GetShowImGuiDebugWindows(); }
+namespace VimFlex { void SetShowImGuiDebugWindows(bool show); }
+namespace VimFlex { void TakeScreenshot(const string&in filePath); }
+namespace VimFlex { Scene::Event@ OnRender(); }
+namespace VimFlex { Scene::Event@ OnRegisterDockingRegions(); }
+namespace VimFlex { Scene::Event@ OnMainMenuRender(); }
+namespace VimFlex { Scene::Event@ OnAppShutdown(); }
+namespace VimFlex { Scene::Event@ OnPluginInit(); }
+namespace VimFlex { Scene::Event@ OnPluginShutdown(); }
+namespace VimFlex { Core::Job@ RunClashTest(Scene::Scene@ scene, const Scene::SceneItemSet@ setA, const Scene::SceneItemSet@ setB, float minimumDistance, Scene::Event::EventCallback@ completionCallback, VimClashResult[]@ resultsArray); }
+namespace VimFlex { Core::Job@ RunDiffTest(Scene::Scene@ sceneA, Scene::Scene@ sceneB, Scene::Event::EventCallback@ completionCallback, VimDiffElement[]@ addedArray, VimDiffElement[]@ removedArray, VimDiffElementModified[]@ modifiedArray); }
+namespace VimFlex::Menu { float GetWindowControlsWidth(); }
+namespace VimFlex::Menu { void SetScreenClientRect(const float2&in clientRectMin, const float2&in clientRectMax); }
+namespace VimFlex::Status { void PushStatus(const string&in); }
+namespace VimFlex::Status { void ClearStatus(const string&in); }
+namespace Style { void VSpaceTiny(); }
+namespace Style { void VSpaceSmall(); }
+namespace Style { void VSpace(); }
+namespace Style { void VSpaceLarge(); }
+namespace Style { void VSpaceVeryLarge(); }
+namespace Style { void HSpaceTiny(); }
+namespace Style { void HSpaceSmall(); }
+namespace Style { void HSpace(); }
+namespace Style { void HSpaceLarge(); }
+namespace Style { void HSpaceVeryLarge(); }
+namespace Style { ColorTheme GetColorTheme(); }
+namespace Style { void SetColorTheme(ColorTheme colorTheme); }
+namespace Style { bool IsLightColorTheme(); }
+namespace Style { color GetColorWhite(); }
+namespace Style { color GetColorBlack(); }
+namespace Style { color GetColorCapsuleBackground(); }
+namespace Style { color GetColorModalDimBackground(); }
+namespace Style { color GetColorBackground(); }
+namespace Style { color GetColorFrame(); }
+namespace Style { color GetColorHeader(); }
+namespace Style { color GetColorHeaderHover(); }
+namespace Style { color GetColorHeaderActive(); }
+namespace Style { color GetColorBorder(); }
+namespace Style { color GetColorMainMenuText(); }
+namespace Style { color GetColorText(); }
+namespace Style { color GetColorTextTitle(); }
+namespace Style { color GetColorTextSection(); }
+namespace Style { color GetColorTextPositive(); }
+namespace Style { color GetColorTextError(); }
+namespace Style { color GetColorActionText(); }
+namespace Style { color GetColorAction(); }
+namespace Style { color GetColorActionHover(); }
+namespace Style { color GetColorActionHoverSecondary(); }
+namespace Style { color GetColorActionActive(); }
+namespace Style { color GetColorActionActiveSecondary(); }
+namespace Style { color GetColorActionInactive(); }
+namespace Style { color GetColorDisabled(); }
+namespace Style { color GetColorRadioButtonBorder(); }
+namespace Style { color GetColorRadioButtonActive(); }
+namespace Style { uint64 GetFontRegularSmall(); }
+namespace Style { uint64 GetFontRegular(); }
+namespace Style { uint64 GetFontRegularLarge(); }
+namespace Style { uint64 GetFontRegularExtraLarge(); }
+namespace Style { uint64 GetFontRegular2ExtraLarge(); }
+namespace Style { uint64 GetFontBoldSmall(); }
+namespace Style { uint64 GetFontBold(); }
+namespace Style { uint64 GetFontBoldLarge(); }
+namespace Style { uint64 GetFontBoldExtraLarge(); }
+namespace Style { uint64 GetFontBold2ExtraLarge(); }
+namespace Style { uint64 GetFontIconSmall(); }
+namespace Style { uint64 GetFontIconRegular(); }
+namespace Style { uint64 GetFontIconLarge(); }
+namespace Style { uint64 GetFontIconExtraLarge(); }
+namespace Style { uint64 GetFontIcon2ExtraLarge(); }
+namespace Style { void SetNextWindowCentered(float2&in dimensions); }
+namespace Style { void PushModalStyle(); }
+namespace Style { void PopModalStyle(); }
+namespace Style { void PushModalBodyStyle(); }
+namespace Style { void PopModalBodyStyle(); }
+namespace Style { bool BeginStyledModal(const string&in name, bool&in open, bool&out openOut, const float2&in dimensions); }
+namespace Style { bool BeginStyledModalAutoSize(const string&in name, bool&in open, bool&out openOut); }
+namespace Style { void EndStyledModal(); }
+namespace Style { void PushRadioButtonStyle(); }
+namespace Style { void PopRadioButtonStyle(); }
+namespace Style { void PushTransparentChildStyle(); }
+namespace Style { void PopTransparentChildStyle(); }
+namespace Style { void PushTableStyle(); }
+namespace Style { void PopTableStyle(); }
+namespace Style { float GetTableRowHeight(); }
+namespace Style { void PushTitleStyle(); }
+namespace Style { void PopTitleStyle(); }
+namespace Style { void TitleText(const string&in title); }
+namespace Style { void PushSectionStyle(); }
+namespace Style { void PopSectionStyle(); }
+namespace Style { void SectionText(const string&in section); }
+namespace Style { void Url(const string&in text, const string&in url); }
+namespace Style { float2 GetIconButtonSize(const string&in str); }
+namespace Style { float GetIconButtonWidths(float itemSpacing, string[]@ icons); }
+namespace Style { void RightAlignIconButtons(float itemSpacing, string[]@ icons); }
+namespace Style { bool IsDocked(); }
+namespace Style { float GetCappedAvailableWidth(float width = 0.0f, float maxWidth = 600.0f); }
+namespace Style { void ProgressBar(float progress, float2 size, const string&in title = "", const string&in progressCaption = "", float captionSpacing = - 1.0f); }
+namespace Style { void ProgressBarIndeterminate(float2 size, const string&in title = "", const string&in progressCaption = "", float captionSpacing = - 1.0f); }
+namespace Math { float PI; }
+namespace Math { float TAU; }
+namespace Math { float DegreesToRadians; }
+namespace Math { float RadiansToDegrees; }
+float4x4 MATRIX_IDENTITY;
+float4x4 MATRIX_ZERO;
+namespace Colors { color Primary_50; }
+namespace Colors { color Primary_100; }
+namespace Colors { color Primary_200; }
+namespace Colors { color Primary_300; }
+namespace Colors { color Primary_400; }
+namespace Colors { color Primary_500; }
+namespace Colors { color Primary_600; }
+namespace Colors { color Primary_700; }
+namespace Colors { color Primary_800; }
+namespace Colors { color Primary_900; }
+namespace Colors { color Secondary_50; }
+namespace Colors { color Secondary_100; }
+namespace Colors { color Secondary_200; }
+namespace Colors { color Secondary_300; }
+namespace Colors { color Secondary_400; }
+namespace Colors { color Secondary_500; }
+namespace Colors { color Secondary_600; }
+namespace Colors { color Secondary_700; }
+namespace Colors { color Secondary_800; }
+namespace Colors { color Secondary_900; }
+namespace Colors { color Tertiary_50; }
+namespace Colors { color Tertiary_100; }
+namespace Colors { color Tertiary_200; }
+namespace Colors { color Tertiary_300; }
+namespace Colors { color Tertiary_400; }
+namespace Colors { color Tertiary_500; }
+namespace Colors { color Tertiary_600; }
+namespace Colors { color Tertiary_700; }
+namespace Colors { color Tertiary_800; }
+namespace Colors { color Tertiary_900; }
+namespace Colors { color Accent1_50; }
+namespace Colors { color Accent1_100; }
+namespace Colors { color Accent1_200; }
+namespace Colors { color Accent1_300; }
+namespace Colors { color Accent1_400; }
+namespace Colors { color Accent1_500; }
+namespace Colors { color Accent1_600; }
+namespace Colors { color Accent1_700; }
+namespace Colors { color Accent1_800; }
+namespace Colors { color Accent1_900; }
+namespace Colors { color Accent2_50; }
+namespace Colors { color Accent2_100; }
+namespace Colors { color Accent2_200; }
+namespace Colors { color Accent2_300; }
+namespace Colors { color Accent2_400; }
+namespace Colors { color Accent2_500; }
+namespace Colors { color Accent2_600; }
+namespace Colors { color Accent2_700; }
+namespace Colors { color Accent2_800; }
+namespace Colors { color Accent2_900; }
+namespace Colors { color Accent3_50; }
+namespace Colors { color Accent3_100; }
+namespace Colors { color Accent3_200; }
+namespace Colors { color Accent3_300; }
+namespace Colors { color Accent3_400; }
+namespace Colors { color Accent3_500; }
+namespace Colors { color Accent3_600; }
+namespace Colors { color Accent3_700; }
+namespace Colors { color Accent3_800; }
+namespace Colors { color Accent3_900; }
+namespace Colors { color Neutral_10; }
+namespace Colors { color Neutral_20; }
+namespace Colors { color Neutral_30; }
+namespace Colors { color Neutral_40; }
+namespace Colors { color Neutral_50; }
+namespace Colors { color Neutral_60; }
+namespace Colors { color Neutral_70; }
+namespace Colors { color Neutral_80; }
+namespace Colors { color Neutral_90; }
+namespace Colors { color Neutral_100; }
+namespace Colors { color Neutral_200; }
+namespace Colors { color Neutral_300; }
+namespace Colors { color Neutral_400; }
+namespace Colors { color Neutral_500; }
+namespace Colors { color Neutral_600; }
+namespace Colors { color Neutral_700; }
+namespace Colors { color Neutral_800; }
+namespace Colors { color Neutral_900; }
+namespace Colors { color Shades_1000; }
+namespace Colors { color Shades_00; }
+namespace Colors { color White; }
+namespace Colors { color Black; }
+namespace Colors { color BackgroundDark; }
+namespace Colors { color FrameDark; }
+namespace Colors { color HeaderDark; }
+namespace Colors { color BorderDark; }
+namespace Colors { color Action; }
+namespace Colors { color Hover; }
+namespace Colors { color Active; }
+namespace Colors { color PositiveDisabled; }
+namespace Colors { color PositiveLight; }
+namespace Colors { color PositiveVibrant; }
+namespace Colors { color PositiveDefault; }
+namespace Colors { color PositiveDark; }
+namespace Colors { color PositiveDarker; }
+namespace Colors { color PositiveDarkest; }
+namespace Colors { color WarningLight; }
+namespace Colors { color WarningDefault; }
+namespace Colors { color WarningDark; }
+namespace Colors { color ErrorDisabled; }
+namespace Colors { color ErrorLight; }
+namespace Colors { color ErrorDefault; }
+namespace Colors { color ErrorDark; }
+namespace Colors { color ErrorDarker; }
+namespace Colors { color ErrorDarkest; }
+namespace Colors { color InformLight; }
+namespace Colors { color InformDefault; }
+namespace Colors { color InformDark; }
+namespace Colors { color MinRestoreHover; }
+namespace Colors { color MinRestoreActive; }
+namespace Colors { color CloseHover; }
+namespace Colors { color CloseActive; }
+namespace Colors { color DiffRemoved; }
+namespace Colors { color DiffAdded; }
+namespace Colors { color DiffModified1; }
+namespace Colors { color DiffModified2; }
+namespace Colors { color ScriptConsoleErrorRow; }
+namespace Colors { color ScriptConsoleWarnRow; }
+namespace Colors { color ScriptConsoleErrorLabel; }
+namespace Colors { color ScriptConsoleWarnLabel; }
+namespace Colors { color ScriptConsoleInfoLabel; }
+namespace Colors { color ScriptConsoleLogLabel; }
+namespace Colors { color ScriptConsoleRow; }
+namespace Colors { color BrandPrimary; }
+namespace Colors { color BrandSecondary; }
+namespace Colors { color BrandTertiary; }
+namespace Colors { color BrandAccent1; }
+namespace Colors { color BrandAccent2; }
+namespace Colors { color BrandAccent3; }
+namespace Colors { color ThemeLightWhite; }
+namespace Colors { color ThemeLightBlack; }
+namespace Colors { color ThemeLightCapsuleBackground; }
+namespace Colors { color ThemeLightModalDimBackground; }
+namespace Colors { color ThemeLightBackground; }
+namespace Colors { color ThemeLightFrame; }
+namespace Colors { color ThemeLightHeader; }
+namespace Colors { color ThemeLightHeaderHover; }
+namespace Colors { color ThemeLightHeaderActive; }
+namespace Colors { color ThemeLightBorder; }
+namespace Colors { color ThemeLightMainMenuText; }
+namespace Colors { color ThemeLightText; }
+namespace Colors { color ThemeLightTextTitle; }
+namespace Colors { color ThemeLightTextSection; }
+namespace Colors { color ThemeLightTextPositive; }
+namespace Colors { color ThemeLightTextError; }
+namespace Colors { color ThemeLightActionText; }
+namespace Colors { color ThemeLightAction; }
+namespace Colors { color ThemeLightActionHover; }
+namespace Colors { color ThemeLightActionHoverSecondary; }
+namespace Colors { color ThemeLightActionActive; }
+namespace Colors { color ThemeLightActionActiveSecondary; }
+namespace Colors { color ThemeLightActionInactive; }
+namespace Colors { color ThemeLightDisabled; }
+namespace Colors { color ThemeLightRadioButtonBorder; }
+namespace Colors { color ThemeLightRadioButtonActive; }
+namespace Colors { color ThemeDarkWhite; }
+namespace Colors { color ThemeDarkBlack; }
+namespace Colors { color ThemeDarkCapsuleBackground; }
+namespace Colors { color ThemeDarkModalDimBackground; }
+namespace Colors { color ThemeDarkBackground; }
+namespace Colors { color ThemeDarkFrame; }
+namespace Colors { color ThemeDarkHeader; }
+namespace Colors { color ThemeDarkHeaderHover; }
+namespace Colors { color ThemeDarkHeaderActive; }
+namespace Colors { color ThemeDarkBorder; }
+namespace Colors { color ThemeDarkMainMenuText; }
+namespace Colors { color ThemeDarkText; }
+namespace Colors { color ThemeDarkTextTitle; }
+namespace Colors { color ThemeDarkTextSection; }
+namespace Colors { color ThemeDarkTextPositive; }
+namespace Colors { color ThemeDarkTextError; }
+namespace Colors { color ThemeDarkActionText; }
+namespace Colors { color ThemeDarkAction; }
+namespace Colors { color ThemeDarkActionHover; }
+namespace Colors { color ThemeDarkActionHoverSecondary; }
+namespace Colors { color ThemeDarkActionActive; }
+namespace Colors { color ThemeDarkActionActiveSecondary; }
+namespace Colors { color ThemeDarkActionInactive; }
+namespace Colors { color ThemeDarkDisabled; }
+namespace Colors { color ThemeDarkRadioButtonBorder; }
+namespace Colors { color ThemeDarkRadioButtonActive; }
+namespace VimFlex { string Version; }
+namespace VimFlex { float2 DpiScale; }
+namespace VimFlex { uint InvalidIndex; }
+namespace VimFlex { uint InvalidElementIndex; }
+namespace VimFlex { uint64 InvalidMaterialHandle; }
+namespace VimFlex { uint InvalidTextureHandle; }
+namespace VimFlex { uint InvalidMeshHandle; }
+namespace VimFlex::Docking { uint RegionLeft; }
+namespace VimFlex::Docking { uint RegionRight; }
+namespace VimFlex::Docking { uint RegionTop; }
+namespace VimFlex::Docking { uint RegionBottom; }
+namespace VimFlex::Docking { uint RegionCenter; }
+namespace VimFlex::Textures { ImGui::Texture@ VimLogo; }
+namespace VimFlex::Textures { ImGui::Texture@ HeaderBackground; }
+namespace VimFlex::Textures { ImGui::Texture@ SectionEnable; }
+namespace VimFlex::Textures { ImGui::Texture@ AutoCamera; }
+namespace VimFlex::Textures { ImGui::Texture@ FrameAll; }
+namespace VimFlex::Textures { ImGui::Texture@ FrameSelection; }
+namespace VimFlex::Textures { ImGui::Texture@ AutoIsolate; }
+namespace VimFlex::Textures { ImGui::Texture@ ClearSelection; }
+namespace VimFlex::Textures { ImGui::Texture@ ShowAll; }
+namespace VimFlex::Textures { ImGui::Texture@ ShowSelection; }
+namespace VimFlex::Textures { ImGui::Texture@ HideSelection; }
+namespace VimFlex::Textures { ImGui::Texture@ IsolateSelection; }
+namespace VimFlex::Textures { ImGui::Texture@ SectionSelection; }
+namespace VimFlex::Textures { ImGui::Texture@ SectionAll; }
+namespace VimFlex::Textures { ImGui::Texture@ Visible; }
+namespace VimFlex::Textures { ImGui::Texture@ AutoSection; }
+namespace VimFlex::Textures { ImGui::Texture@ SettingsHoriz; }
+namespace Style::Icons { string Hamburger; }
+namespace Style::Icons { string GripperHorizontal; }
+namespace Style::Icons { string GripperVertical; }
+namespace Style::Icons { string Back; }
+namespace Style::Icons { string Forward; }
+namespace Style::Icons { string Up; }
+namespace Style::Icons { string Down; }
+namespace Style::Icons { string Refresh; }
+namespace Style::Icons { string Add; }
+namespace Style::Icons { string Edit; }
+namespace Style::Icons { string Erase; }
+namespace Style::Icons { string Delete; }
+namespace Style::Icons { string Save; }
+namespace Style::Icons { string Cancel; }
+namespace Style::Icons { string Accept; }
+namespace Style::Icons { string Play; }
+namespace Style::Icons { string Pause; }
+namespace Style::Icons { string Stop; }
+namespace Style::Icons { string More; }
+namespace Style::Icons { string Settings; }
+namespace Style::Icons { string Sun; }
+namespace Style::Icons { string Moon; }
+namespace Style::Icons { string Lightning; }
+namespace Style::Icons { string Info; }
+namespace Style::Icons { string Warning; }
+namespace Style::Icons { string Help; }
+namespace Style::Icons { string Search; }
+namespace Style::Icons { string Filter; }
+namespace Style::Icons { string Sort; }
+namespace Style::Icons { string Folder; }
+namespace Style::Icons { string OpenFolder; }
+namespace Style::Icons { string File; }
+namespace Style::Icons { string Export; }
+namespace Style::Icons { string Checklist; }
+namespace Style::Icons { string BulletList; }
+namespace Style::Icons { string OpenWith; }
+namespace Style::Icons { string Copy; }
+namespace Style::Icons { string Paste; }
+namespace Style::Icons { string Cut; }
+namespace Style::Icons { string Restore; }
+namespace Style::Icons { string Maximize; }
+namespace Style::Icons { string Minimize; }
+namespace Style::Icons { string Close; }
+namespace Style::Icons { string Link; }
+namespace Style::Icons { string Upload; }
+namespace Style::Icons { string Download; }
+namespace Style::Icons { string Cloud; }
+namespace Style::Icons { string Robot; }
+namespace Style::Icons { string Flame; }
+namespace Style::Icons { string Tools; }
+namespace Style::Icons { string Layers; }
+namespace Style::Icons { string TriangleSplit; }
+namespace Style::Icons { string Cube; }
+namespace Style::Icons { string Octahedron; }
+namespace Style::Icons { string Switch; }
+namespace Style::Icons { string SwitchBold; }
+namespace Style::Icons { string Shuffle; }
+namespace Style::Icons { string Color; }
+namespace Style::Icons { string ColorOff; }
+namespace Style::Icons { string ColorSolid; }
+namespace Style::Icons { string AddTo; }
+namespace Style::Icons { string RemoveFrom; }
+namespace Style::Icons { string ExploreContentSingle; }
+namespace Style::Icons { string CollapseContentSingle; }
+namespace Style::Icons { string CollapseContent; }
+namespace Style::Icons { string ChevronUp; }
+namespace Style::Icons { string ChevronDown; }
+namespace Style::Icons { string ChevronLeft; }
+namespace Style::Icons { string ChevronRight; }
+namespace Style::Icons { string ChevronUpSmall; }
+namespace Style::Icons { string ChevronDownSmall; }
+namespace Style::Icons { string ChevronLeftSmall; }
+namespace Style::Icons { string ChevronRightSmall; }
+namespace Style::Icons { string ChevronUpMed; }
+namespace Style::Icons { string ChevronDownMed; }
+namespace Style::Icons { string ChevronLeftMed; }
+namespace Style::Icons { string ChevronRightMed; }
+namespace Style::Icons { string StatusErrorFull; }
+namespace Style::Icons { string Blocked2; }
+namespace Style::Icons { string CompletedSolid; }
+namespace Style { float SpacingTiny; }
+namespace Style { float SpacingSmall; }
+namespace Style { float SpacingRegular; }
+namespace Style { float SpacingLarge; }
+namespace Style { float SpacingVeryLarge; }
+namespace Style { float Rounding; }
+namespace Style { float RoundingModal; }
+namespace Style { float Padding; }
+namespace Style { float ButtonPadding; }
+namespace Style { float IconButtonPadding; }
+namespace Style { float TabOverlineSize; }
+namespace Style { int TableFlags; }
+namespace Scene {
+typedef uint64 PhysicsBodyHandle;
+}

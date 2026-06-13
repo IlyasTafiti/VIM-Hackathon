@@ -1,0 +1,11 @@
+{
+    "Author": "Aliova",
+    "Company": "Aliova",
+    "Description": "Auditeur de conformite PGB — evalue 5 regles BIM sur le modele charge et colore les violations en 3D.",
+    "Email": "ilyas.tafiti@aliova.com",
+    "License": "MIT",
+    "MinApiVersion": "1.0.0",
+    "Name": "PGBAudit",
+    "Url": "https://aliova.com",
+    "Version": "1.0.0"
+}

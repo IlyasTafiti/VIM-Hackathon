@@ -1,0 +1,11 @@
+{
+    "Author": "VIM",
+    "Company": "VIMBUILD LLC",
+    "Description": "This is a VIM Flex demo plugin showing how to make a dashboard.",
+    "Email": "support@vimaec.com",
+    "License": "MIT",
+    "MinApiVersion": "1.0.0",
+    "Name": "Demo",
+    "Url": "https://www.vimaec.com",
+    "Version": "1.1.0"
+}

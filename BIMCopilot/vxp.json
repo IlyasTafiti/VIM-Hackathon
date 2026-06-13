@@ -1,0 +1,11 @@
+{
+    "Author": "Aliova",
+    "Company": "Aliova",
+    "Description": "BIM Copilot — interface IA pilotee par Claude via MCP. Reponses en langage naturel et selection 3D en temps reel.",
+    "Email": "ilyas.tafiti@aliova.com",
+    "License": "MIT",
+    "MinApiVersion": "1.0.0",
+    "Name": "BIMCopilot",
+    "Url": "https://aliova.com",
+    "Version": "1.0.0"
+}
