@@ -74,6 +74,7 @@ namespace QCMcpTools
     {
         if (_chat is null) return;
         _chat.AppendAssistant(text);
+        _chat.MarkHandled();   // acquitte l'inbox : la boucle /loop ne retraite pas cet id
     }
 
     void HandleAddResult(const string&in module, const string&in status,

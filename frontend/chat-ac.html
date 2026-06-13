@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat AC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; }
+  body{ margin:0; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(5px); } to{ opacity:1; transform:translateY(0); } }
+  @keyframes acblink{ 0%,45%{ opacity:1; } 55%,100%{ opacity:0; } }
+
+  #ac-root{
+    position:relative; min-height:100vh; display:flex; flex-direction:column;
+    background:#f5f4ef;
+    font-family:system-ui, 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    color:#2a2823; -webkit-font-smoothing:antialiased;
+  }
+
+  .ac-scroll::-webkit-scrollbar{ width:11px; }
+  .ac-scroll::-webkit-scrollbar-thumb{ background:#dcd8cf; border-radius:8px; border:3px solid #f5f4ef; }
+  .ac-scroll::-webkit-scrollbar-track{ background:transparent; }
+  textarea::placeholder{ color:#a39e93; }
+
+  /* Hover states (replaces the prototype's style-hover attribute) */
+  .tb-text-btn:hover{ background:#ece9e2; }
+  .tb-icon-btn:hover{ background:#ece9e2; color:#211f1b; }
+  .cp-btn:hover{ background:#f0ede5; color:#211f1b; }
+  .rm-btn:hover{ background:#e3ded3 !important; color:#211f1b; }
+  .send-active:hover{ background:#b35a35 !important; }
+  .msg{ animation:fadeUp .18s ease; }
+</style>
+</head>
+<body>
+<div id="ac-root">
+
+  <!-- Top bar -->
+  <div style="display:flex; align-items:center; justify-content:space-between; height:54px; padding:0 22px; flex:none;">
+    <div style="display:flex; align-items:center; gap:18px;">
+      <span style="font-family:'Newsreader', Georgia, serif; font-size:25px; font-weight:600; letter-spacing:-.2px; color:#211f1b;">Chat AC</span>
+      <button class="tb-text-btn" style="display:flex; align-items:center; gap:7px; height:32px; padding:0 6px 0 9px; border:none; background:transparent; border-radius:8px; cursor:pointer; color:#56524c; font-family:inherit; font-size:14.5px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.5h8M8 14h5"/><path d="M21 11.5a8.5 8.5 0 0 1-12.2 7.6L3 20.5l1.5-5.6A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+        <span>Audit R+5</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div style="display:flex; align-items:center; gap:6px; color:#56524c;">
+      <button class="tb-icon-btn" style="display:flex; align-items:center; justify-content:center; width:34px; height:34px; border:none; background:transparent; border-radius:8px; cursor:pointer; color:inherit;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8-4.2-4.1 5.9-.9L12 3.5Z"/></svg>
+      </button>
+      <button class="tb-icon-btn" style="position:relative; display:flex; align-items:center; justify-content:center; width:34px; height:34px; border:none; background:transparent; border-radius:8px; cursor:pointer; color:inherit;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11M4 17h7"/><circle cx="18" cy="7" r="2.4"/><circle cx="14" cy="17" r="2.4"/></svg>
+        <span style="position:absolute; top:1px; right:1px; min-width:15px; height:15px; padding:0 3px; background:#c4663f; color:#fff; font-size:10px; font-weight:700; line-height:15px; border-radius:8px; text-align:center;">1</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Conversation -->
+  <div id="ac-scroll" class="ac-scroll" style="flex:1; overflow-y:auto; padding:8px 0 12px;">
+    <div id="ac-conv" style="max-width:680px; margin:0 auto; padding:0 24px; display:flex; flex-direction:column; gap:22px;"></div>
+  </div>
+
+  <!-- Composer -->
+  <div style="flex:none; padding:4px 0 18px;">
+    <div style="max-width:680px; margin:0 auto; padding:0 24px; display:flex; align-items:flex-end; gap:12px;">
+      <div style="flex:1;">
+
+        <div id="ac-pending" style="display:none; flex-wrap:wrap; gap:10px; padding:0 2px 11px;"></div>
+
+        <div style="background:#ffffff; border:1px solid #e6e1d8; border-radius:18px; padding:14px 16px 11px; box-shadow:0 2px 10px rgba(40,36,30,.06);">
+          <textarea id="ac-ta" rows="1" placeholder="Répondre à Chat AC…" style="width:100%; border:none; outline:none; resize:none; background:transparent; font-family:inherit; font-size:15.5px; line-height:1.5; color:#211f1b; min-height:24px; max-height:160px; display:block;"></textarea>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:10px;">
+            <div style="display:flex; align-items:center; gap:4px; color:#56524c;">
+              <button id="ac-pick-files" class="cp-btn" title="Joindre un fichier" style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:none; background:transparent; border-radius:8px; cursor:pointer; color:inherit;">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11.5l-7.4 7.4a4.5 4.5 0 0 1-6.4-6.4l7.7-7.7a3 3 0 0 1 4.3 4.3l-7.6 7.6a1.5 1.5 0 0 1-2.2-2.1l6.9-6.9"/></svg>
+              </button>
+              <button id="ac-pick-dir" class="cp-btn" title="Joindre un dossier" style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:none; background:transparent; border-radius:8px; cursor:pointer; color:inherit;">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7.5Z"/></svg>
+              </button>
+              <button class="cp-btn" title="Modèle" style="display:flex; align-items:center; gap:3px; height:32px; padding:0 8px; border:none; background:transparent; border-radius:8px; cursor:pointer; color:#56524c; font-family:inherit; font-size:13.5px;">
+                <span>Chat AC · Sonnet</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <button class="cp-btn" title="Style" style="display:flex; align-items:center; gap:5px; height:32px; padding:0 9px; border:none; background:transparent; border-radius:8px; cursor:pointer; color:#56524c; font-family:inherit; font-size:13.5px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l4-9 4 9M6.2 13.2h5.6"/><path d="M16 7v9M16 7c2 0 3 1 3 2.4S18 12 16 12"/></svg>
+                <span>Style</span>
+              </button>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:6px;">
+              <button class="cp-btn" title="Dictée" style="display:flex; align-items:center; justify-content:center; width:32px; height:32px; border:none; background:transparent; border-radius:8px; cursor:pointer; color:#56524c;">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.3" fill="currentColor" stroke="none"/></svg>
+              </button>
+              <button id="ac-send" title="Envoyer" disabled style="display:flex; align-items:center; justify-content:center; width:33px; height:33px; border:1px solid #ddd8cd; background:transparent; border-radius:50%; cursor:default; color:#bdb8ad;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden file inputs -->
+  <input id="ac-file-input" type="file" multiple style="display:none;" />
+  <input id="ac-dir-input" type="file" webkitdirectory style="display:none;" />
+
+  <!-- Drop overlay -->
+  <div id="ac-overlay" style="display:none; position:absolute; inset:14px; z-index:30; border:2px dashed #c4663f; border-radius:16px; background:rgba(196,102,63,.06); flex-direction:column; align-items:center; justify-content:center; gap:14px; pointer-events:none;">
+    <div style="width:54px; height:54px; border-radius:14px; background:#fff; border:1px solid #eadfd6; display:flex; align-items:center; justify-content:center; color:#c4663f; box-shadow:0 4px 14px rgba(40,36,30,.08);">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 16v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg>
+    </div>
+    <div style="font-size:16px; font-weight:600; color:#9c4a2c;">Déposez vos fichiers ou dossiers ici</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---- SVG constants ----
+  var FOLDER_SVG_SMALL = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7.5Z"/></svg>';
+  var X_SVG = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#7a766d" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+
+  // ---- DOM refs ----
+  var root    = document.getElementById('ac-root');
+  var scroller= document.getElementById('ac-scroll');
+  var conv    = document.getElementById('ac-conv');
+  var pendingEl = document.getElementById('ac-pending');
+  var ta      = document.getElementById('ac-ta');
+  var sendBtn = document.getElementById('ac-send');
+  var fileInput = document.getElementById('ac-file-input');
+  var dirInput  = document.getElementById('ac-dir-input');
+  var overlay = document.getElementById('ac-overlay');
+
+  // ---- State (mirrors the prototype) ----
+  var seed = [
+    { role:'assistant', text:'Bonjour. Posez une question de contrôle qualité — par ex. « vérifie la géoréférence » ou « audit complet vs le BEP ». Déposez le cahier des charges et le modèle pour lancer un audit contre les exigences.' },
+    { role:'user', text:'Peux-tu auditer ce modèle contre le cahier des charges ?', attachments:[
+      { name:'Cahier_des_charges_BIM.docx', meta:'48 pages', badge:'DOCX' },
+      { name:'Projet_R+5.ifc', meta:'IFC4 · 12,4 Mo', badge:'IFC' }
+    ] },
+    { role:'assistant', text:'Audit lancé contre Cahier_des_charges_BIM.docx — 1 / 4 modules conformes.\n\n•  Géoréférence : OK (RGF93 / Lambert-93)\n•  Paramètres : 2 propriétés requises manquantes\n•  Structure IFC : 87 éléments sans niveau\n•  LOI / LOIN : à vérifier\n\nConformité globale : 0 / 1. Souhaitez-vous le détail d’un module ?' }
+  ];
+
+  var state = { messages: seed.slice(), pending: [], loading: false, dragging: false };
+  var dragCount = 0;
+  var sendTimer = null, streamTimer = null;
+
+  // ---- Helpers ----
+  function el(tag, style, opts){
+    var e = document.createElement(tag);
+    if (style) e.setAttribute('style', style);
+    if (opts){
+      if (opts.cls) e.className = opts.cls;
+      if (opts.text != null) e.textContent = opts.text;
+      if (opts.html != null) e.innerHTML = opts.html;
+      if (opts.title) e.title = opts.title;
+    }
+    return e;
+  }
+
+  function fmtSize(n){
+    if (n == null) return '';
+    if (n < 1024) return n + ' o';
+    if (n < 1024*1024) return (n/1024).toFixed(0) + ' Ko';
+    return (n/1048576).toFixed(1).replace('.', ',') + ' Mo';
+  }
+
+  function badgeFor(name){
+    var ext = (name.split('.').pop() || '').toUpperCase();
+    return (ext && ext.length <= 4 && ext !== name.toUpperCase()) ? ext : 'FICHIER';
+  }
+
+  function fileToCard(f){ return { name:f.name, meta:fmtSize(f.size), badge:badgeFor(f.name), folder:false }; }
+
+  // ---- File card builder (used in messages + pending) ----
+  function buildCard(f, removeIndex){
+    var removable = (removeIndex != null);
+    var card = el('div', "position:relative; width:150px; background:#ffffff; border:1px solid #ece8e0; border-radius:11px; padding:11px 12px; box-shadow:0 1px 2px rgba(40,36,30,.05);");
+
+    var nameStyle = "font-size:13px; font-weight:550; color:#2a2823; line-height:1.35; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; word-break:break-all;";
+    if (removable) nameStyle += " padding-right:14px;";
+    card.appendChild(el('div', nameStyle, { text:f.name }));
+    card.appendChild(el('div', "font-size:11.5px; color:#9a958b; margin-top:5px;", { text:f.meta }));
+
+    var badgeWrap = el('div', "margin-top:11px;");
+    var badge = el('span', "display:inline-flex; align-items:center; gap:5px; height:20px; padding:0 7px; background:#f2efe8; border-radius:5px; font-size:10.5px; font-weight:700; letter-spacing:.4px; color:#6e6a61;");
+    if (f.folder) badge.innerHTML = FOLDER_SVG_SMALL;
+    badge.appendChild(document.createTextNode(f.badge));
+    badgeWrap.appendChild(badge);
+    card.appendChild(badgeWrap);
+
+    if (removable){
+      var rm = el('button', "position:absolute; top:7px; right:7px; display:flex; align-items:center; justify-content:center; width:18px; height:18px; border:none; background:#efece4; border-radius:5px; cursor:pointer;", { cls:'rm-btn', html:X_SVG });
+      rm.addEventListener('click', function(){ removePending(removeIndex); });
+      card.appendChild(rm);
+    }
+    return card;
+  }
+
+  // ---- Render conversation ----
+  function renderMessages(){
+    conv.innerHTML = '';
+    state.messages.forEach(function(m){
+      if (m.role === 'user'){
+        var wrap = el('div', "display:flex; flex-direction:column; align-items:flex-start; gap:10px;", { cls:'msg' });
+        var atts = m.attachments || [];
+        if (atts.length){
+          var row = el('div', "display:flex; flex-wrap:wrap; gap:10px;");
+          atts.forEach(function(f){ row.appendChild(buildCard(f, null)); });
+          wrap.appendChild(row);
+        }
+        if (m.text && m.text.length){
+          var bubble = el('div', "display:flex; align-items:center; gap:10px; background:#ece9e1; border-radius:18px; padding:9px 15px 9px 9px; max-width:100%;");
+          bubble.appendChild(el('span', "flex:none; width:26px; height:26px; border-radius:50%; background:#3a3a3a; color:#fff; font-size:10px; font-weight:700; letter-spacing:.3px; display:flex; align-items:center; justify-content:center;", { text:'BA' }));
+          bubble.appendChild(el('span', "font-size:15px; line-height:1.5; color:#2a2823; white-space:pre-wrap; word-break:break-word;", { text:m.text }));
+          wrap.appendChild(bubble);
+        }
+        conv.appendChild(wrap);
+      } else {
+        var row2 = el('div', "display:flex; gap:13px; align-items:flex-start;", { cls:'msg' });
+        row2.appendChild(el('div', "flex:none; width:26px; height:26px; border-radius:8px; background:#c4663f; color:#fff; font-size:10px; font-weight:700; letter-spacing:.3px; display:flex; align-items:center; justify-content:center; margin-top:1px;", { text:'AC' }));
+        var body = el('div', "flex:1; font-size:15.5px; line-height:1.62; color:#272420; white-space:pre-wrap; word-break:break-word; padding-top:2px;", { text:m.text });
+        if (m.streaming){
+          var cur = el('span', "display:inline-block; width:8px; height:17px; margin-left:1px; vertical-align:-3px; background:#c4663f; border-radius:1px; animation:acblink 1s step-end infinite;");
+          body.appendChild(cur);
+        }
+        row2.appendChild(body);
+        conv.appendChild(row2);
+      }
+    });
+
+    if (state.loading){
+      var sp = el('div', "display:flex; align-items:center; padding:2px 0 2px 3px;");
+      sp.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" style="animation:spin .8s linear infinite;"><circle cx="12" cy="12" r="9" fill="none" stroke="#eaded5" stroke-width="2.6"/><path d="M12 3a9 9 0 0 1 9 9" fill="none" stroke="#c4663f" stroke-width="2.6" stroke-linecap="round"/></svg>';
+      conv.appendChild(sp);
+    }
+  }
+
+  function renderPending(){
+    pendingEl.innerHTML = '';
+    if (!state.pending.length){ pendingEl.style.display = 'none'; return; }
+    pendingEl.style.display = 'flex';
+    state.pending.forEach(function(f, i){ pendingEl.appendChild(buildCard(f, i)); });
+  }
+
+  function updateSendButton(){
+    var canSend = (ta.value.trim().length > 0 || state.pending.length > 0) && !state.loading;
+    if (canSend){
+      sendBtn.disabled = false;
+      sendBtn.className = 'send-active';
+      sendBtn.setAttribute('style', "display:flex; align-items:center; justify-content:center; width:33px; height:33px; border:none; background:#c4663f; border-radius:50%; cursor:pointer; color:#fff;");
+    } else {
+      sendBtn.disabled = true;
+      sendBtn.className = '';
+      sendBtn.setAttribute('style', "display:flex; align-items:center; justify-content:center; width:33px; height:33px; border:1px solid #ddd8cd; background:transparent; border-radius:50%; cursor:default; color:#bdb8ad;");
+    }
+  }
+
+  function scrollEnd(){ scroller.scrollTop = scroller.scrollHeight; }
+
+  function autosize(){
+    ta.style.height = 'auto';
+    ta.style.height = Math.min(ta.scrollHeight, 160) + 'px';
+  }
+
+  // ---- Pending / file handling ----
+  function addPending(cards){
+    if (!cards.length) return;
+    state.pending = state.pending.concat(cards);
+    renderPending();
+    updateSendButton();
+  }
+
+  function removePending(i){
+    state.pending = state.pending.filter(function(_, idx){ return idx !== i; });
+    renderPending();
+    updateSendButton();
+  }
+
+  function onPick(e){
+    var files = Array.prototype.slice.call(e.target.files || []);
+    if (e.target.hasAttribute('webkitdirectory') && files.length){
+      var root0 = (files[0].webkitRelativePath || '').split('/')[0] || 'Dossier';
+      addPending([{ name:root0, meta:files.length + ' fichiers', badge:'DOSSIER', folder:true }]);
+    } else {
+      addPending(files.map(fileToCard));
+    }
+    e.target.value = '';
+  }
+
+  // ---- Drag & drop ----
+  function setDragging(v){
+    state.dragging = v;
+    overlay.style.display = v ? 'flex' : 'none';
+  }
+
+  root.addEventListener('dragenter', function(e){ e.preventDefault(); dragCount++; if (!state.dragging) setDragging(true); });
+  root.addEventListener('dragover',  function(e){ e.preventDefault(); });
+  root.addEventListener('dragleave', function(e){ e.preventDefault(); dragCount--; if (dragCount <= 0){ dragCount = 0; setDragging(false); } });
+  root.addEventListener('drop', function(e){
+    e.preventDefault();
+    dragCount = 0;
+    var dt = e.dataTransfer;
+    var cards = [];
+    var items = (dt && dt.items) ? Array.prototype.slice.call(dt.items) : [];
+    if (items.length && items[0].webkitGetAsEntry){
+      items.forEach(function(it){
+        var entry = it.webkitGetAsEntry && it.webkitGetAsEntry();
+        if (entry && entry.isDirectory) cards.push({ name:entry.name, meta:'Dossier', badge:'DOSSIER', folder:true });
+        else { var f = it.getAsFile && it.getAsFile(); if (f) cards.push(fileToCard(f)); }
+      });
+    } else if (dt && dt.files){
+      Array.prototype.slice.call(dt.files).forEach(function(f){ cards.push(fileToCard(f)); });
+    }
+    setDragging(false);
+    addPending(cards);
+  });
+
+  // ---- Canned QC replies (mirrors the prototype) ----
+  function pickReply(q){
+    var s = (q || '').toLowerCase();
+    if (/g[eé]or[eé]f|coordonn|epsg|lambert/.test(s))
+      return 'Géoréférence — conforme.\n\n•  Système : RGF93 / Lambert-93 (EPSG:2154)\n•  Unités : mètres\n•  Point de base rattaché au repère projet\n\nAucun écart vs le BEP.';
+    if (/audit|complet|bep|cahier|exigenc/.test(s))
+      return 'Audit complet vs le cahier des charges — 1 / 4 modules conformes.\n\n•  Géoréférence : OK\n•  Paramètres : 2 propriétés requises manquantes\n•  Structure IFC : 87 éléments sans niveau\n•  LOI / LOIN : à vérifier\n\nConformité globale : 0 / 1.';
+    if (/niveau|level|[eé]tage/.test(s))
+      return 'Niveaux — 87 éléments non rattachés.\n\nCatégories : Murs (41), Sols (22), Mobilier (24).\nJe peux générer la liste exportable (CSV) si besoin.';
+    if (/param[eè]tr|propri[eé]t/.test(s))
+      return 'Paramètres — 2 propriétés requises manquantes vs le BEP :\n\n•  AC_CodePhase (Murs)\n•  AC_Materiau (Sols)\n\nAttendues sur 124 éléments.';
+    return 'Analyse terminée. Aucun problème critique sur ce périmètre. Précisez un module — géoréférence, paramètres, structure IFC ou LOI/LOIN — pour un contrôle ciblé.';
+  }
+
+  // ---- Send + streaming ----
+  function send(){
+    var text = ta.value.trim();
+    var pend = state.pending;
+    if ((!text && !pend.length) || state.loading) return;
+
+    state.messages.push({ role:'user', text:text, attachments:pend });
+    state.pending = [];
+    state.loading = true;
+    ta.value = '';
+    autosize();
+    renderPending();
+    renderMessages();
+    updateSendButton();
+    setTimeout(scrollEnd, 0);
+
+    clearTimeout(sendTimer);
+    sendTimer = setTimeout(function(){
+      var reply = pickReply(text || (pend[0] && pend[0].name) || '');
+      state.loading = false;
+      state.messages.push({ role:'assistant', text:'', streaming:true });
+      renderMessages();
+      setTimeout(scrollEnd, 0);
+      streamReply(reply);
+    }, 800);
+  }
+
+  function streamReply(full){
+    var i = 0;
+    clearInterval(streamTimer);
+    streamTimer = setInterval(function(){
+      i = Math.min(full.length, i + 3);
+      var last = state.messages[state.messages.length - 1];
+      last.text = full.slice(0, i);
+      renderMessages();
+      scrollEnd();
+      if (i >= full.length){
+        clearInterval(streamTimer);
+        last.streaming = false;
+        renderMessages();
+      }
+    }, 16);
+  }
+
+  // ---- Wire up ----
+  ta.addEventListener('input', function(){ autosize(); updateSendButton(); });
+  ta.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); send(); }
+  });
+  sendBtn.addEventListener('click', send);
+  document.getElementById('ac-pick-files').addEventListener('click', function(){ fileInput.click(); });
+  document.getElementById('ac-pick-dir').addEventListener('click', function(){ dirInput.click(); });
+  fileInput.addEventListener('change', onPick);
+  dirInput.addEventListener('change', onPick);
+
+  // ---- Init ----
+  renderMessages();
+  renderPending();
+  updateSendButton();
+  setTimeout(scrollEnd, 40);
+})();
+</script>
+</body>
+</html>

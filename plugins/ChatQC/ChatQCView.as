@@ -40,7 +40,10 @@ class ChatQCView : Window
     private string              _bepPath;
     private string              _status;
     private int                 _msgId;       // compteur monotone pour l'inbox
+    private string              _lastQuestion;// derniere question (pour reecrire l'inbox a l'acquittement)
+    private string              _lastBep;     // dernier bep envoye (idem)
     private bool                _scrollToEnd;
+    private bool                _pending;     // une question attend la reponse de Claude
 
     ChatQCView(App@ app)
     {
@@ -52,7 +55,10 @@ class ChatQCView : Window
         _bepPath   = "";
         _status    = "Chargez un modele VIM pour demarrer.";
         _msgId     = 0;
+        _lastQuestion = "";
+        _lastBep   = "";
         _scrollToEnd = false;
+        _pending   = false;
 
         _history.insertLast(ChatMessage("system",
             "Bonjour. Posez une question de controle qualite (ex : "
@@ -108,6 +114,7 @@ class ChatQCView : Window
     {
         _history.insertLast(ChatMessage("assistant", text));
         _status = "Reponse recue.";
+        _pending = false;
         _scrollToEnd = true;
     }
 
@@ -129,21 +136,42 @@ class ChatQCView : Window
 
         _history.insertLast(ChatMessage("user", _input));
         _msgId += 1;
+        _lastQuestion = _input;
+        _lastBep      = _bepPath;
 
-        // Ecrit l'inbox que qc-orchestrator surveille.
-        string payload =
-            "{\n"
-            "  \"id\": " + _msgId + ",\n"
-            "  \"question\": \"" + _JsonEscape(_input) + "\",\n"
-            "  \"bep\": \"" + _JsonEscape(_bepPath) + "\"\n"
-            "}\n";
-
-        string path = _InboxPath();
-        IO::WriteFile(path, payload);
+        // Ecrit l'inbox que la boucle qc-orchestrator surveille (handled = false).
+        _WriteInbox(false);
 
         _status = "Question envoyee a Claude (qc-orchestrator)...";
         _input = "";
+        _pending = true;
         _scrollToEnd = true;
+    }
+
+    // Serialise l'inbox. handled=false : nouvelle question a traiter.
+    // handled=true : Claude a poste sa reponse, la boucle ne doit plus
+    // retraiter cet id (handshake anti double-reponse).
+    private void _WriteInbox(bool handled)
+    {
+        string h = handled ? "true" : "false";
+        string payload =
+            "{\n"
+            "  \"id\": " + _msgId + ",\n"
+            "  \"question\": \"" + _JsonEscape(_lastQuestion) + "\",\n"
+            "  \"bep\": \"" + _JsonEscape(_lastBep) + "\",\n"
+            "  \"handled\": " + h + "\n"
+            "}\n";
+        IO::WriteFile(_InboxPath(), payload);
+    }
+
+    // Appelee par l'outil MCP qc_set_chat_response : la reponse vient d'arriver,
+    // on acquitte l'inbox pour que la boucle /loop ne reponde pas deux fois.
+    void MarkHandled()
+    {
+        if (_msgId <= 0) return;
+        _WriteInbox(true);
+        _pending = false;
+        _status  = "Reponse recue (question " + _msgId + " traitee).";
     }
 
     private string _InboxPath()
@@ -283,6 +311,16 @@ class ChatQCView : Window
     {
         for (uint i = 0; i < _history.length(); i++)
             _RenderMessage(_history[i], i);
+
+        // Carte transitoire "analyse en cours" tant qu'une reponse est attendue
+        if (_pending)
+        {
+            int dots = (int(VimFlex::GetUiUpdateTime() * 2.0f) % 3) + 1;
+            string d = "";
+            for (int k = 0; k < dots; k++) d += ".";
+            ChatMessage@ p = ChatMessage("assistant", "Analyse en cours" + d);
+            _RenderMessage(p, _history.length());
+        }
     }
 
     // Une carte de message : fond colore par role, barre d'accent a gauche,
