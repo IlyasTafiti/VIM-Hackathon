@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "vim-flex": {
+      "command": "node",
+      "args": ["C:\\Program Files\\VIM\\VIM Flex\\mcp-vim-bridge.js"]
+    }
+  }
+}

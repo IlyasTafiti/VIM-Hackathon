@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "project": "Complexe communautaire Snowdon (SNW-MTL)",
+    "jalon": "Reception / DOE",
+    "sources": [
+      "Cahier_des_charges_BIM.docx (CdC)",
+      "Plan_Execution_BIM.docx (PEB)",
+      "Cahier_Participant_F11_DOP001.docx (grille T1-T8 + severites)"
+    ],
+    "generated_by": "qc-bep-reader",
+    "note": "Regles atomiques verifiables extraites des documents d'exigences. Chaque bloc cite sa source. Mappe sur les codes de test T1-T8 du Cahier du participant."
+  },
+
+  "georef": {
+    "test": "T3",
+    "crs": "EPSG:2272 - NAD83 / Pennsylvania South State Plane",
+    "units": "US Survey Feet",
+    "vertical_datum": "NAVD88",
+    "survey_point": { "E": 1370149.563, "N": 258246.564, "elev_ft": -12.000 },
+    "project_base_point": { "x": 0, "y": 0, "z": 0, "level": "L1 - Block 43", "abs_elev_ft": 780.5 },
+    "true_north_rotation_deg": 0,
+    "ifc_export": ["IfcMapConversion", "IfcProjectedCRS"],
+    "shared_origin_all_disciplines": true,
+    "notes": "CdC 5.2.1 ; PEB 7.1.3. Verification du georeferencement exigee avant chaque transmission."
+  },
+
+  "units": {
+    "test": "T4",
+    "length": "ft", "area": "ft2", "volume": "ft3",
+    "angle": "deg", "mass": "lb", "temperature": "F",
+    "precision_length": "0.00",
+    "max_file_size_mb": 200,
+    "language": "fr",
+    "notes": "CdC 3.4.4 (unites), 3.4.3 (poids <= 200 Mo). Systeme imperial. PEB 7.1.1."
+  },
+
+  "naming": {
+    "test": "T1",
+    "file_pattern": "SNW_A_[DISCIPLINE]",
+    "file_rule": "CODE_SITE _ CODE_BATIMENT _ CODE_DISCIPLINE",
+    "disciplines": ["SIT", "ARC", "STR", "CVC", "PLO", "ELE", "VRD", "FAC"],
+    "allowed_special_chars": ["_"],
+    "forbidden_in_names": ["espace", "virgule", "point", "tiret", "barre oblique", "date"],
+    "forbidden_types": ["Default", "Generic"],
+    "notes": "CdC 5.2.5 (nommage fichiers), 5.2.3 (disciplines), 3.4.5 (caracteres). Date interdite dans les noms ; fichiers non conformes refuses."
+  },
+
+  "structure": {
+    "test": "T2",
+    "ifc_version": "IFC4",
+    "ifc_versions_forbidden": ["IFC2x3"],
+    "spatial_hierarchy": ["IfcProject", "IfcSite", "IfcBuilding", "IfcBuildingStorey", "IfcZone", "IfcSpace", "IfcProduct"],
+    "worksets_required": true,
+    "workset_prefixes": ["ZG_", "ZL_", "ZT_", "ZV_"],
+    "levels_required": true,
+    "levels_expected": ["Parking", "L1", "M1", "L2", "L3", "L4", "L5", "R1", "R2", "R3", "Parapet"],
+    "notes": "CdC 3.2 (IFC4, arborescence) ; PEB 7.1.4 (niveaux), 7.1.8 (sous-projets). TOS = dessus de dalle, 0.50 ft sous niveau fini."
+  },
+
+  "classifications": {
+    "test": "T4",
+    "uniformat_version": "Uniformat II (2015)",
+    "uniformat_min_level": 3,
+    "uniformat_revit_param": "Assembly Code",
+    "uniformat_shared_param": "SNW_Code_Uniformat",
+    "ifc_class_map": {
+      "Murs et cloisons": "IfcWall",
+      "Dalles et planchers": "IfcSlab",
+      "Toitures": "IfcRoof",
+      "Fenetres": "IfcWindow",
+      "Portes": "IfcDoor",
+      "Murs-rideaux": "IfcCurtainWall",
+      "Locaux et espaces": "IfcSpace",
+      "Poteaux": "IfcColumn",
+      "Poutres": "IfcBeam",
+      "Escaliers": "IfcStair",
+      "Garde-corps": "IfcRailing",
+      "Plafonds": "IfcCovering",
+      "Fondations": "IfcFooting",
+      "Equipements sanitaires": "IfcFlowTerminal",
+      "Mobilier non relie": "IfcFurnishingElement",
+      "Gaines et conduits": "IfcFlowSegment",
+      "Raccords": "IfcFlowFitting",
+      "Non determine": "IfcBuildingElementProxy"
+    },
+    "notes": "CdC 5.3.1 (classes IFC), 5.3.2 (Uniformat niv.3 sur tous les objets). ObjectType explicite exige."
+  },
+
+  "params": {
+    "test": "T5",
+    "required": [
+      "SNW_CODE_GMAO",
+      "SNW_Code_Uniformat",
+      "SNW_Resistance_Au_Feu",
+      "SNW_Zone_Fonctionnelle",
+      "SNW_Fabricant",
+      "SNW_Modele",
+      "SNW_Date_Installation",
+      "SNW_Garantie"
+    ],
+    "code_gmao_format": "GBQ_<Code Uniformat II niveau 3>",
+    "code_gmao_examples": ["GBQ_D3040", "GBQ_D5020", "GBQ_D2010"],
+    "code_gmao_categories": ["Mechanical Equipment", "Plumbing Fixtures", "Electrical Equipment", "Lighting Fixtures", "Air Terminals", "Sprinklers"],
+    "notes": "PEB 7.2.2 (CODE_GMAO), 7.1.8 (parametres partages). Generic Models autorises seulement en temporaire (prefixe ZT_)."
+  },
+
+  "psets": {
+    "test": "T5",
+    "standard": ["Pset_WallCommon", "Pset_SlabCommon"],
+    "custom": {
+      "Pset_GBQ_Exploitation": ["CODE_GMAO", "Zone_Fonctionnelle"],
+      "Pset_GBQ_Securite": ["Resistance_Au_Feu"],
+      "Pset_GBQ_Finitions": ["Type_Sol", "Type_Mur", "Type_Plafond"],
+      "Pset_GBQ_Produit": ["Fabricant", "Modele"]
+    },
+    "notes": "PEB 7.2.3 (strategie de mapping IFC). Uniformat -> IfcClassificationReference."
+  },
+
+  "quantities": {
+    "test": "T6",
+    "base_quantities": true,
+    "space_boundaries_level": 1,
+    "rooms_area_required": true,
+    "multilayer_sum_equals_total": true,
+    "notes": "CdC 6.2.1 ; PEB 7.3.1 (export). CdC 3.4.1 / PEB 7.2.4 (compositions multicouches)."
+  },
+
+  "loin": [
+    { "category": "Pieces (IfcSpace)", "phase": "Reception/DOE", "properties": ["Nom", "Surface", "Zone_Fonctionnelle", "Type_Sol", "Type_Mur", "Type_Plafond"] },
+    { "category": "Murs (IfcWall)", "phase": "Reception/DOE", "properties": ["LoadBearing", "IsExternal", "Resistance_Au_Feu", "composition_multicouche"] },
+    { "category": "Equipements / Terminaux", "phase": "Reception/DOE", "properties": ["CODE_GMAO", "Code_Uniformat", "Fabricant", "Modele", "Date_Installation", "Garantie"] }
+  ],
+
+  "lod_by_phase": {
+    "test": "T4",
+    "reference": "BIMForum LOD Specification",
+    "reception_doe": { "ARC": "3/5", "STR": "3/5", "MEP": "3/5", "SIT": "-" },
+    "notes": "CdC 5.4.2 / PEB 7.1.5. Nd=geometrie, Ni=information. Reception/DOE = ND3 geometrie, ND5 information (tel que construit)."
+  },
+
+  "deliverables": {
+    "test": "T1",
+    "jalon": "Reception / DOE",
+    "required": [
+      "Maquettes IFC4 tel que construit - 7 disciplines (ARC, STR, CVC, PLO, ELE, FAC, SIT)",
+      "Maquettes natives Revit .rvt - toutes disciplines",
+      "Livrables 2D PDF + DWG",
+      "Nomenclatures par discipline PDF + XLSX",
+      "Base de donnees GMAO XLSX",
+      "Rapport de coordination final PDF + BCF",
+      "Plan d'execution BIM (PEB) a jour PDF",
+      "Index de remise PDF"
+    ],
+    "notes": "CdC 6.3 ; PEB 8."
+  },
+
+  "clash": {
+    "test": "T7",
+    "hard_clash_tolerance_mm": 0,
+    "clearance_mep_mm": 25,
+    "clearance_structure_mm": 50,
+    "pairs": ["ARC-STR", "ARC-CVC", "ARC-PLO", "ARC-ELE", "CVC-STR", "PLO-STR", "ELE-STR", "CVC-PLO", "CVC-ELE"],
+    "exclusions": ["Insulation", "Generic Models", "intersection < 5 mm2", "meme hote"],
+    "report": "PDF + BCF",
+    "tool": "Dalux Model Validation",
+    "notes": "PEB 7.6.4. Necessite le modele federe - hors perimetre d'un audit mono-modele VIM."
+  },
+
+  "integrity": {
+    "test": "T8",
+    "no_undefined_elements": true,
+    "no_duplicates": true,
+    "element_hosted_by_level": true,
+    "element_has_phase": ["Situation existante", "SNW_Construction"],
+    "vertical_elements_split_by_level": true,
+    "purge_unused_before_deposit": true,
+    "notes": "CdC 4.2 (controles qualite) ; PEB 7.1.9 (regles de production)."
+  },
+
+  "severity_levels": {
+    "test": "TR",
+    "Mineur": "Ecart de faible impact - a corriger au prochain depot",
+    "Significatif": "Affecte un usage ou une exigence explicite - correction requise avec delai",
+    "Bloquant": "Non-conformite majeure - refus, correction immediate",
+    "notes": "Cahier du participant (niveaux de severite)."
+  }
+}
